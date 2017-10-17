@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://zmis.me/detail_1160 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="aVV1bUd4S2kjbUM6BRslNh9sKj8yMx07US9FCg1VPT9EeA0/MCEbMQ==">
+    <title>WARNING swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11解决办法</title>
+    <meta name="keywords" content="swoole,WARNING swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11解决办法">
+<meta name="description" content="
+	今天在写代码的时候，突然出现了
+
+
+
+WARNING swManager_check_exit_status: worker#0 abnormal exit, status=0, sig">
+<link href="./bootstrap.min.css" rel="stylesheet">
+<link href="./default.css" rel="stylesheet">
+<link href="./font-awesome.min.css" rel="stylesheet">    <script src="https://hm.baidu.com/hm.js?ca9e9c683ec7e8299f9c349da30d43de"></script><script>
+        var THEME_URL = '/';
+    </script>
+<link rel="stylesheet" href="./layer.css" id="layui_layer_skinlayercss" style=""></head>
+<body data-width="">
+<link rel="stylesheet" href="./codehight.css">
+<script src="./codehight.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+            var HAVE_BG = 0;
+    </script>
+<div class="detail-header" style="background-color: rgb(0, 153, 255)">
+</div>
+<div style="position: absolute;top: 0;" class="col-xs-12">
+    <div class="detailgoback" onclick="history.back()">
+        <i class="fa fa-angle-left"></i>
+    </div>
+    <div class="article-container col-xs-12 col-md-8 col-md-offset-2">
+        <h3 class="text-center change-color" style="color: rgb(255, 255, 255);">WARNING swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11解决办法</h3>
+                    <div class="detail-tags text-center">
+                                    <a href="https://zmis.me/tag_262" class="article-tags-white">Swoole</a>
+                            </div>
+                <p class="post-time text-right change-color" style="color: rgb(255, 255, 255);">发布于: 2017.10.11</p>
+        <div class="article-main col-xs-12">
+            <div class="article-info">
+                <p>
+	今天在写代码的时候，突然出现了
+</p>
+
+<pre><code class="language-bash hljs ">WARNING swManager_check_<span class="hljs-keyword">exit</span>_status: worker<span class="hljs-comment">#0 abnormal exit, status=0, signal=11</span></code></pre>
+
+<p>
+	这个错误。因为这个代码我昨天写的时候是正常的，今天只不过把昨天的代码解耦出来，就出现了这个报错。
+</p>
+
+<p>
+	我现在的代码中是设置了3个服务器，主服务器是websocket_server，并监听一个http_server和一个tcp_server，我发现我在我在tcp_server中多设置了一个onConnect且主服务器中也设置了此回调事件，导致了上面的错误。暂时只能把这个tcp的onConnect事件去掉以解决此问题。
+</p>
+            </div>
+            <div class="article-share">
+                <p>喜欢请分享至社交网络</p>
+                <div class="article-connect-us text-center">
+                    <a class="share-icon"><i class="fa fa-qq"></i></a>
+<a class="share-icon"><i class="fa fa-weibo"></i></a>
+<a class="share-icon"><i class="fa fa-weixin"></i></a>
+<a class="share-icon"><i class="fa fa-google-plus"></i></a>
+<a class="share-icon"><i class="fa fa-linkedin"></i></a>                </div>
+            </div>
+            <div class="article-comment">
+    <input type="hidden" id="comment-id" value="1160">
+    <textarea id="comment-contents" placeholder="请输入您的评论，评论字数不少于15字" name="" cols="30" rows="3"></textarea>
+    <input class="pull-left" id="comment-author" type="text" placeholder="您的姓名或昵称">
+    <button class="pull-right" id="finish-input">完成输入</button>
+</div>
+        </div>
+    </div>
+
+    <div class="detail-pre-next">
+        <div class="detail-pre-next-container col-xs-12 col-md-10 col-md-offset-1">
+                        <div class="pull-left">
+                                    <span>上一篇：</span><a href="https://zmis.me/detail_1157">终端中显示彩色文字以及背景色</a>
+                            </div>
+            <div class="pull-right">
+                                    <span>下一篇：</span>没有咯！
+                            </div>
+                    </div>
+    </div>
+</div><script src="./jquery.min.js"></script>
+<script src="./layer.js"></script>
+<script src="./bootstrap.min.js"></script>
+<script src="./iscroll.js"></script>
+<script src="./article_detail.js"></script>
+<script src="./comment_main.js"></script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca9e9c683ec7e8299f9c349da30d43de";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+</body></html>
