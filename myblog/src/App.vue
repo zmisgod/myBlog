@@ -1,8 +1,10 @@
 <template>
   <div>
-      <div>
+      <transition class="animated" name="bounce"
+  enter-active-class="bounceInLeft"
+  leave-active-class="bounceOutRight">
           <router-view></router-view>
-      </div>
+      </transition>
   </div>
 </template>
 
@@ -12,6 +14,7 @@ export default {
   name: 'app',
   data(){
       return {
+          transitionName: 'animated zoomInDown',
           swipeable:true
       }
   },
@@ -54,12 +57,18 @@ export default {
 </script>
 
 <style>
+body{
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

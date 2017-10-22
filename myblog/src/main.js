@@ -7,7 +7,8 @@ import store from './store'
 import VueMaterial from 'vue-material'
 import axios from 'axios'
 import 'vue-material/dist/vue-material.css'
-
+// import 'vue2-animate/dist/vue2-animate.min.css'
+import 'animate.css'
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 window.axios = axios

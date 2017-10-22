@@ -11,10 +11,12 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "axios": "^0.16.2",
     "vue": "^2.5.2",
     "vue-material": "^0.7.5",
     "vue-router": "^3.0.1",
+    "vue2-animate": "^1.0.4",
     "vuex": "^3.0.0"
   },
   "devDependencies": {

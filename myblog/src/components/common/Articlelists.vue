@@ -12,8 +12,7 @@
         </md-card-content>
 
         <md-card-actions>
-          <md-button>Action</md-button>
-          <md-button>Action</md-button>
+          <md-button @click="locations(articleObj.id)">查看原文</md-button>
         </md-card-actions>
       </md-card>
   </div>
