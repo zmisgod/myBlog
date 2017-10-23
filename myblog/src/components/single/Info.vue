@@ -3,20 +3,18 @@
     <div class="p_header">
       <div>
         <p class="p_title" v-text="articleObject.post_title"></p>
+        <p class="p_author" @click="seeAuthor(articleObject.post_author)" v-text="articleObject.post_author"></p>
         <div class="p_tag">
-          <md-button class="color_author" @click="seeAuthor(articleObject.post_author)" v-text="'by ' + articleObject.post_author">
-            <md-tooltip md-delay="400" md-direction="top">我的提示</md-tooltip>
-          </md-button>
-          <md-button>默认</md-button>
+          <md-button @click="seeTag('123')">Tag</md-button>
           <md-button>主要</md-button>
           <md-button>吸引</md-button>
           <md-button>暖色</md-button>
           <md-button>浓厚</md-button>
         </div>
-        <p class="p_date" v-text="articleObject.post_date"></p>
       </div>
     </div>
     <div class="p_content" v-html="articleObject.post_content"></div>
+    <p class="p_date" v-text="'Posted at ' + articleObject.post_date"></p>
   </div>
 </template>
 <script>
@@ -33,6 +31,9 @@ export default {
   methods :{
     seeAuthor(author_name){
       this.$router.push({path: `/author/${author_name}`})
+    },
+    seeTag(tag_id){
+      this.$router.push({path: `/tag_${tag_id}`})
     }
   }
 }
@@ -41,55 +42,100 @@ export default {
 .md-button{
   background-color: rgba(0,0,0,0.1);
 }
+.color_author{
+    color: #ffc5c5;
+    border: 1px solid #ffc5c5;
+    background-color: #4e94ff;
+}
+.color_author:hover{
+  color: #4e94ff;
+  border: 1px solid #4e94ff;
+  background-color: #ffc5c5 !important;
+  border-radius: 3px;
+}
+.md-theme-default code:not(.hljs){
+  background-color: #fff;
+}
+  .p_content {
+    font-size: 1em;
+    border: 1px solid #eee;
+    overflow: auto;
+  }
+  .p_content p{
+    padding: .2em;
+    line-height: 1.5em;
+  }
+  .p_content pre{
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: auto;
+  }
+  .p_content pre code {
+    line-height: 2em;
+  }
+  .p_content img {
+    display: flex;
+  }
+  .p_content table{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    overflow: hidden;
+  }
+  .p_content thead th {
+    text-align: left;
+    padding: 0.6em 1em 0.6em 0;
+  }
+  .p_content table tr {
+    border-bottom: 1px solid #eee;
+  }
+  .p_content table td{
+    word-break: keep-all;
+    padding: 0.6em 1em 0.6em 0;
+  }
 @media all and (max-width: 767px) {
+  .md-button{
+    min-width: 60px;
+    min-height: 24px;
+    line-height: 24px;
+    margin: 5px 3px;
+    font-size: 12px;
+  }
   .p_header{
     height: 200px;
     background-color: #4e95ff;
     color: #fff;
     display: flex;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    font-size: 1em;
-    padding: 0 0.5em;
+    padding: 1em 0.5em;
   }
   .p_title{
     font-size: 1.2em;
   }
   .p_author{
-    text-align: center;
-  }
-  .p_author span {
     cursor: pointer;
+    font-size: 1em;
     padding: 0 0.2em;
   }
   .p_date{
-    text-align: center;
+    text-align: right;
+    font-size: 0.6em;
+    padding-right: 0.5em;
   }
-  .p_author, .p_date{
-    padding-top: 0.3em;
+  .p_tag{
+    padding-top: 0.7em;
   }
   .p_content {
-    font-size: 1em;
-    padding: 0.5em 0.5em;
-    border-bottom: 1px solid #eee
-  }
-  .p_content p{
-    padding: .4em;
-    line-height: 1.2em;
-  }
-  .p_content pre{
-    margin: 0.2em 0px;
-    overflow-x: scroll;
-  }
-  .p_content pre code{
-    line-height: 2em;
+    padding: 1em 0.5em;
   }
 }
 @media all and (min-width: 768px) {
   .md-button{
-    min-width: 66px;
-    min-height: 25px;
-    line-height: 25px;
+    min-width: 70px;
+    min-height: 30px;
+    line-height: 30px;
     margin: 6px 4px;
   }
   .p_header{
@@ -105,10 +151,7 @@ export default {
   .p_title{
     font-size: 1.5em;
   }
-  .color_author{
-    color:#ffc5c5;
-  }
-  .p_author span {
+  .p_author{
     cursor: pointer;
     font-size: 1.2em;
     padding: 0 0.2em;
@@ -116,26 +159,13 @@ export default {
   .p_date{
     text-align: right;
     font-size: 1em;
+    padding-right: 2em;
   }
-  .p_author, .p_date, .p_tag{
-    padding-top: 0.3em;
+  .p_tag{
+    padding-top: 1.2em;
   }
   .p_content {
-    font-size: 1.5em;
     padding: 1em 2em;
-    border: 1px solid #eee
   }
-  .p_content p{
-    padding: .4em;
-    line-height: 1.5em;
-  }
-  .p_content pre{
-    margin: 0.4em 0px;
-    overflow-x: scroll;
-  }
-   .p_content pre code {
-    line-height: 2em;
-   }
 }
-
 </style>
