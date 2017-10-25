@@ -3,7 +3,7 @@
       <transition class="animated" name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
           <router-view></router-view>
       </transition>
-      <md-button @click="goTop()" v-show="toTop" class="md-fab md-fab-bottom-left md-mini go-top">
+      <md-button @click="goTop()" v-show="toTop" class="md-fab md-fab-bottom-right md-mini go-top">
         <md-icon>publish</md-icon>
       </md-button>
   </div>
@@ -46,22 +46,18 @@ export default {
         'COLUMNID'
     ]),
     goTop() {// 回到顶部方法
-    console.log('_+_)+_+_')
         clearInterval(timer)
         timer = setInterval(function() {
             let curHeight = document.documentElement.scrollTop || document.body.scrollTop// 得到当前高度  
             var now = curHeight
             var speed = (0 - now) / 7// 随着高度减速
             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
-        console.log(`当前的高度应该是:` + curHeight)
-        console.log('我是零你也那我没办法')
             if (curHeight === 0) {//当前高度为零,停止这次计时器  
               clearInterval(timer)// C1  
             }
             document.documentElement.scrollTop = curHeight + speed//直接给高度赋值,会调用needtotop方法  
             document.body.scrollTop = curHeight + speed//谷歌的  
             stop = false// A
-        console.log('回到顶部一次')
        }, 30)
       },
       needToTop() {
@@ -74,10 +70,8 @@ export default {
         }
         if (stop) {//STOP  
           clearInterval(timer)//C2  
-            console.log('我没了')
         }
         stop = true//B  
-        console.log('执行了一次')
       },
     toggleLeftSidenav() {
        this.$refs.leftSidenav.toggle()
@@ -116,6 +110,6 @@ p {
 .go-top{
     position: fixed !important;
     bottom: 20px;
-    left: 30px;
+    right: 30px;
 }
 </style>

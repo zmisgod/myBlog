@@ -1,9 +1,9 @@
 <template>
   <div>
-      <md-card md-with-hover :key="articleObj.id" v-for="(articleObj, key) in articleLists">
+      <md-card class="home-lists" md-with-hover :key="articleObj.id" v-for="(articleObj, key) in articleLists">
         <md-card-header>
-          <div @click="locations(articleObj.id)" class="md-title" v-text="articleObj.post_title">Title goes here</div>
-          <div class="md-subhead">zmisgod</div>
+          <div @click="locations(articleObj.id)" class="md-title" v-text="articleObj.post_title"></div>
+          <div class="md-subhead" v-text="articleObj.author"></div>
           <div class="md-subhead" v-text="articleObj.post_date"></div>
         </md-card-header>
 
@@ -36,3 +36,9 @@ export default {
   }
 }
 </script>
+<style>
+.home-lists{
+  margin: 0.5em
+}
+</style>
+

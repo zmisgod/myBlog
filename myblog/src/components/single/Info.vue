@@ -3,9 +3,9 @@
     <div class="p_header">
       <div>
         <p class="p_title" v-text="articleObject.post_title"></p>
-        <p class="p_author" @click="seeAuthor(articleObject.post_author)" v-text="articleObject.post_author"></p>
+        <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
         <div class="p_tag">
-          <md-button @click="seeTag('123')">Tag</md-button>
+          <md-button @click="seeTag(articleObject.category_id)" v-text="articleObject.category_name">Tag</md-button>
           <md-button>主要</md-button>
           <md-button>吸引</md-button>
           <md-button>暖色</md-button>
@@ -72,6 +72,7 @@ export default {
   }
   .p_content pre code {
     line-height: 2em;
+    padding: 0.5em 0 0.5em 10px;
   }
   .p_content img {
     display: flex;
@@ -116,15 +117,15 @@ export default {
   }
   .p_author{
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.8em;
     padding: 0 0.2em;
   }
   .p_date{
     text-align: right;
-    font-size: 0.6em;
+    font-size: 1em;
     padding-right: 0.5em;
   }
-  .p_tag{
+  .p_tag,.p_author{
     padding-top: 0.7em;
   }
   .p_content {
@@ -161,10 +162,11 @@ export default {
     font-size: 1em;
     padding-right: 2em;
   }
-  .p_tag{
+  .p_tag, .p_author{
     padding-top: 1.2em;
   }
   .p_content {
+    font-size: 1.2em;
     padding: 1em 2em;
   }
 }
