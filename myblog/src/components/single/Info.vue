@@ -5,11 +5,8 @@
         <p class="p_title" v-text="articleObject.post_title"></p>
         <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
         <div class="p_tag">
-          <md-button @click="seeTag(articleObject.category_id)" v-text="articleObject.category_name">Tag</md-button>
-          <md-button>主要</md-button>
-          <md-button>吸引</md-button>
-          <md-button>暖色</md-button>
-          <md-button>浓厚</md-button>
+          <md-button @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name">Tag</md-button>
+          <md-button v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)">{{tag.category_name | capitalize}}</md-button> 
         </div>
       </div>
     </div>
@@ -34,6 +31,9 @@ export default {
     },
     seeTag(tag_id){
       this.$router.push({path: `/tag_${tag_id}`})
+    },
+    seeCategory(category_id) {
+      this.$router.push({path: `/category_${category_id}`})
     }
   }
 }
@@ -72,7 +72,7 @@ export default {
   }
   .p_content pre code {
     line-height: 2em;
-    padding: 0.5em 0 0.5em 10px;
+    padding-left:10px;
   }
   .p_content img {
     display: flex;
