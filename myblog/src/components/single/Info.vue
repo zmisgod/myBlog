@@ -5,8 +5,8 @@
         <p class="p_title" v-text="articleObject.post_title"></p>
         <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
         <div class="p_tag">
-          <md-button @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name">Tag</md-button>
-          <md-button v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)">{{tag.category_name | capitalize}}</md-button> 
+          <md-button @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-button>
+          <md-button v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)" v-text="tag.category_name"></md-button> 
         </div>
       </div>
     </div>

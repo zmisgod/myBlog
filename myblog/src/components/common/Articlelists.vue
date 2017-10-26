@@ -7,9 +7,7 @@
           <div class="md-subhead" v-text="articleObj.post_date"></div>
         </md-card-header>
 
-        <md-card-content v-text="articleObj.post_intro">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-        </md-card-content>
+        <md-card-content v-text="articleObj.post_intro"></md-card-content>
 
         <md-card-actions>
           <md-button @click="locations(articleObj.id)">查看原文</md-button>
