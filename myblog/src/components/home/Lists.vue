@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ImageAround></ImageAround>
+    <HomeHeader></HomeHeader>
     <ArticleList :articleLists = "articleLists"></ArticleList>
   </div>
 </template>
 <script>
 import {mapGetters, mapMutations} from 'vuex'
-import ImageAround from './../common/Imagearound.vue'
+import HomeHeader from './../common/HomeHeader.vue'
 import ArticleList from './../common/Articlelists.vue'
 export default {
   name: 'articlelists',
@@ -20,7 +20,7 @@ export default {
   },
   components:{
     ArticleList,
-    ImageAround
+    HomeHeader
   }
 }
 </script>

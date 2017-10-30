@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="articlelists">
       <md-card class="home-lists" md-with-hover :key="articleObj.id" v-for="(articleObj, key) in articleLists">
         <md-card-header>
           <div @click="locations(articleObj.id)" class="md-title" v-text="articleObj.post_title"></div>
