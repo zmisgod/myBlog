@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div class="p_header">
-      <div>
+  <div class="detail">
+    <div class="detail_header">
+      <div class="header_container">
         <p class="p_title" v-text="articleObject.post_title"></p>
         <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
         <div class="p_tag">
@@ -38,62 +38,61 @@ export default {
   }
 }
 </script>
-<style>
-.md-button{
-  background-color: rgba(0,0,0,0.1);
-}
+<style lang="scss" scoped>
 .color_author{
     color: #ffc5c5;
     border: 1px solid #ffc5c5;
     background-color: #4e94ff;
-}
-.color_author:hover{
-  color: #4e94ff;
-  border: 1px solid #4e94ff;
-  background-color: #ffc5c5 !important;
-  border-radius: 3px;
+      &:hover{
+        color: #4e94ff;
+        border: 1px solid #4e94ff;
+        background-color: #ffc5c5 !important;
+        border-radius: 3px;
+      }
 }
 .md-theme-default code:not(.hljs){
   background-color: #fff;
 }
-  .p_content {
-    font-size: 1em;
-    border: 1px solid #eee;
-    overflow: auto;
-  }
-  .p_content p{
+.p_content {
+  font-size: 1em;
+  border: 1px solid #eee;
+  overflow: auto;
+  p{
     padding: .2em;
     line-height: 1.5em;
   }
-  .p_content pre{
+  pre{
     border: 1px solid #eee;
     border-radius: 4px;
     overflow: auto;
+    code {
+      line-height: 2em;
+      padding-left:10px;
+    }
   }
-  .p_content pre code {
-    line-height: 2em;
-    padding-left:10px;
-  }
-  .p_content img {
+  img {
     display: flex;
   }
-  .p_content table{
+  table{
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     overflow: hidden;
+    thead {
+      th {
+        text-align: left;
+        padding: 0.6em 1em 0.6em 0;
+      }
+    }
+    tr {
+      border-bottom: 1px solid #eee;
+      td{
+        word-break: keep-all;
+        padding: 0.6em 1em 0.6em 0;
+      }
+    }
   }
-  .p_content thead th {
-    text-align: left;
-    padding: 0.6em 1em 0.6em 0;
-  }
-  .p_content table tr {
-    border-bottom: 1px solid #eee;
-  }
-  .p_content table td{
-    word-break: keep-all;
-    padding: 0.6em 1em 0.6em 0;
-  }
+}
 @media all and (max-width: 767px) {
   .md-button{
     min-width: 60px;
@@ -102,7 +101,7 @@ export default {
     margin: 5px 3px;
     font-size: 12px;
   }
-  .p_header{
+  .detail_header{
     height: 200px;
     background-color: #4e95ff;
     color: #fff;
@@ -138,8 +137,9 @@ export default {
     min-height: 30px;
     line-height: 30px;
     margin: 6px 4px;
+    background-color: rgba(0,0,0,0.1);
   }
-  .p_header{
+  .detail_header{
     height: 200px;
     background-color: #4e95ff;
     color: #fff;

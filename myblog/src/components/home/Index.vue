@@ -1,15 +1,16 @@
 <template>
-  <div>
+  <div class="main-conatiner">
     <HomeHeader></HomeHeader>
-    <ArticleList :articleLists = "articleLists"></ArticleList>
+    <ListArticle :articleLists = "articleLists"></ListArticle>
+    <HomeFooter></HomeFooter>
   </div>
 </template>
 <script>
 import {mapGetters, mapMutations} from 'vuex'
 import HomeHeader from './../common/HomeHeader.vue'
-import ArticleList from './../common/Articlelists.vue'
+import ListArticle from './../common/ListArticle.vue'
+import HomeFooter from './../common/HomeFooter.vue'
 export default {
-  name: 'articlelists',
   mounted(){
     this.$store.dispatch("showIndexArticle")
   },
@@ -19,8 +20,9 @@ export default {
       ])
   },
   components:{
-    ArticleList,
-    HomeHeader
+    ListArticle,
+    HomeHeader,
+    HomeFooter
   }
 }
 </script>

@@ -59,7 +59,7 @@ header{
     top: 20px;
 }
 .header-container{
-    position: relative;
+    position: absolute;
     top: 100px;
     left: 40px;
     display: flex;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="components-container">
       <transition class="animated" name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
           <router-view></router-view>
       </transition>
@@ -72,21 +72,6 @@ export default {
           clearInterval(timer)//C2  
         }
         stop = true//B  
-      },
-    toggleLeftSidenav() {
-       this.$refs.leftSidenav.toggle()
-    },
-    toggleRightSidenav() {
-       this.$refs.rightSidenav.toggle()
-    },
-      closeRightSidenav() {
-          this.$refs.rightSidenav.close()
-      },
-      open(ref) {
-          console.log('Opened: ' + ref)
-      },
-      close(ref) {
-          console.log('关闭d: ' + ref)
       }
   }
 }
@@ -97,7 +82,7 @@ body{
     margin: 0;
     padding: 0;
 }
-p {
+p,h1,h2,h3,h4 {
     margin: 0;
 }
 #app {
@@ -105,7 +90,10 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+}
+.components-container{
+    background-color: #fff;
 }
 .go-top{
     position: fixed !important;
