@@ -23,7 +23,9 @@ export default {
   },
   created(){
       this.NOWCOLUMN(this.$route.name)
-      this.COLUMNID(this.$route.params.id)
+      if(this.$route.params.id){
+        this.COLUMNID(this.$route.params.id)
+      }
   },
   computed:{
       ...mapGetters([
@@ -59,8 +61,8 @@ export default {
             document.body.scrollTop = curHeight + speed//谷歌的  
             stop = false// A
        }, 30)
-      },
-      needToTop() {
+    },
+    needToTop() {
         let curHeight = document.documentElement.scrollTop || document.body.scrollTop
         let viewHeight = document.documentElement.clientHeight
         if (curHeight > viewHeight + 100) {
@@ -72,7 +74,7 @@ export default {
           clearInterval(timer)//C2  
         }
         stop = true//B  
-      }
+    }
   }
 }
 </script>

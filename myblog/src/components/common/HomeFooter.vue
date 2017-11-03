@@ -1,19 +1,23 @@
 <template>
   <footer>
-      <md-button @click="nextPage()" class="md-icon-button md-raised md-warn show-pre">
-        <md-icon>keyboard_arrow_left</md-icon>
-      </md-button>
       <md-button @click="nextPage()" class="md-raised md-primary md-icon-button show-next">
         <md-icon>keyboard_arrow_right</md-icon>
       </md-button>
   </footer>
 </template>
 <script>
+import {mapGetters, mapMutations} from 'vuex'
 export default {
   methods:{
-      nextPage(){
-
-      }
+      ...mapMutations([
+        'NOWCOLUMN',
+        'COLUMNID'
+    ]),
+    nextPage(){
+        this.NOWCOLUMN('home')
+        this.COLUMNID(++this.$store.state.blog.columnId.home)
+        this.$store.dispatch("showIndexArticle")
+    }
   }
 }
 </script>
@@ -22,13 +26,6 @@ footer{
     width: 100%;
     height: 100px;
     background-color: #395762;
-    .show-pre{
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        bottom: 70px;
-        left: 50px;
-    }
     .show-next{
         position: absolute;
         width: 60px;

@@ -19,6 +19,12 @@ export default {
           'articleLists',
       ])
   },
+  methods:{
+     ...mapMutations([
+        'NOWCOLUMN',
+        'COLUMNID'
+    ]),
+  },
   components:{
     ListArticle,
     HomeHeader,

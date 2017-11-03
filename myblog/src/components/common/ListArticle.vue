@@ -2,14 +2,15 @@
   <div class="list-container">
     <div class="article-container">
       <div class="home-lists" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
-        <p class="a-title" @click="locations(articleObj.id)"  v-text="articleObj.post_title"></p>
-        <p class="a-info"><span class="a-author" v-text="articleObj.author"></span> / <span class="a-date" v-text="articleObj.post_date"></span></p>
+        <p class="a-title" @click="location_article(articleObj.id)"  v-text="articleObj.post_title"></p>
+        <p class="a-info"><span class="a-author" v-text="articleObj.author"></span> / <span class="a-category" v-text="articleObj.category_name"></span> / <span class="a-date" v-text="articleObj.post_date"></span></p>
         <p class="a-content" v-text="articleObj.post_intro"></p>
+        <div class="a-tag" v-if="articleObj.tag">
+          <a href="" :key="t_id" v-for="(tag,t_id) in articleObj.tag" v-text="tag.category_name"></a>
+        </div>
       </div>
     </div>
-    <div class="weather-container">
-
-    </div>
+    <div class="weather-container"></div>
   </div>
 </template>
 <script>
@@ -23,7 +24,7 @@ export default {
       'NOWCOLUMN',
       'COLUMNID'
     ]),
-    locations(id) {
+    location_article(id) {
       this.$router.push({path: `/detail_${id}`})
       this.NOWCOLUMN('article')
       this.COLUMNID(id)
@@ -65,6 +66,18 @@ export default {
         padding: 5px 0;
         color: #666;
         line-height: 22px;
+      }
+      .a-tag{
+        padding: 4px 0;
+        display: flex;
+        flex-direction: row-reverse;
+        a{
+          border: 1px solid #eee;
+          border-radius: 6px;
+          margin: 0 5px;
+          padding: 0 5px;
+          color: #2396e0;
+        }
       }
     }
   }

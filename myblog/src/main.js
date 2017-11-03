@@ -16,8 +16,8 @@ window.axios = axios
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
-    store,
     router,
+    store,
     template: '<App/>',
     components: { App }
 })
