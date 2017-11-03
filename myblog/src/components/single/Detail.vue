@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    <div class="p_content" v-html="articleObject.post_content"></div>
+    <div class="p_content main-content" v-html="articleObject.post_content"></div>
     <p class="p_date" v-text="'Posted at ' + articleObject.post_date"></p>
   </div>
 </template>
@@ -38,22 +38,8 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.color_author{
-    color: #ffc5c5;
-    border: 1px solid #ffc5c5;
-    background-color: #4e94ff;
-      &:hover{
-        color: #4e94ff;
-        border: 1px solid #4e94ff;
-        background-color: #ffc5c5 !important;
-        border-radius: 3px;
-      }
-}
-.md-theme-default code:not(.hljs){
-  background-color: #fff;
-}
-.p_content {
+<style lang="scss">
+.main-content {
   font-size: 1em;
   border: 1px solid #eee;
   overflow: auto;
@@ -62,7 +48,7 @@ export default {
     line-height: 1.5em;
   }
   pre{
-    border: 1px solid #eee;
+    border: 1px solid #eee !important;
     border-radius: 4px;
     overflow: auto;
     code {
@@ -92,6 +78,23 @@ export default {
       }
     }
   }
+}
+</style>
+
+<style lang="scss" scoped>
+.color_author{
+    color: #ffc5c5;
+    border: 1px solid #ffc5c5;
+    background-color: #4e94ff;
+    &:hover{
+      color: #4e94ff;
+      border: 1px solid #4e94ff;
+      background-color: #ffc5c5 !important;
+      border-radius: 3px;
+    }
+}
+.md-theme-default code:not(.hljs){
+  background-color: #fff;
 }
 @media all and (max-width: 767px) {
   .md-button{
