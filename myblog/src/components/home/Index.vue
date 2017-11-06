@@ -1,7 +1,7 @@
 <template>
   <div class="main-conatiner">
     <HomeHeader></HomeHeader>
-    <ListArticle :articleLists = "articleLists"></ListArticle>
+    <ListArticle class="list-article" :articleLists = "articleLists"></ListArticle>
     <HomeFooter></HomeFooter>
   </div>
 </template>
@@ -33,5 +33,11 @@ export default {
 }
 </script>
 <style>
-
+.list-article{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #eee;
+}
 </style>

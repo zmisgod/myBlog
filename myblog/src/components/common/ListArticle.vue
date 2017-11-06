@@ -1,16 +1,18 @@
 <template>
-  <div class="list-container">
-    <div class="article-container">
-      <div class="home-lists" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
-        <p class="a-title" @click="location_article(articleObj.id)"  v-text="articleObj.post_title"></p>
-        <p class="a-info"><span class="a-author" v-text="articleObj.author"></span> / <span class="a-category" v-text="articleObj.category_name"></span> / <span class="a-date" v-text="articleObj.post_date"></span></p>
-        <p class="a-content" v-text="articleObj.post_intro"></p>
-        <div class="a-tag" v-if="articleObj.tag">
-          <a href="" :key="t_id" v-for="(tag,t_id) in articleObj.tag" v-text="tag.category_name"></a>
+  <div>
+    <div class="main-frame-container">
+      <div class="article-container">
+        <div class="home-lists" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
+          <p class="a-title" @click="location_article(articleObj.id)"  v-text="articleObj.post_title"></p>
+          <p class="a-info"><span class="a-author" v-text="articleObj.author"></span> / <span class="a-category" v-text="articleObj.category_name"></span> / <span class="a-date" v-text="articleObj.post_date"></span></p>
+          <p class="a-content" v-text="articleObj.post_intro"></p>
+          <div class="a-tag" v-if="articleObj.tag">
+            <a href="" :key="t_id" v-for="(tag,t_id) in articleObj.tag" v-text="tag.category_name"></a>
+          </div>
         </div>
       </div>
+      <div class="weather-container"></div>
     </div>
-    <div class="weather-container"></div>
   </div>
 </template>
 <script>
@@ -33,17 +35,12 @@ export default {
 }
 </script>
 <style lang="scss">
-.list-container{
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  background-color: #eee;
+.main-frame-container{
+  margin: 30px 120px;
   .article-container{
     width: 720px;
     background-color: #fff;
     padding: 30px 50px;
-    margin: 30px 50px 0;
     .home-lists{
       padding: 20px 0;
       border-bottom: 1px solid #d6d6d6;

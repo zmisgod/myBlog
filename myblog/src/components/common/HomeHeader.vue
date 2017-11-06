@@ -23,7 +23,7 @@
         <div class="bottom-container">
             <div class="logo"></div>
             <div class="bottom-main-container">
-                <div class="top">
+                <div class="bottom-top">
                     <h4>放松心态，迎接未来</h4>
                     <p>生而为人，我很抱歉</p>
                 </div>
@@ -52,7 +52,7 @@ h4{
 }
 header{
     background-color: #2ea9f1;
-    height: 264px;
+    height: 222px;
     color: #fff;
     .top{
         position: absolute;
@@ -84,6 +84,11 @@ header{
         }
     }
     .bottom-container{
+        position: absolute;
+        top: 60px;
+        display: flex;
+        left: 40px;
+        flex-direction: row;
         .logo{
             width: 80px;
             height: 80px;
@@ -92,16 +97,24 @@ header{
         }
         .bottom-main-container{
             padding-left: 40px;
-            &p{
-                font-size: 16px;
-                line-height: 16px;
-                padding: 33px 0px;
-            }
-            &h4{
-                font-size: 30px;
-                line-height: 30px;
+            display: flex;
+            flex-direction: column;
+            .bottom-top{
+                height: 80px;
+                p{
+                    font-size: 16px;
+                    line-height: 16px;
+                    padding: 33px 0px;
+                }
+                h4{
+                    font-size: 30px;
+                    line-height: 30px;
+                }
             }
             .menu{
+                width: 500px;
+                overflow: hidden;
+                padding-top: 30px;
                 ul{
                     padding-left: 0;
                     list-style: none;
