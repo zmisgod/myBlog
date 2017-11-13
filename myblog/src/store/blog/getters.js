@@ -5,5 +5,9 @@ export const getters = {
     leftBar: state => state.leftBar,
     columnId: state => state.columnId,
     nowColumn: state => state.nowColumn,
-    articleObject: state => state.articleObject
+    articleObject: state => state.articleObject,
+    showNextPage: state => state.showNextPage,
+    pageSize: state => state.pageSize,
+    nowCategory: state => state.nowCategory,
+    categoryLists: state => state.categoryLists
 }

@@ -3,7 +3,7 @@
       <transition class="animated" name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
           <router-view></router-view>
       </transition>
-      <md-button @click="goTop()" v-show="toTop" class="md-fab md-fab-bottom-right md-mini go-top">
+      <md-button @click="goTop()" v-show="toTop" class="md-fab md-mini go-top">
         <md-icon>publish</md-icon>
       </md-button>
   </div>
@@ -24,7 +24,7 @@ export default {
   created(){
       this.NOWCOLUMN(this.$route.name)
       if(this.$route.params.id){
-        this.COLUMNID(this.$route.params.id)
+        this.COLUMNID({key:'id', value:this.$route.params.id})
       }
   },
   computed:{
@@ -35,6 +35,13 @@ export default {
   watch: {
     '$route' (to, from) {
       this.NOWCOLUMN(to.name)
+        if(to.name == 'tag') {
+            this.$store.dispatch("showTagArticle")
+        }else if(to.name == 'category') {
+            this.$store.dispatch("showCategoryArticle")
+        }else{
+            this.$store.dispatch("showIndexArticle")
+        }
     }
   },
   mounted(){

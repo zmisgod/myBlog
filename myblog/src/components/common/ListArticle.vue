@@ -7,9 +7,12 @@
           <p class="a-info"><span class="a-author" v-text="articleObj.author"></span> / <span class="a-category" v-text="articleObj.category_name"></span> / <span class="a-date" v-text="articleObj.post_date"></span></p>
           <p class="a-content" v-text="articleObj.post_intro"></p>
           <div class="a-tag" v-if="articleObj.tag">
-            <a href="" :key="t_id" v-for="(tag,t_id) in articleObj.tag" v-text="tag.category_name"></a>
+            <a :key="t_id" @click="location_tag(tag.category_id)" v-for="(tag,t_id) in articleObj.tag" v-text="tag.category_name"></a>
           </div>
         </div>
+        <md-button v-if="showNextPage" @click="nextPage()" class="md-raised md-primary md-icon-button show-next">
+          <md-icon>keyboard_arrow_right</md-icon>
+        </md-button>
       </div>
       <div class="weather-container"></div>
     </div>
@@ -19,7 +22,8 @@
 import { mapGetters, mapMutations } from 'vuex'
 export default {
   props:{
-    articleLists:Array
+    articleLists:Array,
+    showNextPage:Boolean
   },
   methods:{
     ...mapMutations([
@@ -29,18 +33,42 @@ export default {
     location_article(id) {
       this.$router.push({path: `/detail_${id}`})
       this.NOWCOLUMN('article')
-      this.COLUMNID(id)
+      this.COLUMNID({key: 'id', value: id})
+    },
+    location_tag(id) {
+      this.$router.push({path: `/tag_${id}`})
+      this.NOWCOLUMN('tag')
+      this.COLUMNID({key: 'id', value: id})
+    },
+    nextPage(){
+        let nowTem = this.$store.state.blog.nowColumn
+        this.NOWCOLUMN(nowTem)
+        this.COLUMNID({key:'page', value:++this.$store.state.blog.columnId[nowTem].page})
+        if(nowTem == 'tag') {
+            this.$store.dispatch("showTagArticle")
+        }else if(nowTem == 'category') {
+            this.$store.dispatch("showCategoryArticle")
+        }else{
+            this.$store.dispatch("showIndexArticle")
+        }
     }
   }
 }
 </script>
 <style lang="scss">
 .main-frame-container{
-  margin: 30px 120px;
+  margin: 30px 120px 0;
   .article-container{
-    width: 720px;
     background-color: #fff;
     padding: 30px 50px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    .show-next{
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      right: 150px;
+    }
     .home-lists{
       padding: 20px 0;
       border-bottom: 1px solid #d6d6d6;
@@ -74,6 +102,7 @@ export default {
           margin: 0 5px;
           padding: 0 5px;
           color: #2396e0;
+          cursor: pointer;
         }
       }
     }
@@ -83,6 +112,23 @@ export default {
     // height: 500px;
     // display: flex;
     // background-color: #000;
+  }
+}
+@media all and (max-width: 1023px) {
+  .main-frame-container{
+    margin: 30px 20px 0;
+    .article-container{
+      background-color: #fff;
+      padding: 15px 25px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      .show-next{
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        right: 40px;
+      }
+    }
   }
 }
 </style>

@@ -29,6 +29,16 @@ export default new Router({
             path: '/single',
             name: 'single',
             component: ArticleSingle
-        }
+        },
+        {
+            path: `/tag_:id`,
+            name: 'tag',
+            component: Index
+        },
+        {
+            path: `/category_:id`,
+            name: 'category',
+            component: Index
+        },
     ]
 })

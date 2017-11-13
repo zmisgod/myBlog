@@ -14,13 +14,25 @@ export const mutations = {
     LEFTBAR(state, leftBar) {
         state.leftBar = leftBar
     },
-    COLUMNID(state, columnId) {
-        state.columnId[state.nowColumn] = columnId
+    COLUMNID(state, dataObj) {
+        state.columnId[state.nowColumn][dataObj.key] = dataObj.value
     },
     NOWCOLUMN(state, nowColumn) {
         state.nowColumn = nowColumn
     },
     ARTICLEOBJECT(state, articleObject) {
         state.articleObject = articleObject
+    },
+    SHOWNEXTPAGE(state, show) {
+        state.showNextPage = show
+    },
+    PAGESIZE(state, pageSize) {
+        state.pageSize = pageSize
+    },
+    NOWCATEGORY(state, nowCategory) {
+        state.nowCategory = nowCategory
+    },
+    CATEGORYLISTS(state, categoryLists) {
+        state.categoryLists = categoryLists
     }
 }

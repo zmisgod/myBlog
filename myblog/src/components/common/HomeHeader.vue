@@ -21,7 +21,7 @@
             </div>  
         </div>
         <div class="bottom-container">
-            <div class="logo"></div>
+            <div @click="location_home()" class="logo"></div>
             <div class="bottom-main-container">
                 <div class="bottom-top">
                     <h4>放松心态，迎接未来</h4>
@@ -29,11 +29,7 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li class="selected">web</li>
-                        <li>Maps</li>
-                        <li>Images</li>
-                        <li>Videos</li>
-                        <li>Search Tools</li>
+                        <li @click="location_category(value.id, index)" :class="index == nowCategory ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
                     </ul>
                 </div>
             </div>
@@ -42,8 +38,35 @@
   </header>
 </template>
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
-  
+ computed:{ 
+      ...mapGetters([
+          'categoryLists',
+          'nowCategory',
+      ])
+  },
+  methods:{
+    ...mapMutations([
+      'NOWCOLUMN',
+      'COLUMNID',
+      'NOWCATEGORY'
+    ]),
+    location_home() {
+      this.$router.push({path: `/`})
+      this.NOWCOLUMN('home')
+      this.COLUMNID({key: 'page', value: 1})
+    },
+    location_category(id,category_name) {
+    this.NOWCATEGORY(category_name)
+      if(id == 0) {
+          return this.location_home()
+      }
+      this.$router.push({path: `/category_${id}`})
+      this.NOWCOLUMN('category')
+      this.COLUMNID({key: 'id', value: id})
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -120,6 +143,7 @@ header{
                     list-style: none;
                     margin: 0;
                     li {
+                        cursor: pointer;
                         display: inline-block;
                         padding: 10px 20px;
                         font-size: 16px;

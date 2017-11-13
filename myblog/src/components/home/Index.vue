@@ -1,7 +1,7 @@
 <template>
   <div class="main-conatiner">
     <HomeHeader></HomeHeader>
-    <ListArticle class="list-article" :articleLists = "articleLists"></ListArticle>
+    <ListArticle class="list-article" :articleLists = "articleLists" :showNextPage="showNextPage"></ListArticle>
     <HomeFooter></HomeFooter>
   </div>
 </template>
@@ -12,17 +12,26 @@ import ListArticle from './../common/ListArticle.vue'
 import HomeFooter from './../common/HomeFooter.vue'
 export default {
   mounted(){
-    this.$store.dispatch("showIndexArticle")
+    if(this.nowColumn == 'tag') {
+      this.$store.dispatch("showTagArticle")
+    }else if(this.nowColumn == 'category') {
+      this.$store.dispatch("showCategoryArticle")
+    }else{
+      this.$store.dispatch("showIndexArticle")
+    }
   },
   computed:{ 
       ...mapGetters([
           'articleLists',
+          'nowColumn',
+          'showNextPage'
       ])
   },
   methods:{
      ...mapMutations([
         'NOWCOLUMN',
-        'COLUMNID'
+        'COLUMNID',
+        'SHOWNEXTPAGE'
     ]),
   },
   components:{
