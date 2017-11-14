@@ -6,7 +6,7 @@
                     <md-button class="md-icon-button">
                         <md-icon>search</md-icon>
                     </md-button>
-                    <md-button class="md-icon-button">
+                    <md-button class="md-icon-button" @click="seeMoreFunction()">
                         <md-icon>view_module</md-icon>
                     </md-button>
                 </div>
@@ -65,6 +65,9 @@ export default {
       this.$router.push({path: `/category_${id}`})
       this.NOWCOLUMN('category')
       this.COLUMNID({key: 'id', value: id})
+    },
+    seeMoreFunction(){
+        
     }
   }
 }

@@ -41,23 +41,40 @@ export default {
 <style lang="scss">
 .main-content {
   font-size: 1em;
-  border: 1px solid #eee;
+  border-bottom: 1px solid #fff;
   overflow: auto;
+  word-break: break-all;
+  margin-top: 30px;
   p{
-    padding: .2em;
-    line-height: 1.5em;
+    padding: .3em 2em;
+    line-height: 2em;
+    color:#444343;
+  }
+  h1,h2,h3,h4,h5,h6{
+    padding: 20px 0;
+    color: #b35353;
+  }
+  strong{
+    padding: 20px 0;
+    color: #b35353;
   }
   pre{
     border: 1px solid #eee !important;
     border-radius: 4px;
     overflow: auto;
+    box-shadow: 1px 1px 4px #7d2b2b;
+    margin: .3em 2em;
     code {
       line-height: 2em;
       padding-left:10px;
     }
   }
+  blockquote{
+    border-left: 10px solid #b35353;
+  }
   img {
     display: flex;
+    margin: 20px 0;
   }
   table{
     width: 100%;
@@ -79,6 +96,15 @@ export default {
     }
   }
 }
+.md-theme-default code:not(.hljs) {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(113, 50, 187);
+    border-radius: 2px;
+}
+body.md-theme-default,.main-content,.components-container {
+    background-color: #ffeed5;
+    word-break: break-all;
+}
 </style>
 
 <style lang="scss" scoped>
@@ -93,8 +119,19 @@ export default {
       border-radius: 3px;
     }
 }
-.md-theme-default code:not(.hljs){
-  background-color: #fff;
+@media all and (min-width: 1024px) {
+  .main-content {
+    max-width: 1024px;
+    margin: 30px auto;
+  }
+}
+.header_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 @media all and (max-width: 767px) {
   .md-button{
@@ -105,12 +142,12 @@ export default {
     font-size: 12px;
   }
   .detail_header{
-    height: 200px;
+    height: 222px;
     background-color: #4e95ff;
     color: #fff;
     display: flex;
-    text-align: center;
-    align-items: center;
+    // text-align: center;
+    // align-items: center;
     justify-content: center;
     padding: 1em 0.5em;
   }
@@ -143,30 +180,28 @@ export default {
     background-color: rgba(0,0,0,0.1);
   }
   .detail_header{
-    height: 200px;
+    height: 222px;
     background-color: #4e95ff;
     color: #fff;
     display: flex;
-    text-align: center;
-    align-items: center;
     justify-content: center;
     padding: 1em 2em;
   }
   .p_title{
     font-size: 1.5em;
+    line-height: 1.5em;
+  }
+  .p_title, .p_author, .p_tag {
+    padding: 6px 0;
   }
   .p_author{
     cursor: pointer;
     font-size: 1.2em;
-    padding: 0 0.2em;
   }
   .p_date{
     text-align: right;
     font-size: 1em;
     padding-right: 2em;
-  }
-  .p_tag, .p_author{
-    padding-top: 1.2em;
   }
   .p_content {
     font-size: 1.2em;
