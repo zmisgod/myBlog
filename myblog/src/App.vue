@@ -26,10 +26,21 @@ export default {
       if(this.$route.params.id){
         this.COLUMNID({key:'id', value:this.$route.params.id})
       }
+      if(this.nowColumn == 'tag') {
+            this.$store.dispatch("showTagArticle")
+        }else if(this.nowColumn == 'category') {
+            this.$store.dispatch("showCategoryArticle")
+        }else if(this.nowColumn == 'home'){
+            this.$store.dispatch("showIndexArticle")
+        }
+  },
+  mounted(){
+      
   },
   computed:{
       ...mapGetters([
           'title',
+          'nowColumn'
       ])
   },
   watch: {
@@ -39,7 +50,7 @@ export default {
             this.$store.dispatch("showTagArticle")
         }else if(to.name == 'category') {
             this.$store.dispatch("showCategoryArticle")
-        }else{
+        }else if(to.name == 'home'){
             this.$store.dispatch("showIndexArticle")
         }
     }

@@ -11,15 +11,6 @@ import HomeHeader from './../common/HomeHeader.vue'
 import ListArticle from './../common/ListArticle.vue'
 import HomeFooter from './../common/HomeFooter.vue'
 export default {
-  mounted(){
-    if(this.nowColumn == 'tag') {
-      this.$store.dispatch("showTagArticle")
-    }else if(this.nowColumn == 'category') {
-      this.$store.dispatch("showCategoryArticle")
-    }else{
-      this.$store.dispatch("showIndexArticle")
-    }
-  },
   computed:{ 
       ...mapGetters([
           'articleLists',

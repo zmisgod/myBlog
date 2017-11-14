@@ -5,21 +5,21 @@ import { mutations } from './mutations'
 const state = {
     title: 'starzmisgod',
     description: '',
-    nowCategory: 'all',
+    nowCategory: '0',
     categoryLists: {
-        'all': {
+        '0': {
             cn: '全部文章',
             id: 0
         },
-        'three': {
+        '3': {
             cn: '技术分享',
             id: 3
         },
-        'one': {
+        '1': {
             cn: '不可描述',
             id: 1
         },
-        'two': {
+        '2': {
             cn: '心情感悟',
             id: 2
         },

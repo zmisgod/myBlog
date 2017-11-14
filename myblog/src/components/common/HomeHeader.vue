@@ -57,8 +57,8 @@ export default {
       this.NOWCOLUMN('home')
       this.COLUMNID({key: 'page', value: 1})
     },
-    location_category(id,category_name) {
-    this.NOWCATEGORY(category_name)
+    location_category(id,category_id) {
+        this.NOWCATEGORY(category_id)
       if(id == 0) {
           return this.location_home()
       }

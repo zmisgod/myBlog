@@ -26,14 +26,24 @@ export default {
       ])
   },
   methods :{
+    ...mapMutations([
+        'NOWCOLUMN',
+        'COLUMNID',
+        'NOWCATEGORY'
+    ]),
     seeAuthor(author_name){
       this.$router.push({path: `/author/${author_name}`})
     },
-    seeTag(tag_id){
-      this.$router.push({path: `/tag_${tag_id}`})
+    seeTag(id){
+      this.$router.push({path: `/tag_${id}`})
+      this.NOWCOLUMN('tag')
+      this.COLUMNID({key: 'id', value: id})
     },
-    seeCategory(category_id) {
-      this.$router.push({path: `/category_${category_id}`})
+    seeCategory(id) {
+      this.NOWCATEGORY(id)
+      this.$router.push({path: `/category_${id}`})
+      this.NOWCOLUMN('category')
+      this.COLUMNID({key: 'id', value: id})
     }
   }
 }
