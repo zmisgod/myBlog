@@ -7,15 +7,10 @@
                         <md-icon>search</md-icon>
                     </md-button>
                 </div>
-                <md-menu class="header-user-info">
-                    <a class="user-email" md-menu-trigger>starzmisgod@gmail.com</a>
-                    <md-menu-content>
-                        <md-menu-item>项目 1</md-menu-item>
-                        <md-menu-item>项目 2</md-menu-item>
-                        <md-menu-item>项目 3</md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-            </div>  
+                <div class="header-user-info">
+                    <a class="user-email">starzmisgod@gmail.com</a>
+                </div>
+            </div>
         </div>
         <div class="bottom-container">
             <div class="logo-title-container">
@@ -174,6 +169,9 @@ header{
 }
 @media all and (max-width: 667px) {
     header{
+        .top{
+            right: 20px;
+        }
         .bottom-container{
             position: absolute;
             top: 80px;
@@ -197,11 +195,11 @@ header{
                         p{
                             font-size: 16px;
                             line-height: 16px;
-                            padding: 13px 0px;
+                            padding: 18px 0px;
                         }
                         h4{
-                            font-size: 30px;
-                            line-height: 30px;
+                            font-size: 24px;
+                            line-height: 24px;
                         }
                     }
                 }

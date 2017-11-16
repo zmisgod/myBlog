@@ -78,9 +78,11 @@ export default {
         cursor: pointer;
         padding: 10px 0;
         color: #565555;
+        word-break: break-all;
       }
       .a-info{
         color: #81b15b;
+        word-break: break-all;
         .a-post-at{
           font-size: 12px;
         }
@@ -101,15 +103,17 @@ export default {
         padding: 5px 0;
         color: #666;
         line-height: 22px;
+        word-break: break-all;
       }
       .a-tag{
         padding: 4px 0;
         display: flex;
         flex-direction: row-reverse;
+        flex-wrap: wrap;
         a{
           border: 1px solid #eee;
           border-radius: 6px;
-          margin: 0 5px;
+          margin: 3px 5px;
           padding: 0 5px;
           color: #2396e0;
           cursor: pointer;
