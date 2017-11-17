@@ -12,6 +12,12 @@ import 'animate.css'
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 window.axios = axios
+Vue.material.registerTheme('white', {
+    primary: 'white',
+    accent: 'white',
+    warn: 'white',
+    background: 'white'
+})
 
 /* eslint-disable no-new */
 new Vue({

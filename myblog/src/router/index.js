@@ -40,5 +40,10 @@ export default new Router({
             name: 'category',
             component: Index
         },
+        {
+            path: `/search`,
+            name: 'search',
+            component: Index
+        },
     ]
 })

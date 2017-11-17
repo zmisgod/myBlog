@@ -34,11 +34,13 @@ export default {
       this.$router.push({path: `/detail_${id}`})
       this.NOWCOLUMN('article')
       this.COLUMNID({key: 'id', value: id})
+      this.COLUMNID({key: 'page', value: 1})
     },
     location_tag(id) {
       this.$router.push({path: `/tag_${id}`})
       this.NOWCOLUMN('tag')
       this.COLUMNID({key: 'id', value: id})
+      this.COLUMNID({key: 'page', value: 1})
     },
     nextPage(){
         let nowTem = this.$store.state.blog.nowColumn
@@ -48,6 +50,8 @@ export default {
             this.$store.dispatch("showTagArticle")
         }else if(nowTem == 'category') {
             this.$store.dispatch("showCategoryArticle")
+        }else if(nowTem == 'search'){
+            this.$store.dispatch("showSearchArticle")
         }else{
             this.$store.dispatch("showIndexArticle")
         }

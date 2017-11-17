@@ -23,15 +23,17 @@ export default {
   },
   created(){
       this.NOWCOLUMN(this.$route.name)
-      if(this.$route.params.id){
-        this.COLUMNID({key:'id', value:this.$route.params.id})
-      }
       if(this.nowColumn == 'tag') {
+            this.COLUMNID({key:'id', value:this.$route.params.id})
             this.$store.dispatch("showTagArticle")
         }else if(this.nowColumn == 'category') {
+            this.COLUMNID({key:'id', value:this.$route.params.id})
             this.$store.dispatch("showCategoryArticle")
         }else if(this.nowColumn == 'home'){
             this.$store.dispatch("showIndexArticle")
+        }else if(this.nowColumn == 'search' && this.$route.query.keyword != "") {
+            this.SEARCHWORD(this.$route.query.keyword)
+            this.$store.dispatch("showSearchArticle")
         }
   },
   mounted(){
@@ -45,13 +47,15 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      this.NOWCOLUMN(to.name)
+        this.NOWCOLUMN(to.name)
         if(to.name == 'tag') {
             this.$store.dispatch("showTagArticle")
         }else if(to.name == 'category') {
             this.$store.dispatch("showCategoryArticle")
         }else if(to.name == 'home'){
             this.$store.dispatch("showIndexArticle")
+        } else if(to.name == 'search') {
+            this.$store.dispatch("showSearchArticle")
         }
     }
   },
@@ -63,7 +67,8 @@ export default {
   methods: {
     ...mapMutations([
         'NOWCOLUMN',
-        'COLUMNID'
+        'COLUMNID',
+        'SEARCHWORD'
     ]),
     goTop() {// 回到顶部方法
         clearInterval(timer)

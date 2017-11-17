@@ -3,13 +3,14 @@
         <div class="top">
             <div class="top-container">
                 <div class="icons-func">
-                    <md-button class="md-icon-button">
-                        <md-icon>search</md-icon>
-                    </md-button>
+                    <md-input-container md-theme="white" v-if="showSearchFrame">
+                        <label>Search Keyword</label>
+                        <md-input v-model="keyword"></md-input>
+                    </md-input-container>
                 </div>
-                <div class="header-user-info">
-                    <a class="user-email">starzmisgod@gmail.com</a>
-                </div>
+                <md-button class="md-icon-button" @click="doSearch()">
+                    <md-icon>search</md-icon>
+                </md-button>
             </div>
         </div>
         <div class="bottom-container">
@@ -38,20 +39,24 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
 data (){
     return {
-        type:'asdad'
+        keyword:''
     }
 },
  computed:{ 
       ...mapGetters([
           'categoryLists',
           'nowCategory',
+          'showSearchFrame',
+          'searchWord'
       ])
   },
   methods:{
     ...mapMutations([
       'NOWCOLUMN',
       'COLUMNID',
-      'NOWCATEGORY'
+      'NOWCATEGORY',
+      'SHOWSEARCHFRAME',
+      'SEARCHWORD'
     ]),
     location_home() {
       this.$router.push({path: `/`})
@@ -59,23 +64,33 @@ data (){
       this.COLUMNID({key: 'page', value: 1})
     },
     location_category(id,category_id) {
-        this.NOWCATEGORY(category_id)
+      this.NOWCATEGORY(category_id)
       if(id == 0) {
           return this.location_home()
       }
       this.$router.push({path: `/category_${id}`})
       this.NOWCOLUMN('category')
       this.COLUMNID({key: 'id', value: id})
+      this.COLUMNID({key: 'page', value: 1})
     },
-    seeMoreFunction(){
-        
-    }
+    doSearch(){
+        this.SEARCHWORD(this.keyword)
+        this.SHOWSEARCHFRAME("")
+        if(this.showSearchFrame && this.keyword != "") {
+            this.$router.push({path: `/search?keyword=${this.keyword}`})
+            this.NOWCOLUMN('search')
+            this.COLUMNID({key: 'page', value: 1})
+        }
+    },
   }
 }
 </script>
 <style lang="scss">
 h4{
     margin: 0;
+}
+.md-input-container.md-has-value input{
+    color: #fff;
 }
 header{
     background-color: #2ea9f1;
@@ -88,9 +103,15 @@ header{
         overflow: hidden;
         .top-container{
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
             .icons-func{
                 display: flex;
                 flex-direction: row;
+                width: 320px;
+                justify-content: center;
+                align-items: center;
             }
             .header-user-info{
                 justify-content: center;

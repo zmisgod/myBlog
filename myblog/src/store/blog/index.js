@@ -4,6 +4,7 @@ import { mutations } from './mutations'
 
 const state = {
     title: 'starzmisgod',
+    showSearchFrame: false,
     description: '',
     nowCategory: '0',
     categoryLists: {
@@ -30,6 +31,7 @@ const state = {
     articleLists: [], //文章列表
     leftBar: 0, //左边的菜单栏是否开启 0 关闭 1 开启
     nowColumn: 'home', //home， article，category，tag, comment
+    searchWord: '',
     columnId: {
         home: {
             page: 1
@@ -45,9 +47,12 @@ const state = {
             page: 1,
             id: 0
         },
-        comment: {
+        search: {
             page: 1,
-            id: 0
+            id: ''
+        },
+        comment: {
+            page: 1
         }
     },
 }

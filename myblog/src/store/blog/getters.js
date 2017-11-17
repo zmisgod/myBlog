@@ -9,5 +9,7 @@ export const getters = {
     showNextPage: state => state.showNextPage,
     pageSize: state => state.pageSize,
     nowCategory: state => state.nowCategory,
-    categoryLists: state => state.categoryLists
+    categoryLists: state => state.categoryLists,
+    showSearchFrame: state => state.showSearchFrame,
+    searchWord: state => state.searchWord
 }
