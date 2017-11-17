@@ -43,7 +43,7 @@ export const actions = {
         })
     },
     showSearchArticle({ commit, state }) {
-        axios.get(process.env.API_HOST + '/v1/search?keyword=' + state.searchWord + '&page=' + state.columnId[state.nowColumn].id).then(res => {
+        axios.get(process.env.API_HOST + '/v1/search?keyword=' + state.searchWord + '&page=' + state.columnId[state.nowColumn].page).then(res => {
             if (res.data.code === 200 && res.data.data !== "") {
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)

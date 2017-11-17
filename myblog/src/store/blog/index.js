@@ -49,7 +49,6 @@ const state = {
         },
         search: {
             page: 1,
-            id: ''
         },
         comment: {
             page: 1
