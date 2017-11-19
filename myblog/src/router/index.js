@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/home/Index'
 import ArticleDetail from '@/components/single/Detail'
 import ArticleSingle from '@/components/single/Single'
+import Chat from '@/components/chat/Index'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
             path: `/search`,
             name: 'search',
             component: Index
+        },
+        {
+            path: `/chat`,
+            name: 'chat',
+            component: Chat
         },
     ]
 })

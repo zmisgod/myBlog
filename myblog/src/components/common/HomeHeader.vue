@@ -27,6 +27,7 @@
                 <div class="menu">
                     <ul>
                         <li @click="location_category(value.id, index)" :class="index == nowCategory ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
+                        <li @click="location_channel(index)" :class="index == nowCategory ? 'selected': ''"  :key="index" v-for="(value, index) in channel" v-text="value.cn"></li>
                     </ul>
                 </div>
                 <div class="page-info"></div>
@@ -47,7 +48,8 @@ data (){
           'categoryLists',
           'nowCategory',
           'showSearchFrame',
-          'searchWord'
+          'searchWord',
+          'channel'
       ])
   },
   methods:{
@@ -73,6 +75,11 @@ data (){
       this.COLUMNID({key: 'id', value: id})
       this.COLUMNID({key: 'page', value: 1})
     },
+    location_channel(channel){
+        this.NOWCATEGORY(channel)
+        this.$router.push({path: `/chat`})
+        this.NOWCOLUMN('channel')
+    },
     doSearch(){
         this.SEARCHWORD(this.keyword)
         this.SHOWSEARCHFRAME("")
@@ -91,6 +98,10 @@ h4{
 }
 .md-input-container.md-has-value input{
     color: #fff;
+}
+.md-theme-white input{
+    color: #fff;
+    text-shadow: 0 0 0 #fff !important;
 }
 header{
     background-color: #2ea9f1;
@@ -166,7 +177,7 @@ header{
         .menu-container{
             display: flex;
             .menu{
-                width: 500px;
+                width: 512px;
                 overflow: hidden;
                 padding-top: 30px;
                 margin-left: 120px;

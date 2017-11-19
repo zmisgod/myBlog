@@ -7,6 +7,11 @@ const state = {
     showSearchFrame: false,
     description: '',
     nowCategory: '0',
+    channel:{
+        'chat':{
+            cn:'聊天室',
+        }
+    },
     categoryLists: {
         '0': {
             cn: '全部文章',

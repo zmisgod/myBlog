@@ -44,5 +44,8 @@ export const mutations = {
     },
     SEARCHWORD(state, keyword) {
         state.searchWord = keyword
+    },
+    CHANNEL(state, now) {
+        state.channel = now
     }
 }

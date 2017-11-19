@@ -1,7 +1,8 @@
 <template>
   <div class="main-conatiner">
     <HomeHeader></HomeHeader>
-    <ListArticle class="list-article" :articleLists = "articleLists" :showNextPage="showNextPage"></ListArticle>
+    <ListArticle class="list-article" v-if="nowColumn !== 'chat'" :articleLists = "articleLists" :showNextPage="showNextPage"></ListArticle>
+    <Chat v-if="nowColumn === 'chat'"></Chat>
     <HomeFooter></HomeFooter>
   </div>
 </template>
@@ -10,6 +11,7 @@ import {mapGetters, mapMutations} from 'vuex'
 import HomeHeader from './../common/HomeHeader.vue'
 import ListArticle from './../common/ListArticle.vue'
 import HomeFooter from './../common/HomeFooter.vue'
+import Chat from './../chat/Index.vue'
 export default {
   computed:{ 
       ...mapGetters([
@@ -28,7 +30,8 @@ export default {
   components:{
     ListArticle,
     HomeHeader,
-    HomeFooter
+    HomeFooter,
+    Chat
   }
 }
 </script>
