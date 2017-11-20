@@ -47,5 +47,8 @@ export const mutations = {
     },
     CHANNEL(state, now) {
         state.channel = now
+    },
+    ARTICLELOADING(state, loading) {
+        state.articleLoading = loading
     }
 }

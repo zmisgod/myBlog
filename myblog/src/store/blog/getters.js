@@ -12,5 +12,6 @@ export const getters = {
     categoryLists: state => state.categoryLists,
     showSearchFrame: state => state.showSearchFrame,
     searchWord: state => state.searchWord,
-    channel: state => state.channel
+    channel: state => state.channel,
+    articleLoading: state => state.articleLoading
 }

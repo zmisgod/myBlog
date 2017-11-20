@@ -1,7 +1,9 @@
 export const actions = {
     showIndexArticle({ commit, state }) {
+        commit('ARTICLELOADING', false)
         axios.get(process.env.API_HOST + '/v1/home?page=' + state.columnId[state.nowColumn].page).then(res => {
             if (res.data.code === 200 && res.data.data !== "") {
+                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -12,8 +14,10 @@ export const actions = {
         })
     },
     showTagArticle({ commit, state }) {
+        commit('ARTICLELOADING', false)
         axios.get(process.env.API_HOST + '/v1/tag/' + state.columnId[state.nowColumn].id + '?page=' + state.columnId[state.nowColumn].page).then(res => {
             if (res.data.code === 200 && res.data.data !== "") {
+                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -24,8 +28,10 @@ export const actions = {
         })
     },
     showCategoryArticle({ commit, state }) {
+        commit('ARTICLELOADING', false)
         axios.get(process.env.API_HOST + '/v1/category/' + state.columnId[state.nowColumn].id + '?page=' + state.columnId[state.nowColumn].page).then(res => {
             if (res.data.code === 200 && res.data.data !== "") {
+                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -43,8 +49,10 @@ export const actions = {
         })
     },
     showSearchArticle({ commit, state }) {
+        commit('ARTICLELOADING', false)
         axios.get(process.env.API_HOST + '/v1/search?keyword=' + state.searchWord + '&page=' + state.columnId[state.nowColumn].page).then(res => {
             if (res.data.code === 200 && res.data.data !== "") {
+                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {

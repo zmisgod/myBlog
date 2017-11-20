@@ -1,7 +1,7 @@
 <template>
   <div class="main-conatiner">
     <HomeHeader></HomeHeader>
-    <ListArticle class="list-article" v-if="nowColumn !== 'chat'" :articleLists = "articleLists" :showNextPage="showNextPage"></ListArticle>
+    <ListArticle class="list-article" v-if="nowColumn !== 'chat'" :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ListArticle>
     <Chat v-if="nowColumn === 'chat'"></Chat>
     <HomeFooter></HomeFooter>
   </div>
@@ -17,7 +17,8 @@ export default {
       ...mapGetters([
           'articleLists',
           'nowColumn',
-          'showNextPage'
+          'showNextPage',
+          'articleLoading'
       ])
   },
   methods:{

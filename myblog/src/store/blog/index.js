@@ -7,9 +7,9 @@ const state = {
     showSearchFrame: false,
     description: '',
     nowCategory: '0',
-    channel:{
-        'chat':{
-            cn:'聊天室',
+    channel: {
+        'chat': {
+            cn: '聊天室',
         }
     },
     categoryLists: {
@@ -37,6 +37,7 @@ const state = {
     leftBar: 0, //左边的菜单栏是否开启 0 关闭 1 开启
     nowColumn: 'home', //home， article，category，tag, comment
     searchWord: '',
+    articleLoading: false,
     columnId: {
         home: {
             page: 1

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main-frame-container">
-      <div class="article-container">
+      <div class="article-container" v-if="articleLoading">
         <div class="home-lists" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
           <p class="a-title" @click="location_article(articleObj.id)"  v-html="articleObj.post_title"></p>
           <p class="a-info"><img src="/static/logo.png" class="user-img" alt=""><span class="a-author" v-text="articleObj.author"></span> <span class="a-post-at">发布于:</span> <span class="a-date" v-text="articleObj.post_date"></span></p>
@@ -14,6 +14,9 @@
           <md-icon>keyboard_arrow_right</md-icon>
         </md-button>
       </div>
+       <div class="article-container loading" v-else>
+         <md-spinner :md-size="20" md-indeterminate class="md-accent"></md-spinner>
+       </div>
       <div class="weather-container"></div>
     </div>
   </div>
@@ -23,7 +26,8 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
   props:{
     articleLists:Array,
-    showNextPage:Boolean
+    showNextPage:Boolean,
+    articleLoading:Boolean
   },
   methods:{
     ...mapMutations([
@@ -62,6 +66,7 @@ export default {
 <style lang="scss">
 .main-frame-container{
   margin: 30px 120px 0;
+  width: 100%;
   .article-container{
     background-color: #fff;
     padding: 30px 50px;
@@ -125,6 +130,9 @@ export default {
       }
     }
   }
+  .loading{
+    text-align: center;
+  }
   .weather-container{
     // width: 500px;
     // height: 500px;
@@ -134,7 +142,8 @@ export default {
 }
 @media all and (max-width: 1023px) {
   .main-frame-container{
-    margin: 30px 20px 0;
+    margin: 30px 10px 0;
+    width: 100%;
     .article-container{
       background-color: #fff;
       padding: 15px 25px;

@@ -202,7 +202,8 @@ header{
 @media all and (max-width: 667px) {
     header{
         .top{
-            right: 20px;
+            left: 20px;
+            right:20px;
         }
         .bottom-container{
             position: absolute;
@@ -238,12 +239,16 @@ header{
             }
             .menu-container{
                 display: flex;
+                overflow: hidden;
+                width: 300px;
                 .menu{
-                    width: 100%;
-                    overflow: hidden;
+                    width: 380px;
+                    overflow-x: auto;
+                    overflow-y: hidden;
                     padding-top: 20px;
                     margin-left: 0;
                     ul{
+                        width: 380px;
                         padding-left: 0;
                         list-style: none;
                         margin: 0;
