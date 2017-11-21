@@ -15,7 +15,7 @@
         </md-button>
       </div>
        <div class="article-container loading" v-else>
-         <md-spinner :md-size="20" md-indeterminate class="md-accent"></md-spinner>
+         <md-spinner :md-size="40" md-indeterminate class="md-accent"></md-spinner>
        </div>
       <div class="weather-container"></div>
     </div>
@@ -132,6 +132,10 @@ export default {
   }
   .loading{
     text-align: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .weather-container{
     // width: 500px;

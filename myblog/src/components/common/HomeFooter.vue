@@ -1,6 +1,6 @@
 <template>
   <footer>
-      <p>Copyright@zmis.me All Rights Reserved.</p>
+      <p>zangmiao loves you</p>
   </footer>
 </template>
 <script>
@@ -11,7 +11,7 @@ export default {
 footer{
     width: 100%;
     height: 100px;
-    padding-top: 80px;
+    padding-top: 50px;
     background-color: #395762;
     p{
         text-align: center;

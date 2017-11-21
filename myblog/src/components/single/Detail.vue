@@ -107,9 +107,9 @@ export default {
   }
 }
 .md-theme-default code:not(.hljs) {
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(113, 50, 187);
-    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: rgb(113, 50, 187) !important;
+    border-radius: 2px !important;
 }
 body.md-theme-default,.main-content,.components-container {
     background-color: #ffeed5;
