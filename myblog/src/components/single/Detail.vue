@@ -80,6 +80,7 @@ export default {
   }
   blockquote{
     border-left: 10px solid #b35353;
+    font-style: italic;
   }
   img {
     display: flex;

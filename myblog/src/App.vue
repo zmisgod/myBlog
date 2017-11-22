@@ -120,6 +120,7 @@ p,h1,h2,h3,h4 {
   color: #fff;
 }
 .components-container{
+    -webkit-overflow-scrolling : touch;
     background-color: #fff;
 }
 .go-top{
