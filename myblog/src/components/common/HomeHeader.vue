@@ -153,7 +153,8 @@ header{
             .logo{
                 width: 80px;
                 height: 80px;
-                background:url('/static/logo.png');
+                background-color: #fff;
+                background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMzkwLjAwMDAwMHB0IiBoZWlnaHQ9IjM5MC4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDM5MC4wMDAwMDAgMzkwLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgo8bWV0YWRhdGE+CkNyZWF0ZWQgYnkgcG90cmFjZSAxLjE1LCB3cml0dGVuIGJ5IFBldGVyIFNlbGluZ2VyIDIwMDEtMjAxNwo8L21ldGFkYXRhPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwzOTAuMDAwMDAwKSBzY2FsZSgwLjEwMDAwMCwtMC4xMDAwMDApIgpmaWxsPSIjMDAwMDAwIiBzdHJva2U9Im5vbmUiPgo8cGF0aCBkPSJNMTAzMyAyOTY3IGM4IC0yMiAzMTggLTUzMCAzMzUgLTU0OSAxNCAtMTYgNTUgLTE4IDUzMCAtMjAgbDUxNiAtMwotNjUzIC03MDAgYy0zNjAgLTM4NSAtNjcwIC03MTcgLTY4OSAtNzM3IGwtMzYgLTM4IDkzMyAwIGM4NDEgMCA5MzMgMiA5MjcgMTYKLTMgOCAtODEgMTM5IC0xNzMgMjkwIGwtMTY2IDI3NCAtMjAzIDAgLTIwMiAwIC05MSAtOTcgLTkxIC05OCAyMzcgLTUgMjM3IC01CjQ4IC04MCBjMjYgLTQ0IDQ4IC04MyA0OCAtODcgMCAtNSAtMjMyIC04IC01MTUgLTggLTI4MyAwIC01MTUgMyAtNTE1IDggMCA0CjMxMSAzMzggNjkxIDc0MiBsNjkxIDczNSAtNzAzIDMgLTcwNCAzIC00NyA3OSBjLTI3IDQzIC00OCA4MSAtNDggODQgMCAzIDMzOAo3IDc1MCA4IGw3NTEgMyAtNjEgOTggLTYxIDk3IC04NzEgMCBjLTcyMyAwIC04NjkgLTIgLTg2NSAtMTN6Ii8+CjxwYXRoIGQ9Ik0xMzU3IDE4ODAgbC0zMjcgLTM1MCAwIC0xNDMgMCAtMTQyIDQzIDQ1IGMyNCAyNSAyMDUgMjE4IDQwMiA0MzAKMTk3IDIxMiAzODYgNDEzIDQxOSA0NDggbDYwIDYyIC0xMzUgMCAtMTM1IDAgLTMyNyAtMzUweiIvPgo8L2c+Cjwvc3ZnPgo=');
                 background-size: 80px;
             }
             .bottom-main-container{
@@ -216,7 +217,6 @@ header{
                 .logo{
                     width: 60px;
                     height: 60px;
-                    background:url('/static/logo.png');
                     background-size: 60px;
                 }
                 .bottom-main-container{
