@@ -76,7 +76,6 @@ export default {
     margin: .3em 2em;
     code {
       line-height: 2em;
-      padding-left:10px;
     }
   }
   blockquote{
@@ -112,7 +111,7 @@ export default {
     border-radius: 2px !important;
 }
 body.md-theme-default,.main-content,.components-container {
-    background-color: #ffeed5;
+    background-color: #fff;
     word-break: break-all;
 }
 </style>
@@ -143,43 +142,40 @@ body.md-theme-default,.main-content,.components-container {
     max-width: 1024px;
     margin: 0 auto;
 }
-@media all and (max-width: 767px) {
-  .md-button{
-    min-width: 60px;
-    min-height: 24px;
-    line-height: 24px;
-    margin: 5px 3px;
-    font-size: 12px;
-  }
-  .detail_header{
-    height: 222px;
-    background-color: #4e95ff;
-    color: #fff;
-    display: flex;
-    // text-align: center;
-    // align-items: center;
-    justify-content: center;
-    padding: 1em 0.5em;
-  }
-  .p_title{
-    font-size: 1.2em;
-  }
-  .p_author{
-    cursor: pointer;
-    font-size: 0.8em;
-    padding: 0 0.2em;
-  }
-  .p_date{
-    text-align: right;
-    font-size: 1em;
-    padding-right: 0.5em;
-  }
-  .p_tag,.p_author{
-    padding-top: 0.7em;
-  }
-  .p_content {
-    padding: 1em 0.5em;
-  }
+.md-button{
+  min-width: 60px;
+  min-height: 24px;
+  line-height: 24px;
+  margin: 5px 3px;
+  font-size: 12px;
+}
+.detail_header{
+  height: 222px;
+  background-color: #4e95ff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0.5em;
+}
+.p_title{
+  font-size: 1.2em;
+}
+.p_author{
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 0 0.2em;
+}
+.p_date{
+  text-align: right;
+  font-size: 1em;
+  padding-right: 0.5em;
+}
+.p_tag,.p_author{
+  padding-top: 0.7em;
+}
+.p_content {
+  padding: 1em 0.5em;
+  border-bottom: 1px solid #eee
 }
 @media all and (min-width: 768px) {
   .md-button{
