@@ -34,6 +34,8 @@ export default {
         }else if(this.nowColumn == 'search' && this.$route.query.keyword != "") {
             this.SEARCHWORD(this.$route.query.keyword)
             this.$store.dispatch("showSearchArticle")
+        }else if(this.nowColumn == 'article') {
+            this.COLUMNID({key:'id', value:this.$route.params.id})
         }
   },
   mounted(){
@@ -123,6 +125,6 @@ p,h1,h2,h3,h4 {
 .go-top{
     position: fixed !important;
     bottom: 20px;
-    right: 30px;
+    right: 0;
 }
 </style>
