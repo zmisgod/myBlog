@@ -114,7 +114,7 @@ header{
         overflow: hidden;
         .top-container{
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             height: 60px;
             .icons-func{
@@ -203,8 +203,8 @@ header{
 @media all and (max-width: 667px) {
     header{
         .top{
-            left: 20px;
             right:20px;
+            left: 20px;
         }
         .bottom-container{
             position: absolute;
