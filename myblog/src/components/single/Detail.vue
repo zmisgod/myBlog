@@ -74,6 +74,7 @@ export default {
     overflow: auto;
     box-shadow: 1px 1px 4px #7d2b2b;
     margin: .3em 2em;
+    padding-left: 10px;
     code {
       line-height: 2em;
     }
