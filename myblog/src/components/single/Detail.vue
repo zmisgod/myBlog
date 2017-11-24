@@ -1,17 +1,22 @@
 <template>
   <div class="detail">
-    <div class="detail_header">
-      <div class="header_container">
-        <p class="p_title" v-text="articleObject.post_title"></p>
-        <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
-        <div class="p_tag">
-          <md-button @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-button>
-          <md-button v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)" v-text="tag.category_name"></md-button> 
+    <div class="irbbon"></div>
+    <div class="main">
+      <div class="main-container">
+        <div class="detail_header">
+          <div class="header_container">
+            <p class="p_title" v-text="articleObject.post_title"></p>
+            <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
+            <div class="p_tag">
+              <md-button @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-button>
+              <md-button v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)" v-text="tag.category_name"></md-button> 
+            </div>
+          </div>
         </div>
+        <div class="p_content main-content" v-html="articleObject.post_content"></div>
+        <p class="p_date" v-text="'Posted at ' + articleObject.post_date"></p>
       </div>
     </div>
-    <div class="p_content main-content" v-html="articleObject.post_content"></div>
-    <p class="p_date" v-text="'Posted at ' + articleObject.post_date"></p>
   </div>
 </template>
 <script>
@@ -130,6 +135,20 @@ body.md-theme-default,.main-content,.components-container {
       border-radius: 3px;
     }
 }
+.irbbon{
+  height: 40vh;
+  background-color: #4285F4;
+  flex-shrink: 0;
+  width: 100%;
+}
+.main{
+  margin-top: -35vh;
+}
+.main-container{
+  padding: 1em 2em;
+  max-width: 1024px;
+  margin: 0 auto;
+}
 @media all and (min-width: 1024px) {
   .main-content {
     max-width: 1024px;
@@ -150,14 +169,6 @@ body.md-theme-default,.main-content,.components-container {
   line-height: 24px;
   margin: 5px 3px;
   font-size: 12px;
-}
-.detail_header{
-  height: 222px;
-  background-color: #4e95ff;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  padding: 1em 0.5em;
 }
 .p_title{
   font-size: 1.2em;
@@ -186,14 +197,6 @@ body.md-theme-default,.main-content,.components-container {
     line-height: 30px;
     margin: 6px 4px;
     background-color: rgba(0,0,0,0.1);
-  }
-  .detail_header{
-    height: 222px;
-    background-color: #4e95ff;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 1em 2em;
   }
   .p_title{
     font-size: 1.5em;
