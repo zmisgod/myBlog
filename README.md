@@ -7,7 +7,15 @@
 - vue.js (2.0)
 - vuex
 - vue-router
-- <a href="https://github.com/vuematerial/vue-material">vue-material</a>
+- webpack
+- scss
+- svg
+- axios
+- ES6
+- flex
+
+### 主题
+<a href="https://github.com/vuematerial/vue-material">vue-material</a>
 
 ### 本地使用
 ```
