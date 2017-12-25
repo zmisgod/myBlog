@@ -1,6 +1,6 @@
 <template>
   <div class="components-container">
-      <transition class="animated" name="bounce" enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+      <transition>
           <router-view></router-view>
       </transition>
       <md-button @click="goTop()" v-show="toTop" class="md-fab md-mini go-top">
@@ -27,6 +27,7 @@ export default {
             this.COLUMNID({key:'id', value:this.$route.params.id})
             this.$store.dispatch("showTagArticle")
         }else if(this.nowColumn == 'category') {
+            this.NOWCATEGORY(this.$route.params.id)
             this.COLUMNID({key:'id', value:this.$route.params.id})
             this.$store.dispatch("showCategoryArticle")
         }else if(this.nowColumn == 'home'){
@@ -70,7 +71,8 @@ export default {
     ...mapMutations([
         'NOWCOLUMN',
         'COLUMNID',
-        'SEARCHWORD'
+        'SEARCHWORD',
+        'NOWCATEGORY'
     ]),
     goTop() {// 回到顶部方法
         clearInterval(timer)

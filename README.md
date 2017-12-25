@@ -31,7 +31,7 @@ npm run dev
 npm install
 
 #pro mode
-npm build pro
+npm run build
 ```
 然后将把打包好的文件放到服务器中。（服务器不需要npm install，只要将nginx的root指向dist即可）
 

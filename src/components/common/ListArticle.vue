@@ -2,7 +2,7 @@
   <div>
     <div class="main-frame-container">
       <div class="article-container" v-if="articleLoading">
-        <div class="home-lists" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
+        <div class="home-lists showan" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
           <p class="a-title" @click="location_article(articleObj.id)"  v-html="articleObj.post_title"></p>
           <p class="a-info"><img src="/static/logo.png" class="user-img" alt=""><span class="a-author" v-text="articleObj.author"></span> <span class="a-post-at">发布于:</span> <span class="a-date" v-text="articleObj.post_date"></span></p>
           <p class="a-content" v-html="articleObj.post_intro"></p>
@@ -21,8 +21,7 @@
           <rect x="24" y="20" rx="4" ry="4" width="30" height="12" />
           <rect x="60" y="20" rx="4" ry="4" width="70" height="12" />
           <rect y="43" rx="4" ry="4" width="100%" height="12" />
-          <rect y="63" rx="4" ry="4" width="200" height="12" />
-          <rect x="715" y="88" rx="4" ry="4" width="40" height="12" />
+          <rect y="63" rx="4" ry="4" width="50%" height="12" />
           <rect x="760" y="88" rx="4" ry="4" width="40" height="12" />
         </VueContentLoading>
        </div>
@@ -85,6 +84,16 @@ export default {
 }
 </script>
 <style lang="scss">
+@keyframes myfirst
+{
+  0%   {opacity:0;}
+  25%  {opacity:0;}
+  50%  {opacity:0.5;}
+  100% {opacity:1;}
+}
+.showan{
+  animation: myfirst 1s;
+}
 .main-frame-container{
   margin: 30px 120px 0;
   width: 100%;
