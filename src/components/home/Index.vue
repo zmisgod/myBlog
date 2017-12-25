@@ -32,7 +32,7 @@ export default {
     ListArticle,
     HomeHeader,
     HomeFooter,
-    Chat
+    Chat,
   }
 }
 </script>

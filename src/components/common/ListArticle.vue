@@ -14,8 +14,17 @@
           <md-icon>keyboard_arrow_right</md-icon>
         </md-button>
       </div>
-       <div class="article-container loading" v-else>
-         <md-spinner :md-size="40" md-indeterminate class="md-accent"></md-spinner>
+       <div class="article-container" v-else>
+         <VueContentLoading class="home-lists" :key="key" :binds="value" v-for="(value, key) in loading_dom" :rows="8" :width="800" :height="100" :primary="primaryColor" :speed="2">
+          <rect y="0" rx="4" ry="4" width="200" height="12" />
+          <circle cx="10" cy="26" r="10"/>
+          <rect x="24" y="20" rx="4" ry="4" width="30" height="12" />
+          <rect x="60" y="20" rx="4" ry="4" width="70" height="12" />
+          <rect y="43" rx="4" ry="4" width="100%" height="12" />
+          <rect y="63" rx="4" ry="4" width="200" height="12" />
+          <rect x="715" y="88" rx="4" ry="4" width="40" height="12" />
+          <rect x="760" y="88" rx="4" ry="4" width="40" height="12" />
+        </VueContentLoading>
        </div>
       <div class="weather-container"></div>
     </div>
@@ -23,11 +32,23 @@
 </template>
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import VueContentLoading from 'vue-content-loading'
 export default {
   props:{
     articleLists:Array,
     showNextPage:Boolean,
     articleLoading:Boolean
+  },
+  data () {
+    return {
+      primaryColor: '#bdc3c7',
+      loading_dom : [
+        1,2,3,4,5,6,7,8,9,10,11,12
+      ]
+    }
+  },
+  components:{
+     VueContentLoading,
   },
   methods:{
     ...mapMutations([
@@ -161,6 +182,10 @@ export default {
       }
     }
   }
+}
+.pre-article{
+  width: 100%;
+  height: auto;
 }
 </style>
 

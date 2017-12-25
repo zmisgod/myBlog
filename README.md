@@ -13,9 +13,10 @@
 - axios
 - ES6
 - flex
+- vue-content-loading
 
 ### 主题
-<a href="https://github.com/vuematerial/vue-material">vue-material</a>
+<a href="https://github.com/vuematerial/vue-material">vue-material</a>4
 
 ### 本地使用
 ```
