@@ -73,6 +73,12 @@ export default {
     padding: 20px 0;
     color: #b35353;
   }
+  ol, ul {
+    padding-left: 50px;
+    li{
+      padding: 10px 0;
+    }
+  }
   pre{
     border: 1px solid #eee !important;
     border-radius: 4px;
