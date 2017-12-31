@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/home/Index'
 import ArticleDetail from '@/components/single/Detail'
 import ArticleSingle from '@/components/single/Single'
+import AuthorInfo from '@/components/author/Info'
 
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
             path: `/chat`,
             name: 'chat',
             component: Index
+        },
+        {
+            path: `/author/:author_name`,
+            name: 'author_info',
+            component: AuthorInfo
         },
     ]
 })

@@ -8,7 +8,10 @@ import VueMaterial from 'vue-material'
 import axios from 'axios'
 import 'vue-material/dist/vue-material.css'
 import 'animate.css'
+import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+NProgress.inc(0.2)
+NProgress.configure({ easing: 'ease', speed: 500, showSpinner: true })
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 window.axios = axios
@@ -17,6 +20,14 @@ Vue.material.registerTheme('white', {
     accent: 'white',
     warn: 'white',
     background: 'white'
+})
+router.beforeEach((to, from, next) => {
+    NProgress.start()
+    next()
+})
+
+router.afterEach(() => {
+    NProgress.done()
 })
 
 /* eslint-disable no-new */

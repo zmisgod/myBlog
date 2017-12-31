@@ -59,6 +59,8 @@ export default {
             this.$store.dispatch("showIndexArticle")
         } else if(to.name == 'search') {
             this.$store.dispatch("showSearchArticle")
+        } else if(to.name == "author_info") {
+            this.$store.dispatch("showUserInfo")
         }
     }
   },
