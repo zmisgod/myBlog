@@ -114,6 +114,9 @@ body{
 p,h1,h2,h3,h4 {
     margin: 0;
 }
+#nprogress .bar{
+    background: #3f51b5;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

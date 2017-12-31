@@ -8,6 +8,7 @@ import VueMaterial from 'vue-material'
 import axios from 'axios'
 import 'vue-material/dist/vue-material.css'
 import 'animate.css'
+import 'nprogress/nprogress.css'
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 window.axios = axios
