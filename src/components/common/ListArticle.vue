@@ -116,7 +116,7 @@ export default {
         font-weight: 500;
         cursor: pointer;
         padding: 10px 0;
-        color: #565555;
+        color: rgb(50, 50, 93);
         word-break: break-all;
       }
       .a-info{
@@ -140,7 +140,7 @@ export default {
       }
       .a-content{
         padding: 5px 0;
-        color: #666;
+        color: rgb(136, 152, 170);
         line-height: 22px;
         word-break: break-all;
       }
