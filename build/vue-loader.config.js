@@ -1,5 +1,4 @@
-'use strict'
-const utils = require('./utils')
+const utils = require('./util')
 const config = require('../config')
 const isProduction = process.env.NODE_ENV === 'production'
 

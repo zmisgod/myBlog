@@ -15,6 +15,7 @@
 - flex
 - vue-content-loading
 - NProgress
+- SSR
 
 ### 主题 Theme
 <a href="https://github.com/vuematerial/vue-material">vue-material</a>

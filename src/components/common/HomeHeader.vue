@@ -26,8 +26,10 @@
             <div class="menu-container">
                 <div class="menu">
                     <ul>
-                        <li @click="location_category(value.id, index)" :class="index == nowCategory ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
-                        <li @click="location_channel(index)" :class="index == nowCategory ? 'selected': ''"  :key="index" v-for="(value, index) in channel" v-text="value.cn"></li>
+                        <router-link to="/">全部文章</router-link>
+                        <router-link to="/category_3">技术分享</router-link>
+                        <router-link to="/category_1">业界资讯</router-link>
+                        <router-link to="/category_2">心情感悟</router-link>
                     </ul>
                 </div>
                 <div class="page-info"></div>

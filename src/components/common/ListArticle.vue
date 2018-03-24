@@ -2,8 +2,8 @@
   <div>
     <div class="main-frame-container">
       <div class="article-container" v-if="articleLoading">
-        <div class="home-lists showan" :key="articleObj.id" v-for="(articleObj, key) in articleLists">
-          <p class="a-title" @click="location_article(articleObj.id)"  v-html="articleObj.post_title"></p>
+        <div class="home-lists showan" :key="articleObj.id" v-for="(articleObj) in articleLists">
+          <router-link class="a-title" :to="'/detail_' +articleObj.id " v-html="articleObj.post_title">about</router-link>
           <p class="a-info"><img src="/static/logo.png" class="user-img" alt=""><span class="a-author" v-text="articleObj.author"></span> <span class="a-post-at">发布于:</span> <span class="a-date" v-text="articleObj.post_date"></span></p>
           <p class="a-content" v-html="articleObj.post_intro"></p>
           <div class="a-tag" v-if="articleObj.tag">
@@ -33,6 +33,10 @@
 import { mapGetters, mapMutations } from 'vuex'
 import VueContentLoading from 'vue-content-loading'
 export default {
+  asyncData ({ store, route }) {
+    // 触发 action 后，会返回 Promise
+    return store.dispatch('showIndexArticle', route.params.id)
+  },
   props:{
     articleLists:Array,
     showNextPage:Boolean,
