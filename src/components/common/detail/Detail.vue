@@ -27,14 +27,14 @@ export default {
   },
   computed:{
     ...mapGetters([
-          'articleObject',
-      ])
+      'articleObject',
+    ])
   },
   methods :{
     ...mapMutations([
-        'NOWCOLUMN',
-        'COLUMNID',
-        'NOWCATEGORY'
+      'NOWCOLUMN',
+      'COLUMNID',
+      'NOWCATEGORY'
     ]),
     seeAuthor(author_name){
       this.$router.push({path: `/author/${author_name}`})

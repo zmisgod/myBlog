@@ -13,21 +13,21 @@ import Footer from './../common/home/Footer.vue'
 export default {
   name: 'home',
   computed:{ 
-      ...mapGetters([
-          'articleLists',
-          'nowColumn',
-          'showNextPage',
-          'articleLoading'
-      ])
+    ...mapGetters([
+      'articleLists',
+      'nowColumn',
+      'showNextPage',
+      'articleLoading'
+    ])
   },
   title() {
     return 'home view'
   },
   methods:{
-     ...mapMutations([
-        'NOWCOLUMN',
-        'COLUMNID',
-        'SHOWNEXTPAGE'
+    ...mapMutations([
+      'NOWCOLUMN',
+      'COLUMNID',
+      'SHOWNEXTPAGE'
     ]),
   },
   components:{

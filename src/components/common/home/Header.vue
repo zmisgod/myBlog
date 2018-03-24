@@ -66,8 +66,6 @@ data (){
       this.COLUMNID({key: 'page', value: 1})
     },
     location_category(id,category_id) {
-        console.log(id)
-        console.log(category_id)
       this.NOWCATEGORY(category_id)
       if(id == 0) {
           return this.location_home()
