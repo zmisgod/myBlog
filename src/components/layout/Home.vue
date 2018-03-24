@@ -1,18 +1,17 @@
 <template>
   <div class="main-conatiner">
-    <HomeHeader></HomeHeader>
-    <ListArticle class="list-article" v-if="nowColumn !== 'chat'" :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ListArticle>
-    <Chat v-if="nowColumn === 'chat'"></Chat>
-    <HomeFooter></HomeFooter>
+    <Header></Header>
+    <ArticleList class="list-article" v-if="nowColumn !== 'chat'" :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ArticleList>
+    <Footer></Footer>
   </div>
 </template>
 <script>
 import {mapGetters, mapMutations} from 'vuex'
-import HomeHeader from './../common/HomeHeader.vue'
-import ListArticle from './../common/ListArticle.vue'
-import HomeFooter from './../common/HomeFooter.vue'
-import Chat from './../chat/Index.vue'
+import Header from './../common/home/Header.vue'
+import ArticleList from './../common/home/ArticleList.vue'
+import Footer from './../common/home/Footer.vue'
 export default {
+  name: 'home',
   computed:{ 
       ...mapGetters([
           'articleLists',
@@ -20,6 +19,9 @@ export default {
           'showNextPage',
           'articleLoading'
       ])
+  },
+  title() {
+    return 'home view'
   },
   methods:{
      ...mapMutations([
@@ -29,10 +31,9 @@ export default {
     ]),
   },
   components:{
-    ListArticle,
-    HomeHeader,
-    HomeFooter,
-    Chat,
+    ArticleList,
+    Header,
+    Footer,
   }
 }
 </script>

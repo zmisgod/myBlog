@@ -6,14 +6,15 @@ import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
-
-// import 'vue-material/dist/vue-material.min.css'
-// import 'vue-material/dist/theme/default-dark.css' // This line here
+import titleMixin from './utils/title.js'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default-dark.css' // This line here
 Vue.use(VueMaterial)
 
 import axios from 'axios'
+Vue.prototype.$http = axios
+Vue.mixin(titleMixin)
 
-Vue.use(axios)
 // import NProgress from 'nprogress'
 // import 'nprogress/nprogress.css'
 

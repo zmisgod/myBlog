@@ -12,6 +12,9 @@ export const actions = {
                 }
                 commit('ARTICLELISTS', res.data.data)
             }
+        }).catch(err =>{
+            condole.log('showIndexArticle')
+            console.log(err)
         })
     },
     showTagArticle({ commit, state }) {
@@ -26,6 +29,9 @@ export const actions = {
                 }
                 commit('ARTICLELISTS', res.data.data)
             }
+        }).catch(err =>{
+            condole.log('showTagArticle')
+            console.log(err)
         })
     },
     showCategoryArticle({ commit, state }) {
@@ -40,6 +46,9 @@ export const actions = {
                 }
                 commit('ARTICLELISTS', res.data.data)
             }
+        }).catch(err =>{
+            condole.log('showCategoryArticle')
+            console.log(err)
         })
     },
     showArticle({ commit, state }) {
@@ -47,6 +56,9 @@ export const actions = {
             if (res.data.code === 200 && res.data.data !== "") {
                 commit('ARTICLEOBJECT', res.data.data)
             }
+        }).catch(err =>{
+            condole.log('showArticle')
+            console.log(err)
         })
     },
     showSearchArticle({ commit, state }) {
@@ -61,6 +73,9 @@ export const actions = {
                 }
                 commit('ARTICLELISTS', res.data.data)
             }
+        }).catch(err =>{
+            condole.log('showSearchArticle')
+            console.log(err)
         })
     },
     showUserInfo({ commit, state }) {}

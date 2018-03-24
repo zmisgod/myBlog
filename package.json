@@ -17,6 +17,7 @@
     "compression": "^1.7.2",
     "es6-promise": "^4.2.4",
     "jsdom": "^11.6.2",
+    "npm": "^5.8.0",
     "nprogress": "^0.2.0",
     "postcss-smart-import": "^0.7.6",
     "route-cache": "^0.4.4",

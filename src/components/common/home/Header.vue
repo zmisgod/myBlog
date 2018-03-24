@@ -3,10 +3,10 @@
         <div class="top">
             <div class="top-container">
                 <div class="icons-func">
-                    <md-input-container md-theme="white" v-if="showSearchFrame">
+                    <md-field md-theme="white" v-if="showSearchFrame">
                         <label>Search Keyword</label>
                         <md-input v-model="keyword"></md-input>
-                    </md-input-container>
+                    </md-field>
                 </div>
                 <md-button class="md-icon-button" @click="doSearch()">
                     <md-icon>search</md-icon>
@@ -26,10 +26,8 @@
             <div class="menu-container">
                 <div class="menu">
                     <ul>
-                        <router-link to="/">全部文章</router-link>
-                        <router-link to="/category_3">技术分享</router-link>
-                        <router-link to="/category_1">业界资讯</router-link>
-                        <router-link to="/category_2">心情感悟</router-link>
+                        <li @click="location_category(value.id, index)" :class="index == nowCategory ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
+                        <li @click="location_channel(index)" :class="index == nowCategory ? 'selected': ''"  :key="index" v-for="(value, index) in channel" v-text="value.cn"></li>
                     </ul>
                 </div>
                 <div class="page-info"></div>
@@ -68,6 +66,8 @@ data (){
       this.COLUMNID({key: 'page', value: 1})
     },
     location_category(id,category_id) {
+        console.log(id)
+        console.log(category_id)
       this.NOWCATEGORY(category_id)
       if(id == 0) {
           return this.location_home()
@@ -83,6 +83,7 @@ data (){
         this.NOWCOLUMN('channel')
     },
     doSearch(){
+        console.log('_+_+___do search')
         this.SEARCHWORD(this.keyword)
         this.SHOWSEARCHFRAME("")
         if(this.showSearchFrame && this.keyword != "") {
@@ -182,7 +183,7 @@ header{
             .menu{
                 width: 512px;
                 overflow: hidden;
-                padding-top: 30px;
+                padding-top: 38px;
                 margin-left: 120px;
                 ul{
                     padding-left: 0;

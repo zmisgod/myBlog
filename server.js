@@ -9,7 +9,7 @@ const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
 
 
-process.env.API_HOST = '"//api.zmis.me"'
+process.env.API_HOST = 'https://api.zmis.me'
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
@@ -100,7 +100,7 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
+    title: 'zmis.me', // default title
     url: req.url,
     keywords: 'zmisgod',
     description: 'this is a test'

@@ -12,7 +12,6 @@ const extractSass = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === "development"
 });
 const isProd = process.env.NODE_ENV === 'production'
-process.env.API_HOST = '"//api.zmis.me"'
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -28,10 +27,11 @@ module.exports = {
     filename: '[name].[chunkhash].js'
   },
   resolve: {
-    alias: {
-      'public': resolve('public'),
-      '@': resolve('src'),
-      vue: 'vue/dist/vue.js'
+    extensions: ['.js', '.vue', '.json'],
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js',
+        '@': resolve('src'),
+        'public': resolve('public'),
     }
   },
   module: {
@@ -72,7 +72,7 @@ module.exports = {
       {
         test: /\.css$/,
         // 重要：使用 vue-style-loader 替代 style-loader
-        use: isProduction
+        use: isProd
           ? ExtractTextPlugin.extract({
               use: 'css-loader',
               fallback: 'vue-style-loader'

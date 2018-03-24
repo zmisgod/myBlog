@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import 'es6-promise/auto'
 import { createApp } from './app'
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({
@@ -31,19 +32,24 @@ router.onReady(() => {
   // the data that we already have. Using router.beforeResolve() so that all
   // async components are resolved.
   router.beforeResolve((to, from, next) => {
+    console.log("111")
     const matched = router.getMatchedComponents(to)
     const prevMatched = router.getMatchedComponents(from)
     let diffed = false
+    console.log("2111")
     const activated = matched.filter((c, i) => {
       return diffed || (diffed = (prevMatched[i] !== c))
     })
+    console.log("3111")
     const asyncDataHooks = activated.map(c => c.asyncData).filter(_ => _)
     if (!asyncDataHooks.length) {
+      console.log("4111")
       return next()
     }
 
     Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
       .then(() => {
+        console.log("5111")
         next()
       })
       .catch(next)
