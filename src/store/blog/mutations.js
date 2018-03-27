@@ -32,18 +32,11 @@ export const mutations = {
     CATEGORYLISTS(state, categoryLists) {
         state.categoryLists = categoryLists
     },
-    SHOWSEARCHFRAME(state, empty) {
-        if (state.showSearchFrame && state.searchWord == '') {
-            state.showSearchFrame = false
-        } else {
-            state.showSearchFrame = true
-        }
+    SHOWSEARCHFRAME(state, status) {
+        state.showSearchFrame = status
     },
     SEARCHWORD(state, keyword) {
         state.searchWord = keyword
-    },
-    CHANNEL(state, now) {
-        state.channel = now
     },
     ARTICLELOADING(state, loading) {
         state.articleLoading = loading

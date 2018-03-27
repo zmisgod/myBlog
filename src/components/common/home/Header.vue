@@ -47,6 +47,7 @@ data() {
           'categoryLists',
           'nowCategory',
           'showSearchFrame',
+          'searchWord'
       ])
   },
   methods:{
@@ -68,10 +69,14 @@ data() {
         this.$router.push({path: `/chat`})
     },
     doSearch(){
-        if(this.showSearchFrame && this.keyword !== '') {
+        if(this.showSearchFrame && this.keyword !== '' && this.keyword !== undefined) {
             this.$router.push({path: '/search?keyword='+ this.keyword})
         }else{
-            this.SHOWSEARCHFRAME(false)
+            if(this.showSearchFrame) {
+                this.SHOWSEARCHFRAME(false)
+            }else{
+                this.SHOWSEARCHFRAME(true)
+            }
         }
     },
   }
@@ -225,13 +230,14 @@ header{
             .menu-container{
                 display: flex;
                 overflow: hidden;
-                width: 300px;
+                height: 62px;
                 .menu{
                     width: 380px;
                     overflow-x: auto;
                     overflow-y: hidden;
-                    padding-top: 20px;
+                    padding-top: 28px;
                     margin-left: 0;
+                    height: 77px;
                     ul{
                         width: 380px;
                         padding-left: 0;
