@@ -2,20 +2,20 @@
   <div class="detail">
     <div class="irbbon"></div>
     <div class="main">
-      <div class="main-container">
+      <md-content class="md-elevation-5 main-container md-scrollbar">
         <div class="detail_header">
           <div class="header_container">
             <p class="p_title" v-text="articleObject.post_title"></p>
-            <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p>
+            <!-- <p class="p_author" @click="seeAuthor(articleObject.author)" v-text="articleObject.author"></p> -->
             <div class="p_tag">
-              <md-button @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-button>
-              <md-button v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)" v-text="tag.category_name"></md-button> 
+              <md-chip class="md-accent" @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-chip>
+              <md-chip class="md-primary" v-for="(tag,index) in articleObject.tag" :key="index" @click="seeTag(tag.category_id)" v-text="tag.category_name"></md-chip>
             </div>
           </div>
         </div>
         <div class="p_content main-content" v-html="articleObject.post_content"></div>
         <p class="p_date" v-text="'Posted at ' + articleObject.post_date"></p>
-      </div>
+      </md-content>
     </div>
   </div>
 </template>
@@ -27,14 +27,13 @@ export default {
   },
   computed:{
     ...mapGetters([
-          'articleObject',
-      ])
+      'articleObject',
+    ])
   },
   methods :{
     ...mapMutations([
-        'NOWCOLUMN',
-        'COLUMNID',
-        'NOWCATEGORY'
+      'NOWCOLUMN',
+      'NOWCATEGORY'
     ]),
     seeAuthor(author_name){
       this.$router.push({path: `/author/${author_name}`})
@@ -42,13 +41,11 @@ export default {
     seeTag(id){
       this.$router.push({path: `/tag_${id}`})
       this.NOWCOLUMN('tag')
-      this.COLUMNID({key: 'id', value: id})
     },
     seeCategory(id) {
       this.NOWCATEGORY(id)
       this.$router.push({path: `/category_${id}`})
       this.NOWCOLUMN('category')
-      this.COLUMNID({key: 'id', value: id})
     }
   }
 }
@@ -154,10 +151,8 @@ body.md-theme-default,.main-content,.components-container {
   padding: 1em 2em;
   width: calc(66.66667% - 16px);
   margin: 0 auto;
-  background-color: #fff;
   border-radius: 2px;
   padding: 80px 56px;
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 }
 .header_container{
     display: flex;

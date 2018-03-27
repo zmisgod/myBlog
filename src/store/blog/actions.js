@@ -1,8 +1,12 @@
 export const actions = {
     showIndexArticle({ commit, state }) {
         commit('ARTICLELOADING', false)
-        axios.get(process.env.API_HOST + '/v1/home?page=' + state.columnId[state.nowColumn].page).then(res => {
-            if (res.data.code === 200 && res.data.data !== "") {
+        let query_string = ''
+        for(let i in state.queryString) {
+            query_string += i +'=' + state.queryString[i]+ '&'
+        }
+        axios.get(process.env.API_HOST + '/v1/home?'+ query_string).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
@@ -15,8 +19,12 @@ export const actions = {
     },
     showTagArticle({ commit, state }) {
         commit('ARTICLELOADING', false)
-        axios.get(process.env.API_HOST + '/v1/tag/' + state.columnId[state.nowColumn].id + '?page=' + state.columnId[state.nowColumn].page).then(res => {
-            if (res.data.code === 200 && res.data.data !== "") {
+        let query_string = ''
+        for(let i in state.queryString) {
+            query_string += i +'=' + state.queryString[i]+ '&'
+        }
+        axios.get(process.env.API_HOST + '/v1/tag/' + state.paramsString.id + '?'+query_string).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
@@ -29,8 +37,12 @@ export const actions = {
     },
     showCategoryArticle({ commit, state }) {
         commit('ARTICLELOADING', false)
-        axios.get(process.env.API_HOST + '/v1/category/' + state.columnId[state.nowColumn].id + '?page=' + state.columnId[state.nowColumn].page).then(res => {
-            if (res.data.code === 200 && res.data.data !== "") {
+        let query_string = ''
+        for(let i in state.queryString) {
+            query_string += i +'=' + state.queryString[i]+ '&'
+        }
+        axios.get(process.env.API_HOST + '/v1/category/' + state.paramsString.id + '?'+query_string).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
@@ -42,16 +54,24 @@ export const actions = {
         })
     },
     showArticle({ commit, state }) {
-        axios.get(process.env.API_HOST + '/v1/home/' + state.columnId[state.nowColumn].id).then(res => {
-            if (res.data.code === 200 && res.data.data !== "") {
+        let query_string = ''
+        for(let i in state.queryString) {
+            query_string += i +'=' + queries[i]+ '&'
+        }
+        axios.get(process.env.API_HOST + '/v1/home/' + state.paramsString.id + '?'+query_string).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLEOBJECT', res.data.data)
             }
         })
     },
     showSearchArticle({ commit, state }) {
         commit('ARTICLELOADING', false)
-        axios.get(process.env.API_HOST + '/v1/search?keyword=' + state.searchWord + '&page=' + state.columnId[state.nowColumn].page).then(res => {
-            if (res.data.code === 200 && res.data.data !== "") {
+        let query_string = ''
+        for(let i in state.queryString) {
+            query_string += i +'=' + state.queryString[i]+ '&'
+        }
+        axios.get(process.env.API_HOST + '/v1/search?'+query_string).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)

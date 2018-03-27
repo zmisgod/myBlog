@@ -3,10 +3,10 @@
         <div class="top">
             <div class="top-container">
                 <div class="icons-func">
-                    <md-input-container md-theme="white" v-if="showSearchFrame">
+                    <md-field md-theme="white" v-if="showSearchFrame">
                         <label>Search Keyword</label>
                         <md-input v-model="keyword"></md-input>
-                    </md-input-container>
+                    </md-field>
                 </div>
                 <md-button class="md-icon-button" @click="doSearch()">
                     <md-icon>search</md-icon>
@@ -27,7 +27,6 @@
                 <div class="menu">
                     <ul>
                         <li @click="location_category(value.id, index)" :class="index == nowCategory ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
-                        <li @click="location_channel(index)" :class="index == nowCategory ? 'selected': ''"  :key="index" v-for="(value, index) in channel" v-text="value.cn"></li>
                     </ul>
                 </div>
                 <div class="page-info"></div>
@@ -38,9 +37,9 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 export default {
-data (){
+data() {
     return {
-        keyword:''
+        keyword: this.searchWord
     }
 },
  computed:{ 
@@ -48,45 +47,31 @@ data (){
           'categoryLists',
           'nowCategory',
           'showSearchFrame',
-          'searchWord',
-          'channel'
       ])
   },
   methods:{
     ...mapMutations([
       'NOWCOLUMN',
-      'COLUMNID',
       'NOWCATEGORY',
       'SHOWSEARCHFRAME',
-      'SEARCHWORD'
     ]),
     location_home() {
       this.$router.push({path: `/`})
-      this.NOWCOLUMN('home')
-      this.COLUMNID({key: 'page', value: 1})
     },
     location_category(id,category_id) {
-      this.NOWCATEGORY(category_id)
       if(id == 0) {
           return this.location_home()
       }
       this.$router.push({path: `/category_${id}`})
-      this.NOWCOLUMN('category')
-      this.COLUMNID({key: 'id', value: id})
-      this.COLUMNID({key: 'page', value: 1})
     },
     location_channel(channel){
-        this.NOWCATEGORY(channel)
         this.$router.push({path: `/chat`})
-        this.NOWCOLUMN('channel')
     },
     doSearch(){
-        this.SEARCHWORD(this.keyword)
-        this.SHOWSEARCHFRAME("")
-        if(this.showSearchFrame && this.keyword != "") {
-            this.$router.push({path: `/search?keyword=${this.keyword}`})
-            this.NOWCOLUMN('search')
-            this.COLUMNID({key: 'page', value: 1})
+        if(this.showSearchFrame && this.keyword !== '') {
+            this.$router.push({path: '/search?keyword='+ this.keyword})
+        }else{
+            this.SHOWSEARCHFRAME(false)
         }
     },
   }
@@ -180,7 +165,7 @@ header{
             .menu{
                 width: 512px;
                 overflow: hidden;
-                padding-top: 30px;
+                padding-top: 38px;
                 margin-left: 120px;
                 ul{
                     padding-left: 0;

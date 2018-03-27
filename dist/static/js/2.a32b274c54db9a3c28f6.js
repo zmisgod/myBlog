@@ -1,0 +1,2 @@
+webpackJsonp([2],{"0KbX":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n("FGMB"),u=n("dcf2"),s=n("VU/8"),a=s(r.a,u.a,!1,null,null,null);t.default=a.exports},FGMB:function(e,t,n){"use strict";t.a={name:"author",title:function(){return"user"}}},dcf2:function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement;return(e._self._c||t)("p",[e._v("this is author")])},u=[],s={render:r,staticRenderFns:u};t.a=s}});
+//# sourceMappingURL=2.a32b274c54db9a3c28f6.js.map

@@ -22,21 +22,17 @@ export default {
       }
   },
   created(){
-      this.NOWCOLUMN(this.$route.name)
-      if(this.nowColumn == 'tag') {
-            this.COLUMNID({key:'id', value:this.$route.params.id})
+        this.NOWCOLUMN(this.$route.name)
+        if(this.nowColumn == 'tag') {
             this.$store.dispatch("showTagArticle")
         }else if(this.nowColumn == 'category') {
             this.NOWCATEGORY(this.$route.params.id)
-            this.COLUMNID({key:'id', value:this.$route.params.id})
             this.$store.dispatch("showCategoryArticle")
         }else if(this.nowColumn == 'home'){
             this.$store.dispatch("showIndexArticle")
         }else if(this.nowColumn == 'search' && this.$route.query.keyword != "") {
             this.SEARCHWORD(this.$route.query.keyword)
             this.$store.dispatch("showSearchArticle")
-        }else if(this.nowColumn == 'article') {
-            this.COLUMNID({key:'id', value:this.$route.params.id})
         }
   },
   mounted(){
@@ -72,7 +68,6 @@ export default {
   methods: {
     ...mapMutations([
         'NOWCOLUMN',
-        'COLUMNID',
         'SEARCHWORD',
         'NOWCATEGORY'
     ]),

@@ -1,60 +1,54 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/home/Index'
-import ArticleDetail from '@/components/single/Detail'
-import ArticleSingle from '@/components/single/Single'
-import AuthorInfo from '@/components/author/Info'
+
+const Home = () => import('@/components/layout/Home.vue')
+const Detail = () => import('@/components/layout/Detail.vue')
+const Author = () => import('@/components/layout/Author.vue')
 
 Vue.use(Router)
 
 export default new Router({
     mode: 'history',
-    scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return { x: 0, y: 0 }
-        }
-    },
+    scrollBehavior: () => ({ y: 0 }),
     routes: [{
             path: '/',
             name: 'home',
-            component: Index
+            component: Home
         },
         {
             path: `/detail_:id`,
             name: 'article',
-            component: ArticleDetail
+            component: Detail
         },
         {
             path: '/single',
             name: 'single',
-            component: ArticleSingle
+            component: Detail
         },
         {
             path: `/tag_:id`,
             name: 'tag',
-            component: Index
+            component: Home
         },
         {
             path: `/category_:id`,
             name: 'category',
-            component: Index
+            component: Home
         },
         {
             path: `/search`,
             name: 'search',
-            component: Index
+            component: Home
         },
         {
             path: `/chat`,
             name: 'chat',
-            component: Index
+            component: Home
         },
         {
             path: `/author/:author_name`,
             name: 'author_info',
-            component: AuthorInfo
+            component: Author
         },
     ]
 })

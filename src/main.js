@@ -6,7 +6,8 @@ import router from './router'
 import store from './store'
 import VueMaterial from 'vue-material'
 import axios from 'axios'
-import 'vue-material/dist/vue-material.css'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css' // This line here
 import 'animate.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -15,13 +16,28 @@ NProgress.configure({ easing: 'ease', speed: 500, showSpinner: true })
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 window.axios = axios
-Vue.material.registerTheme('white', {
-    primary: 'white',
-    accent: 'white',
-    warn: 'white',
-    background: 'white'
-})
 router.beforeEach((to, from, next) => {
+    let temQuery = {}
+    for(let i in to.query) {
+        if(i != "") {
+            temQuery[i] = to.query[i]
+        }
+    }
+    if(to.name === 'search' && to.query.keyword !== undefined && to.query.keyword !== '') {
+        store.commit("SHOWSEARCHFRAME", true)
+        store.commit("SEARCHWORD", to.query.keyword)
+    }else{
+        store.commit("SHOWSEARCHFRAME", false)
+    }
+    if(to.params.id !== undefined && to.name === 'category') {
+        store.commit("NOWCATEGORY", to.params.id)
+    }else if(to.name == 'home'){
+        store.commit("NOWCATEGORY", 0)
+    }
+    store.commit("NOWCOLUMN", to.name)
+    store.commit("PARAMSSTRING", to.params)
+    store.commit("QUERYSTRING", temQuery)
+    store.commit("URI", to.path)
     NProgress.start()
     next()
 })

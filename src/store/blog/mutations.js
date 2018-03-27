@@ -14,9 +14,6 @@ export const mutations = {
     LEFTBAR(state, leftBar) {
         state.leftBar = leftBar
     },
-    COLUMNID(state, dataObj) {
-        state.columnId[state.nowColumn][dataObj.key] = dataObj.value
-    },
     NOWCOLUMN(state, nowColumn) {
         state.nowColumn = nowColumn
     },
@@ -50,5 +47,14 @@ export const mutations = {
     },
     ARTICLELOADING(state, loading) {
         state.articleLoading = loading
+    },
+    QUERYSTRING(state, query) {
+        state.queryString = query
+    },
+    PARAMSSTRING(state, params) {
+        state.paramsString = params
+    },
+    URI(state, uri) {
+        state.uri = uri
     }
 }

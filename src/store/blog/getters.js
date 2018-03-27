@@ -13,5 +13,8 @@ export const getters = {
     showSearchFrame: state => state.showSearchFrame,
     searchWord: state => state.searchWord,
     channel: state => state.channel,
-    articleLoading: state => state.articleLoading
+    articleLoading: state => state.articleLoading,
+    queryString: state => state.queryString,
+    paramsString: state => state.paramsString,
+    uri: state => state.uri
 }
