@@ -4,13 +4,20 @@ import Router from 'vue-router'
 const Home = () => import('@/components/layout/Home.vue')
 const Detail = () => import('@/components/layout/Detail.vue')
 const Author = () => import('@/components/layout/Author.vue')
+const NotFound = () => import('@/components/layout/NotFound.vue')
 
 Vue.use(Router)
 
 export default new Router({
     mode: 'history',
     scrollBehavior: () => ({ y: 0 }),
-    routes: [{
+    routes: [
+        {
+            path: '/notFound',
+            name: 'notFound',
+            component: NotFound
+        },
+        {
             path: '/',
             name: 'home',
             component: Home

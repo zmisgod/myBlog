@@ -1,19 +1,37 @@
-import { getters } from './getters'
-import { actions } from './actions'
-import { mutations } from './mutations'
+import {
+    getters
+} from './getters'
+import {
+    actions
+} from './actions'
+import {
+    mutations
+} from './mutations'
 
 const state = {
+    customStyle: {
+        'DARK_PRIMARY_COLOR': '#388e3c',
+        'LIGHT_PRIMARY_COLOR': '#C8E6C9',
+        'PRIMARY_COLOR': '#4CAF50',
+        'COLOR': '#FFFFFF',
+        'ACCENT_COLOR': '#FFC107',
+        'PRIMARY_TEXT': '#212121',
+        'SECONDARY_TEXT': '#757575',
+        'DIVIDER_COLOR': '#BDBDBD'
+    },
     title: 'starzmisgod',
     showSearchFrame: false,
     description: '',
     nowCategory: '0',
+    codeStatus: 200,
     queryString: {},
-    paramsString:{},
-    uri:'',
+    paramsString: {},
+    uri: '',
+    userMenu: false,
     categoryLists: {
         '0': {
             cn: '全部文章',
-            id: 0
+            id: 0,
         },
         '3': {
             cn: '技术分享',
@@ -35,7 +53,18 @@ const state = {
     leftBar: 0, //左边的菜单栏是否开启 0 关闭 1 开启
     nowColumn: 'home', //home， article，category，tag, comment
     articleLoading: false,
-    searchWord:''
+    searchWord: '',
+    user: {
+        socialMedia: {
+            github: "https://github.com/zmisgod",
+            weibo: "https://weibo.com/zmisgod"
+        },
+        info: {
+            name: 'zmisgod',
+            avatar: '',
+            description: 'nothing to say'
+        }
+    }
 }
 
 export default {

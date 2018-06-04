@@ -49,5 +49,17 @@ export const mutations = {
     },
     URI(state, uri) {
         state.uri = uri
+    },
+    USER(state, key, value) {
+        state.key = value
+    },
+    USERMENU(state, bools) {
+        state.userMenu = !bools
+    },
+    CODESTATE(state, codeStatus) {
+        state.codeStatus = codeStatus
+    },
+    CUSTOMSTYLE(state, style) {
+        state.customStyle = style
     }
 }

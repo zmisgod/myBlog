@@ -14,5 +14,9 @@ export const getters = {
     articleLoading: state => state.articleLoading,
     queryString: state => state.queryString,
     paramsString: state => state.paramsString,
-    uri: state => state.uri
+    uri: state => state.uri,
+    user: state => state.user,
+    userMenu: state => state.userMenu,
+    codeStatus: state => state.codeStatus,
+    customStyle: state => state.customStyle
 }

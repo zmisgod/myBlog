@@ -14,6 +14,8 @@ export const actions = {
                     commit('SHOWNEXTPAGE', false)
                 }
                 commit('ARTICLELISTS', res.data.data)
+            }else{
+                commit('CODESTATUS', res.data.code)
             }
         })
     },
@@ -32,6 +34,8 @@ export const actions = {
                     commit('SHOWNEXTPAGE', false)
                 }
                 commit('ARTICLELISTS', res.data.data)
+            }else{
+                commit('CODESTATUS', res.data.code)
             }
         })
     },
@@ -50,6 +54,8 @@ export const actions = {
                     commit('SHOWNEXTPAGE', false)
                 }
                 commit('ARTICLELISTS', res.data.data)
+            }else{
+                commit('CODESTATUS', res.data.code)
             }
         })
     },
@@ -61,6 +67,8 @@ export const actions = {
         axios.get(process.env.API_HOST + '/v1/home/' + state.paramsString.id + '?'+query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLEOBJECT', res.data.data)
+            }else{
+                commit('CODESTATUS', res.data.code)
             }
         })
     },
@@ -79,6 +87,8 @@ export const actions = {
                     commit('SHOWNEXTPAGE', false)
                 }
                 commit('ARTICLELISTS', res.data.data)
+            }else{
+                commit('CODESTATUS', res.data.code)
             }
         })
     },

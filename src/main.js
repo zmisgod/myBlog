@@ -42,7 +42,20 @@ router.beforeEach((to, from, next) => {
     next()
 })
 
-router.afterEach(() => {
+router.afterEach((to, from) => {
+    if(to.name == 'tag') {
+        store.dispatch("showTagArticle")
+    }else if(to.name == 'category') {
+        store.dispatch("showCategoryArticle")
+    }else if(to.name == 'home'){
+        store.dispatch("showIndexArticle")
+    }else if(to.name == 'search' && to.query.keyword != "") {
+        store.dispatch("showSearchArticle")
+    }else if(to.name == 'article') {
+
+    }else{
+        router.push('/notFound')
+    }
     NProgress.done()
 })
 

@@ -1,47 +1,37 @@
 <template>
   <div class="main-conatiner">
     <Header></Header>
-    <ArticleList class="list-article" :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ArticleList>
+    <ArticleList :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ArticleList>
     <Footer></Footer>
   </div>
 </template>
 <script>
-import {mapGetters, mapMutations} from 'vuex'
-import Header from './../common/home/Header.vue'
-import ArticleList from './../common/home/ArticleList.vue'
-import Footer from './../common/home/Footer.vue'
+import { mapGetters, mapMutations } from "vuex";
+import Header from "./../common/home/Header.vue";
+import ArticleList from "./../common/home/ArticleList.vue";
+import Footer from "./../common/home/Footer.vue";
 export default {
-  name: 'home',
-  computed:{
+  name: "home",
+  computed: {
     ...mapGetters([
-      'articleLists',
-      'nowColumn',
-      'showNextPage',
-      'articleLoading'
+      "articleLists",
+      "nowColumn",
+      "showNextPage",
+      "articleLoading"
     ])
   },
   title() {
-    return 'home view'
+    return "home view";
   },
-  methods:{
-    ...mapMutations([
-      'NOWCOLUMN',
-      'SHOWNEXTPAGE'
-    ]),
+  methods: {
+    ...mapMutations(["NOWCOLUMN", "SHOWNEXTPAGE"])
   },
-  components:{
+  components: {
     ArticleList,
     Header,
-    Footer,
+    Footer
   }
-}
+};
 </script>
 <style>
-.list-article{
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  background-color: #eee;
-}
 </style>
