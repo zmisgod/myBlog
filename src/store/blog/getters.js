@@ -18,5 +18,6 @@ export const getters = {
     user: state => state.user,
     userMenu: state => state.userMenu,
     codeStatus: state => state.codeStatus,
-    customStyle: state => state.customStyle
+    customStyle: state => state.customStyle,
+    githubRepository: state => state.github_repository
 }

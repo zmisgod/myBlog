@@ -54,15 +54,18 @@ const state = {
     nowColumn: 'home', //home， article，category，tag, comment
     articleLoading: false,
     searchWord: '',
+    github_repository: 'https://github.com/zmisgod/myBlog',
     user: {
         socialMedia: {
             github: "https://github.com/zmisgod",
-            weibo: "https://weibo.com/zmisgod"
+            weibo: "https://weibo.com/zmisgod",
+            email: "starzmisgod@gmail.com",
+            phone: 15216743007
         },
         info: {
             name: 'zmisgod',
-            avatar: '',
-            description: 'nothing to say'
+            avatar: '/static/logo.png',
+            description: '生而为人，我很抱歉'
         }
     }
 }

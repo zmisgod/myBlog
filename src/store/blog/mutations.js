@@ -61,5 +61,8 @@ export const mutations = {
     },
     CUSTOMSTYLE(state, style) {
         state.customStyle = style
+    },
+    GITHUBREPOSITORY(state, githubRepository) {
+        state.githubRepository = githubRepository
     }
 }

@@ -12,8 +12,7 @@
       <div class="user_intro">
         <div class="p_user">
           <div class="blog_author">
-            <span>作者</span>
-            <socialMedia :socialMedia="user.socialMedia"></socialMedia>
+            <span>作者:</span>
           </div>
           <p class="author_name">zmisgod</p>
         </div>
@@ -103,7 +102,7 @@ export default {
   word-break: break-all;
   margin-top: 30px;
   p {
-    padding: 0.3em 0.3em;
+    padding: 0.3em 1em;
     line-height: 2em;
     color: #444343;
   }
@@ -318,7 +317,7 @@ body.md-theme-default,
     margin: 0 10px !important;
   }
   .main-content p {
-    padding: 0.3em 0.2em !important;
+    padding: 0.3em 1em !important;
   }
   .user_info {
     display: flex;
