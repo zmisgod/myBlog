@@ -56,7 +56,7 @@ export const mutations = {
     USERMENU(state, bools) {
         state.userMenu = !bools
     },
-    CODESTATE(state, codeStatus) {
+    CODESTATUS(state, codeStatus) {
         state.codeStatus = codeStatus
     },
     CUSTOMSTYLE(state, style) {

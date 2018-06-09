@@ -88,7 +88,7 @@ export default {
   color: #fff;
   padding: 5px 10px;
   word-break: keep-all;
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
   position: absolute;
   bottom: 0;
 }

@@ -323,7 +323,7 @@ body.md-theme-default,
     display: flex;
     width: 100%;
     padding: 10px 0;
-    margin-top: -250px;
+    margin-top: -220px;
     padding: 2em 1em;
     color: #fff;
     .user_head {
