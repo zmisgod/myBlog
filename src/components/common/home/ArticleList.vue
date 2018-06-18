@@ -4,11 +4,11 @@
       <div class="article-container" v-if="articleLists.length != 0">
         <div  class="home-lists showan" :key="articleObj.id" v-for="(articleObj) in articleLists">
           <p class="a-title" @click="location_article(articleObj.id)"  v-html="articleObj.post_title"></p>
-          <p class="a-info"><span class="a-author" v-text="'作者:' + articleObj.author"></span> <span class="a-post-at">发布于:</span> <span class="a-date" v-text="articleObj.post_date"></span></p>
+          <p class="a-info"><span class="a-author" v-text="'作者:' + articleObj.user_name"></span> <span class="a-post-at">发布于:</span> <span class="a-date" v-text="articleObj.created_at"></span></p>
           <p class="a-content" v-html="articleObj.post_intro"></p>
-          <div class="a-tag" v-if="articleObj.tag">
-            <a :key="t_id" @click="location_tag(tag.category_id)" v-for="(tag,t_id) in articleObj.tag">
-              <md-chip class="md-transparent"  v-text="tag.category_name"></md-chip>
+          <div class="a-tag" v-if="articleObj.tags">
+            <a :key="tag_id" @click="location_tag(tag.tag_id)" v-for="(tag,tag_id) in articleObj.tags">
+              <md-chip class="md-transparent"  v-text="tag.tag_name"></md-chip>
             </a>
           </div>
         </div>

@@ -1,3 +1,4 @@
+const marked = require("marked");
 export const mutations = {
     TITLE(state, title) {
         state.title = title
@@ -18,6 +19,7 @@ export const mutations = {
         state.nowColumn = nowColumn
     },
     ARTICLEOBJECT(state, articleObject) {
+        articleObject.contents = marked(articleObject.contents)
         state.articleObject = articleObject
     },
     SHOWNEXTPAGE(state, show) {
