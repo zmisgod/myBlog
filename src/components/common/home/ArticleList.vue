@@ -47,10 +47,10 @@ export default {
   methods: {
     ...mapMutations(["NOWCOLUMN"]),
     location_article(id) {
-      this.$router.push({ path: `/detail_${id}` });
+      this.$router.push({ path: `/article/${id}` });
     },
     location_tag(id) {
-      this.$router.push({ path: `/tag_${id}` });
+      this.$router.push({ path: `/tag/${id}` });
     },
     nextPage() {
       let uri = this.$store.state.blog.uri;

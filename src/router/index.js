@@ -1,18 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Home = () => import('@/components/layout/Home.vue')
-const Detail = () => import('@/components/layout/Detail.vue')
-const Author = () => import('@/components/layout/Author.vue')
-const NotFound = () => import('@/components/layout/NotFound.vue')
+const Home = () =>
+    import ('@/components/layout/Home.vue')
+const Detail = () =>
+    import ('@/components/layout/Detail.vue')
+const Author = () =>
+    import ('@/components/layout/Author.vue')
+const NotFound = () =>
+    import ('@/components/layout/NotFound.vue')
 
 Vue.use(Router)
 
 export default new Router({
     mode: 'history',
-    scrollBehavior: () => ({ y: 0 }),
-    routes: [
-        {
+    scrollBehavior: () => ({
+        y: 0
+    }),
+    routes: [{
             path: '/notFound',
             name: 'notFound',
             component: NotFound
@@ -23,7 +28,7 @@ export default new Router({
             component: Home
         },
         {
-            path: `/detail_:id`,
+            path: `/article/:id`,
             name: 'article',
             component: Detail
         },
@@ -33,12 +38,12 @@ export default new Router({
             component: Detail
         },
         {
-            path: `/tag_:id`,
+            path: `/tag/:id`,
             name: 'tag',
             component: Home
         },
         {
-            path: `/category_:id`,
+            path: `/category/:id`,
             name: 'category',
             component: Home
         },

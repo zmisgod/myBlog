@@ -6,23 +6,25 @@
 
     <div class="irbbon"></div>
     <div class="user_info">
-      <div class="user_head" @click="showMenu()">
-        <img :src="articleObject.user_info.head_url">
+      <div class="user_head" @click="showMenu()" v-if="articleObject.num_info.comment_num != 0">
+        <svg aria-hidden="true" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg>
+        <span class="pading-left-5"><b v-text="articleObject.num_info.comment_num"></b></span>
       </div>
-      <div class="user_intro">
-        <div class="p_user">
-          <div class="blog_author">
-            <span>作者:</span>
+      <div class="user_head" v-else>
+        <svg aria-hidden="true" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg>
+        <span class="pading-left-5"><b v-text="articleObject.num_info.comment_num"></b></span>
+      </div>
+      <div class="article_simple_intro">
+          <div class="article_author">
+            <div class="user-head-info">
+              <img :src="articleObject.user_info.head_url">
+            </div>
+            <span class="author_name" v-text="articleObject.user_info.nickname"></span>
           </div>
-          <p class="author_name" v-text="articleObject.user_info.nickname"></p>
-        </div>
-        <div class="p_date">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"/></svg>
-              <md-tooltip md-direction="bottom">Post Time</md-tooltip>
-            </span>
+          <div class="articel_post_time">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"/></svg>
             <p v-text="articleObject.created_at"></p>
-        </div>
+          </div>
       </div>
     </div>
     <div class="main">
@@ -30,7 +32,7 @@
         <div class="detail_header">
           <div class="header_container">
             <p class="p_title" v-text="articleObject.post_title"></p>
-            <div class="p_tag" v-if="articleObject.category_name !== undefined">
+            <div class="p_tag" v-if="articleObject.category_id !== 0">
               <md-chip class="md-accent" @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-chip>
               <md-chip class="md-primary" v-for="(tag,index) in articleObject.tags" :key="index" @click="seeTag(tag.tag_id)" v-text="tag.tag_name"></md-chip>
             </div>
@@ -84,10 +86,10 @@ export default {
       this.$router.push({ path: `/author/${author_name}` });
     },
     seeTag(id) {
-      this.$router.push({ path: `/tag_${id}` });
+      this.$router.push({ path: `/tag/${id}` });
     },
     seeCategory(id) {
-      this.$router.push({ path: `/category_${id}` });
+      this.$router.push({ path: `/category/${id}` });
     }
   },
   components: {
@@ -198,7 +200,7 @@ body.md-theme-default,
   }
 }
 .irbbon {
-  height: 35vh;
+  height: 250px;
   background-color: #4285f4;
   flex-shrink: 0;
   width: 100%;
@@ -216,6 +218,16 @@ body.md-theme-default,
   align-items: center;
   justify-content: center;
 }
+.md-chip {
+  margin: 10px;
+}
+.user-head-info {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 .user_info {
   display: flex;
   width: 100%;
@@ -224,44 +236,46 @@ body.md-theme-default,
   padding: 2em 2em;
   color: #fff;
   .user_head {
-    border: 1px solid #eee;
     cursor: pointer;
-    border-radius: 50%;
-    margin-right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #fff;
-    img {
-      width: 60px;
-      height: 60px;
+    width: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      max-width: 30px;
+      height: 30px;
+      fill: #fff;
     }
   }
-  .user_intro {
+  .article_simple_intro {
     width: 100%;
-    .p_user {
-      padding: 5px 0;
-      float: left;
-      .blog_author {
-        span {
-          font-size: 16px;
-          padding-right: 10px;
-        }
-      }
-      .author_name {
-        font-size: 20px;
-        color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .article_author {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 15px;
+        height: 15px;
+        fill: #fff;
       }
     }
-    .p_date {
+    .articel_post_time {
       display: flex;
-      float: right;
-      padding-top: 0;
-      padding-right: 0;
+      align-items: center;
+      padding-top: 10px;
       svg {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
         fill: #fff;
-        padding-right: 5px;
+      }
+      p {
+        font-size: 12px;
+        padding-left: 5px;
       }
     }
   }
@@ -331,37 +345,19 @@ body.md-theme-default,
     padding: 2em 1em;
     color: #fff;
     .user_head {
-      border: 1px solid #eee;
       border-radius: 50%;
       margin-right: 10px;
-      width: 40px;
+      max-width: 40px;
       height: 40px;
-      background-color: #fff;
-      img {
-        width: 40px;
+      svg {
+        max-width: 40px;
         height: 40px;
       }
+      .comments_count {
+      }
     }
-    .user_intro {
+    .article_simple_intro {
       width: 100%;
-      .p_user {
-        padding: 0;
-        float: left;
-        .blog_author {
-          span {
-            font-size: 14px;
-            padding-right: 10px;
-          }
-        }
-        .author_name {
-          font-size: 16px;
-          color: #fff;
-        }
-      }
-      .p_date {
-        padding-top: 18px;
-        font-size: 12px;
-      }
     }
   }
   .main-container {

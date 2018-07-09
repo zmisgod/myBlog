@@ -60,7 +60,7 @@ export default {
       if (id == 0) {
         return this.location_home();
       }
-      this.$router.push({ path: `/category_${id}` });
+      this.$router.push({ path: `/category/${id}` });
     },
     location_channel(channel) {
       this.$router.push({ path: `/chat` });
