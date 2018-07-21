@@ -9,6 +9,8 @@ const Author = () =>
     import ('@/components/layout/Author.vue')
 const NotFound = () =>
     import ('@/components/layout/NotFound.vue')
+const CRH = () =>
+    import ('@/components/layout/Crh.vue')
 
 Vue.use(Router)
 
@@ -18,6 +20,11 @@ export default new Router({
         y: 0
     }),
     routes: [{
+            path: '/crh',
+            name: 'crh',
+            component: CRH
+        },
+        {
             path: '/notFound',
             name: 'notFound',
             component: NotFound

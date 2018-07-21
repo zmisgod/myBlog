@@ -12,26 +12,30 @@ import 'animate.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 NProgress.inc(0.2)
-NProgress.configure({ easing: 'ease', speed: 500, showSpinner: true })
+NProgress.configure({
+    easing: 'ease',
+    speed: 500,
+    showSpinner: true
+})
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 window.axios = axios
 router.beforeEach((to, from, next) => {
     let temQuery = {}
-    for(let i in to.query) {
-        if(i != "") {
+    for (let i in to.query) {
+        if (i != "") {
             temQuery[i] = to.query[i]
         }
     }
-    if(to.name === 'search' && to.query.keyword !== undefined && to.query.keyword !== '') {
+    if (to.name === 'search' && to.query.keyword !== undefined && to.query.keyword !== '') {
         store.commit("SHOWSEARCHFRAME", true)
         store.commit("SEARCHWORD", to.query.keyword)
-    }else{
+    } else {
         store.commit("SHOWSEARCHFRAME", false)
     }
-    if(to.params.id !== undefined && to.name === 'category') {
+    if (to.params.id !== undefined && to.name === 'category') {
         store.commit("NOWCATEGORY", to.params.id)
-    }else if(to.name == 'home'){
+    } else if (to.name == 'home') {
         store.commit("NOWCATEGORY", 0)
     }
     store.commit("NOWCOLUMN", to.name)
@@ -43,17 +47,19 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to, from) => {
-    if(to.name == 'tag') {
+    if (to.name == 'tag') {
         store.dispatch("showTagArticle")
-    }else if(to.name == 'category') {
+    } else if (to.name == 'category') {
         store.dispatch("showCategoryArticle")
-    }else if(to.name == 'home'){
+    } else if (to.name == 'home') {
         store.dispatch("showIndexArticle")
-    }else if(to.name == 'search' && to.query.keyword != "") {
+    } else if (to.name == 'search' && to.query.keyword != "") {
         store.dispatch("showSearchArticle")
-    }else if(to.name == 'article') {
+    } else if (to.name == 'article') {
 
-    }else{
+    } else if (to.name == 'crh') {
+
+    } else {
         router.push('/notFound')
     }
     NProgress.done()
@@ -65,5 +71,7 @@ new Vue({
     router,
     store,
     template: '<App/>',
-    components: { App }
+    components: {
+        App
+    }
 })

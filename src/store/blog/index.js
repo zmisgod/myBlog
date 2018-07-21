@@ -28,6 +28,9 @@ const state = {
     paramsString: {},
     uri: '',
     userMenu: false,
+    commentLoading: false,
+    commentNowPage: 1,
+    commentLists: [],
     categoryLists: {
         '0': {
             cn: '全部文章',

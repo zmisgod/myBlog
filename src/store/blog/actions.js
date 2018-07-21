@@ -110,5 +110,22 @@ export const actions = {
     showUserInfo({
         commit,
         state
-    }) {}
+    }) {},
+    showCommentLists({
+        commit,
+        state
+    }) {
+        commit('COMMENTLOADING', true)
+        axios.get(process.env.API_HOST + '/v1/comment/' + state.paramsString.id + '?page=' + state.commentNowPage).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
+                commit('COMMENTLOADING', false)
+                if (res.data.data.length === state.pageSize) {
+                    commit("COMMENTNOWPAGE", ++state.commentNowPage)
+                }
+                commit('COMMENTLISTS', res.data.data)
+            } else {
+                commit('CODESTATUS', res.data.code)
+            }
+        })
+    },
 }

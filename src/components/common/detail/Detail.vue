@@ -1,25 +1,25 @@
 <template>
   <div class="detail">
-    <md-drawer class="user-drawer" :md-active.sync="userMenu" md-fixed>
-      <userMenu></userMenu>
+    <md-drawer class="user-drawer" :md-active.sync="comments" md-fixed>
+      <commentList></commentList>
     </md-drawer>
 
     <div class="irbbon"></div>
     <div class="user_info">
-      <div class="user_head" @click="showMenu()" v-if="articleObject.num_info.comment_num != 0">
+      <div class="user_head" @click="showMenu()" v-if="articleObject && articleObject.num_info && articleObject.num_info.comment_num && articleObject.num_info.comment_num != 0">
         <svg aria-hidden="true" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg>
         <span class="pading-left-5"><b v-text="articleObject.num_info.comment_num"></b></span>
       </div>
       <div class="user_head" v-else>
         <svg aria-hidden="true" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg>
-        <span class="pading-left-5"><b v-text="articleObject.num_info.comment_num"></b></span>
+        <span class="pading-left-5"><b  v-text="articleObject.num_info && articleObject.num_info.comment_num ? articleObject.num_info.comment_num : 0"></b></span>
       </div>
       <div class="article_simple_intro">
           <div class="article_author">
             <div class="user-head-info">
-              <img :src="articleObject.user_info.head_url">
+              <img :src="articleObject.user_info && articleObject.user_info.head_url ? articleObject.user_info.head_url  : ''">
             </div>
-            <span class="author_name" v-text="articleObject.user_info.nickname"></span>
+            <span class="author_name" v-text="articleObject.user_info && articleObject.user_info.nickname ?articleObject.user_info.nickname  : '' "></span>
           </div>
           <div class="articel_post_time">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"/></svg>
@@ -62,7 +62,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import socialMedia from "./../user/SocialMedia.vue";
-import userMenu from "./../user/UserMenu.vue";
+import commentList from "./../comment/CommentList.vue";
 const markdown = require("markdown").markdown;
 export default {
   mounted() {
@@ -70,7 +70,7 @@ export default {
   },
   data() {
     return {
-      userMenu: false
+      comments: false
     };
   },
   computed: {
@@ -79,7 +79,8 @@ export default {
   methods: {
     ...mapMutations(["NOWCOLUMN", "NOWCATEGORY"]),
     showMenu() {
-      this.userMenu = true;
+      this.$store.dispatch("showCommentLists");
+      this.comments = true;
     },
     originalHtml() {},
     seeAuthor(author_name) {
@@ -94,7 +95,7 @@ export default {
   },
   components: {
     socialMedia,
-    userMenu
+    commentList
   }
 };
 </script>

@@ -19,5 +19,8 @@ export const getters = {
     userMenu: state => state.userMenu,
     codeStatus: state => state.codeStatus,
     customStyle: state => state.customStyle,
-    githubRepository: state => state.github_repository
+    githubRepository: state => state.github_repository,
+    commentLoading: state => state.commentLoading,
+    commentNowPage: state => state.commentNowPage,
+    commentLists: state => state.commentLists,
 }
