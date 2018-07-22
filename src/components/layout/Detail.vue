@@ -1,17 +1,22 @@
 <template>
   <div>
-    <Detal></Detal>
+    <Detail></Detail>
   </div>
 </template>
 <script>
-import Detal from './../common/detail/Detail.vue'
+import Detail from "./../common/detail/Detail.vue";
 export default {
-  name: 'detail',
+  name: "detail",
   title() {
-    return 'detail'
+    return "detail";
   },
-  components:{
-    Detal
+  components: {
+    Detail
   }
-}
+};
 </script>
+<style>
+.pading-left-5 {
+  padding-left: 5px;
+}
+</style>

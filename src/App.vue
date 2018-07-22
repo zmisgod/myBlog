@@ -10,118 +10,100 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex'
-let timer= false
+import { mapGetters, mapMutations } from "vuex";
+let timer = false;
 export default {
-  data(){
-      return {
-          toTop: false,
-          transitionName: 'animated zoomInDown',
-      }
+  name: "app",
+  data() {
+    return {
+      toTop: false,
+      transitionName: "animated zoomInDown",
+      swipeable: true
+    };
   },
-  mounted(){
-      this.$nextTick(function () {  
-         window.addEventListener('scroll', this.needToTop);  //滚动事件监听  
-      }); 
+  computed: {
+    // ...mapGetters(["title", "nowColumn"])
   },
-  created(){
-      this.NOWCOLUMN(this.$route.name)
-      if(this.nowColumn == 'tag') {
-            this.COLUMNID({key:'id', value:this.$route.params.id})
-            this.$store.dispatch("showTagArticle")
-        }else if(this.nowColumn == 'category') {
-            this.NOWCATEGORY(this.$route.params.id)
-            this.COLUMNID({key:'id', value:this.$route.params.id})
-            this.$store.dispatch("showCategoryArticle")
-        }else if(this.nowColumn == 'home'){
-            this.$store.dispatch("showIndexArticle")
-        }else if(this.nowColumn == 'search' && this.$route.query.keyword != "") {
-            this.SEARCHWORD(this.$route.query.keyword)
-            this.$store.dispatch("showSearchArticle")
-        }else if(this.nowColumn == 'article') {
-            this.COLUMNID({key:'id', value:this.$route.params.id})
-        }
-  },
-  watch: {
-    '$route' (to, from) {
-        this.NOWCOLUMN(to.name)
-        if(to.name == 'tag') {
-            this.$store.dispatch("showTagArticle")
-        }else if(to.name == 'category') {
-            this.$store.dispatch("showCategoryArticle")
-        }else if(to.name == 'home'){
-            this.$store.dispatch("showIndexArticle")
-        } else if(to.name == 'search') {
-            this.$store.dispatch("showSearchArticle")
-        } else if(to.name == "author_info") {
-            this.$store.dispatch("showUserInfo")
-        }
-    }
+  mounted() {
+    this.$nextTick(function() {
+      window.addEventListener("scroll", this.needToTop); //滚动事件监听
+    });
   },
   methods: {
-      ...mapMutations([
-        'NOWCOLUMN',
-        'COLUMNID',
-        'SEARCHWORD',
-        'NOWCATEGORY'
-    ]),
-    goTop() {// 回到顶部方法
-        clearInterval(timer)
-        timer = setInterval(function() {
-            let curHeight = document.documentElement.scrollTop || document.body.scrollTop// 得到当前高度  
-            var now = curHeight
-            var speed = (0 - now) / 7// 随着高度减速
-            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
-            if (curHeight === 0) {//当前高度为零,停止这次计时器  
-              clearInterval(timer)// C1  
-            }
-            document.documentElement.scrollTop = curHeight + speed//直接给高度赋值,会调用needtotop方法  
-            document.body.scrollTop = curHeight + speed//谷歌的  
-            stop = false// A
-       }, 30)
+    ...mapMutations(["NOWCOLUMN", "SEARCHWORD", "NOWCATEGORY"]),
+    goTop() {
+      // 回到顶部方法
+      clearInterval(timer);
+      timer = setInterval(function() {
+        let curHeight =
+          document.documentElement.scrollTop || document.body.scrollTop; // 得到当前高度
+        var now = curHeight;
+        var speed = (0 - now) / 7; // 随着高度减速
+        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+        if (curHeight === 0) {
+          //当前高度为零,停止这次计时器
+          clearInterval(timer); // C1
+        }
+        document.documentElement.scrollTop = curHeight + speed; //直接给高度赋值,会调用needtotop方法
+        document.body.scrollTop = curHeight + speed; //谷歌的
+        stop = false; // A
+      }, 30);
     },
     needToTop() {
-        let curHeight = document.documentElement.scrollTop || document.body.scrollTop
-        let viewHeight = document.documentElement.clientHeight
-        if (curHeight > viewHeight + 100) {
-          this.toTop = true //赋值是为了按钮的v-show='toTop'  
-        }else  {
-          this.toTop = false;  
-        }
-        if (stop) {//STOP  
-          clearInterval(timer)//C2  
-        }
-        stop = true//B  
+      let curHeight =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      let viewHeight = document.documentElement.clientHeight;
+      if (curHeight > viewHeight + 100) {
+        this.toTop = true; //赋值是为了按钮的v-show='toTop'
+      } else {
+        this.toTop = false;
+      }
+      if (stop) {
+        //STOP
+        clearInterval(timer); //C2
+      }
+      stop = true; //B
     }
   }
-}
+};
 </script>
 
 <style>
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
-p,h1,h2,h3,h4 {
-    margin: 0;
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
 }
-#nprogress .bar{
-    background: #3f51b5;
+#nprogress .bar {
+  background: #3f51b5;
+}
+ul,
+li {
+  list-style: none;
+}
+ul {
+  padding-left: 0px;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
 }
-.components-container{
-    -webkit-overflow-scrolling : touch;
-    background-color: #fff;
+.components-container {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
-.go-top{
-    position: fixed !important;
-    bottom: 20px;
-    right: 0;
+.go-top {
+  position: fixed !important;
+  bottom: 20px;
+  left: 0;
 }
 </style>

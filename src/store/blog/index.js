@@ -1,21 +1,37 @@
-import { getters } from './getters'
-import { actions } from './actions'
-import { mutations } from './mutations'
+import {
+    getters
+} from './getters'
+import {
+    actions
+} from './actions'
+import {
+    mutations
+} from './mutations'
 
 const state = {
+    customStyle: {
+        'DARK_PRIMARY_COLOR': '#388e3c',
+        'LIGHT_PRIMARY_COLOR': '#C8E6C9',
+        'PRIMARY_COLOR': '#4CAF50',
+        'COLOR': '#FFFFFF',
+        'ACCENT_COLOR': '#FFC107',
+        'PRIMARY_TEXT': '#212121',
+        'SECONDARY_TEXT': '#757575',
+        'DIVIDER_COLOR': '#BDBDBD'
+    },
     title: 'starzmisgod',
     showSearchFrame: false,
     description: '',
     nowCategory: '0',
-    channel: {
-        'chat': {
-            cn: '聊天室',
-        }
-    },
+    codeStatus: 200,
+    queryString: {},
+    paramsString: {},
+    uri: '',
+    userMenu: false,
     categoryLists: {
         '0': {
             cn: '全部文章',
-            id: 0
+            id: 0,
         },
         '3': {
             cn: '技术分享',
@@ -36,30 +52,22 @@ const state = {
     articleLists: [], //文章列表
     leftBar: 0, //左边的菜单栏是否开启 0 关闭 1 开启
     nowColumn: 'home', //home， article，category，tag, comment
-    searchWord: '',
     articleLoading: false,
-    columnId: {
-        home: {
-            page: 1
+    searchWord: '',
+    github_repository: 'https://github.com/zmisgod/myBlog',
+    user: {
+        socialMedia: {
+            github: "https://github.com/zmisgod",
+            weibo: "https://weibo.com/zmisgod",
+            email: "starzmisgod@gmail.com",
+            phone: 15216743007
         },
-        article: {
-            id: 0
-        },
-        category: {
-            page: 1,
-            id: 0
-        },
-        tag: {
-            page: 1,
-            id: 0
-        },
-        search: {
-            page: 1,
-        },
-        comment: {
-            page: 1
+        info: {
+            name: 'zmisgod',
+            avatar: '/static/logo.png',
+            description: '生而为人，我很抱歉'
         }
-    },
+    }
 }
 
 export default {

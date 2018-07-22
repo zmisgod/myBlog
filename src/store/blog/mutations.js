@@ -1,3 +1,4 @@
+const marked = require("marked");
 export const mutations = {
     TITLE(state, title) {
         state.title = title
@@ -14,13 +15,11 @@ export const mutations = {
     LEFTBAR(state, leftBar) {
         state.leftBar = leftBar
     },
-    COLUMNID(state, dataObj) {
-        state.columnId[state.nowColumn][dataObj.key] = dataObj.value
-    },
     NOWCOLUMN(state, nowColumn) {
         state.nowColumn = nowColumn
     },
     ARTICLEOBJECT(state, articleObject) {
+        articleObject.contents = marked(articleObject.contents)
         state.articleObject = articleObject
     },
     SHOWNEXTPAGE(state, show) {
@@ -35,20 +34,37 @@ export const mutations = {
     CATEGORYLISTS(state, categoryLists) {
         state.categoryLists = categoryLists
     },
-    SHOWSEARCHFRAME(state, empty) {
-        if (state.showSearchFrame && state.searchWord == '') {
-            state.showSearchFrame = false
-        } else {
-            state.showSearchFrame = true
-        }
+    SHOWSEARCHFRAME(state, status) {
+        state.showSearchFrame = status
     },
     SEARCHWORD(state, keyword) {
         state.searchWord = keyword
     },
-    CHANNEL(state, now) {
-        state.channel = now
-    },
     ARTICLELOADING(state, loading) {
         state.articleLoading = loading
+    },
+    QUERYSTRING(state, query) {
+        state.queryString = query
+    },
+    PARAMSSTRING(state, params) {
+        state.paramsString = params
+    },
+    URI(state, uri) {
+        state.uri = uri
+    },
+    USER(state, key, value) {
+        state.key = value
+    },
+    USERMENU(state, bools) {
+        state.userMenu = !bools
+    },
+    CODESTATUS(state, codeStatus) {
+        state.codeStatus = codeStatus
+    },
+    CUSTOMSTYLE(state, style) {
+        state.customStyle = style
+    },
+    GITHUBREPOSITORY(state, githubRepository) {
+        state.githubRepository = githubRepository
     }
 }
