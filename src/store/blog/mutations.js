@@ -66,5 +66,13 @@ export const mutations = {
     },
     GITHUBREPOSITORY(state, githubRepository) {
         state.githubRepository = githubRepository
+    },
+    //requestURI: state => state.requestURI,
+    //requestParams: state => state.requestParams,
+    REQUESTURI(state, requestURI) {
+        state.requestURI = requestURI
+    },
+    REQUESTPARAMS(state, requestParams) {
+        state.requestParams = requestParams
     }
 }

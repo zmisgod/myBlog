@@ -45,7 +45,6 @@ export default {
     NotFound
   },
   methods: {
-    ...mapMutations(["NOWCOLUMN"]),
     location_article(id) {
       this.$router.push({ path: `/article/${id}` });
     },

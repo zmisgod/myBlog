@@ -52,7 +52,6 @@ export default {
     ])
   },
   methods: {
-    ...mapMutations(["NOWCOLUMN", "NOWCATEGORY", "SHOWSEARCHFRAME"]),
     location_home() {
       this.$router.push({ path: `/` });
     },

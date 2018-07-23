@@ -2,7 +2,7 @@
   <div class="main-conatiner">
     <Header></Header>
     <ArticleList :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ArticleList>
-    <Footer></Footer>
+    <Footer></Footer> 
   </div>
 </template>
 <script>
@@ -21,9 +21,6 @@ export default {
   },
   title() {
     return "home view";
-  },
-  methods: {
-    ...mapMutations(["NOWCOLUMN", "SHOWNEXTPAGE"])
   },
   components: {
     ArticleList,

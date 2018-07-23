@@ -35,6 +35,9 @@ export default {
 .ppppp {
   padding: 10px 0;
 }
+.ppppp:last-child {
+  padding: 0 20px;
+}
 .notfound {
   display: flex;
   flex-direction: column;
