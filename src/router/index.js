@@ -14,7 +14,7 @@ const createListView = (name, actionName) => () =>
     System.import('@/views/home').then(m => m.createListView(name, actionName))
 
 const createArticleView = name => () =>
-    System.import('@/views/article').then(m => m.createListView(name))
+    System.import('@/views/articleDetail').then(m => m.createListView(name))
 
 export default new Router({
     mode: 'history',
@@ -38,7 +38,7 @@ export default new Router({
         {
             path: `/article/:id`,
             name: 'article',
-            component: createArticleView('article')
+            component: createArticleView('articleDetail')
         },
         {
             path: '/single',

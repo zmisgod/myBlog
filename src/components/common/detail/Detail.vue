@@ -32,7 +32,7 @@
         <div class="detail_header">
           <div class="header_container">
             <p class="p_title" v-text="articleObject.post_title"></p>
-            <div class="p_tag" v-if="articleObject.category_id !== 0">
+            <div class="p_tag" v-if="articleObject.category_id != 0">
               <md-chip class="md-accent" @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-chip>
               <md-chip class="md-primary" v-for="(tag,index) in articleObject.tags" :key="index" @click="seeTag(tag.tag_id)" v-text="tag.tag_name"></md-chip>
             </div>
@@ -74,11 +74,9 @@ export default {
     ...mapGetters(["articleObject", "user"])
   },
   methods: {
-    ...mapMutations(["NOWCOLUMN", "NOWCATEGORY"]),
     showMenu() {
       this.userMenu = true;
     },
-    originalHtml() {},
     seeAuthor(author_name) {
       this.$router.push({ path: `/author/${author_name}` });
     },
