@@ -5,7 +5,6 @@ import home from '@/components/layout/Home.vue'
  * @returns {*}
  */
 export function createListView(type, data) {
-    console.log(type, data)
     return {
         name: type,
         // this will be called during SSR to pre-fetch data into the store!

@@ -7,8 +7,6 @@ const Detail = () =>
     import ('@/components/layout/Detail.vue')
 const Author = () =>
     import ('@/components/layout/Author.vue')
-const NotFound = () =>
-    import ('@/components/layout/NotFound.vue')
 
 const createListView = (name, actionName) => () =>
     System.import('@/views/home').then(m => m.createListView(name, actionName))
@@ -22,28 +20,14 @@ export default new Router({
         y: 0
     }),
     routes: [{
-            path: '/notFound',
-            name: 'notFound',
-            component: createListView('NotFound')
-        },
-        {
-            path: '/index',
+            path: '/',
             name: 'home',
             component: createListView('home', "showIndexArticle")
         },
         {
-            path: '/',
-            redirect: '/index'
-        },
-        {
             path: `/article/:id`,
             name: 'article',
-            component: createArticleView('articleDetail')
-        },
-        {
-            path: '/single',
-            name: 'single',
-            component: Detail
+            component: createArticleView('article')
         },
         {
             path: `/tag/:id`,
@@ -69,6 +53,16 @@ export default new Router({
             path: `/author/:author_name`,
             name: 'author_info',
             component: Author
+        },
+        {
+            path: '/single',
+            name: 'single',
+            component: Detail
+        },
+        {
+            path: '/notFound',
+            name: 'notFound',
+            component: createListView('NotFound')
         },
     ]
 })
