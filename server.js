@@ -28,7 +28,7 @@ if (isProd) {
     // The client manifests are optional, but it allows the renderer
     // to automatically infer preload/prefetch links and directly add <script>
     // tags for any async chunks used during render, avoiding waterfall requests.
-    const templatePath = fs.readFileSync(resolve('./template/index.template.html'), 'utf-8')
+    const templatePath = fs.readFileSync(resolve('./src/index.template.html'), 'utf-8')
     renderer = createRenderer(bundle, templatePath)
 } else {
     // In development: setup the dev server with watch and hot-reload,
