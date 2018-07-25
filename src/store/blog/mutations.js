@@ -67,13 +67,12 @@ export const mutations = {
     GITHUBREPOSITORY(state, githubRepository) {
         state.githubRepository = githubRepository
     },
-    COMMENTLOADING(state, isLoading) {
-        state.commentLoading = isLoading
+    //requestURI: state => state.requestURI,
+    //requestParams: state => state.requestParams,
+    REQUESTURI(state, requestURI) {
+        state.requestURI = requestURI
     },
-    COMMENTNOWPAGE(state, nowPage) {
-        state.commentNowPage = nowPage
-    },
-    COMMENTLISTS(state, lists) {
-        state.commentLists = lists
+    REQUESTPARAMS(state, requestParams) {
+        state.requestParams = requestParams
     }
 }

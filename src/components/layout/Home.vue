@@ -1,17 +1,16 @@
 <template>
   <div class="main-conatiner">
-    <Header></Header>
+    <CHeader></CHeader>
     <ArticleList :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ArticleList>
-    <Footer></Footer>
+    <CFooter></CFooter> 
   </div>
 </template>
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import Header from "./../common/home/Header.vue";
+import CHeader from "./../common/home/Header.vue";
 import ArticleList from "./../common/home/ArticleList.vue";
-import Footer from "./../common/home/Footer.vue";
+import CFooter from "./../common/home/Footer.vue";
 export default {
-  name: "home",
   computed: {
     ...mapGetters([
       "articleLists",
@@ -23,13 +22,10 @@ export default {
   title() {
     return "home view";
   },
-  methods: {
-    ...mapMutations(["NOWCOLUMN", "SHOWNEXTPAGE"])
-  },
   components: {
     ArticleList,
-    Header,
-    Footer
+    CHeader,
+    CFooter
   }
 };
 </script>

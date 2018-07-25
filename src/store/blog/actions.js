@@ -1,16 +1,33 @@
+import axios from 'axios'
+const apiHost = "http://127.0.0.1:8081/v1/"
+
+function getParams(params) {
+    let res = ''
+    let i = 0
+    if (params.length != 0) {
+        params.map(function(k, v) {
+            if (k != '' && v != 'undefined') {
+                let combine = '&'
+                if (i == 0) {
+                    combine = '?'
+                }
+                res += combine + k + '=' + v
+            }
+        })
+    }
+    return res
+}
 export const actions = {
     showIndexArticle({
         commit,
         state
     }) {
-        commit('ARTICLELOADING', false)
         let query_string = ''
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
-        axios.get(process.env.API_HOST + '/v1/home?' + query_string).then(res => {
+        return axios.get(apiHost + 'home?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
-                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -20,6 +37,8 @@ export const actions = {
             } else {
                 commit('CODESTATUS', res.data.code)
             }
+        }).catch(err => {
+            console.log(err)
         })
     },
     showTagArticle({
@@ -31,7 +50,7 @@ export const actions = {
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
-        axios.get(process.env.API_HOST + '/v1/tag/' + state.paramsString.id + '?' + query_string).then(res => {
+        return axios.get(apiHost + 'tag/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
@@ -54,7 +73,7 @@ export const actions = {
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
-        axios.get(process.env.API_HOST + '/v1/category/' + state.paramsString.id + '?' + query_string).then(res => {
+        return axios.get(apiHost + 'category/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
@@ -76,7 +95,7 @@ export const actions = {
         for (let i in state.queryString) {
             query_string += i + '=' + queries[i] + '&'
         }
-        axios.get(process.env.API_HOST + '/v1/article/' + state.paramsString.id + '?' + query_string).then(res => {
+        return axios.get(apiHost + 'article/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLEOBJECT', res.data.data)
             } else {
@@ -93,7 +112,7 @@ export const actions = {
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
-        axios.get(process.env.API_HOST + '/v1/search?' + query_string).then(res => {
+        return axios.get(apiHost + 'search?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
@@ -111,21 +130,24 @@ export const actions = {
         commit,
         state
     }) {},
-    showCommentLists({
+    //ceshi
+    getTest({
         commit,
         state
     }) {
-        commit('COMMENTLOADING', true)
-        axios.get(process.env.API_HOST + '/v1/comment/' + state.paramsString.id + '?page=' + state.commentNowPage).then(res => {
+        return axios.get(apiHost + state.requestURI + getParams(state.requestParams)).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
-                commit('COMMENTLOADING', false)
                 if (res.data.data.length === state.pageSize) {
-                    commit("COMMENTNOWPAGE", ++state.commentNowPage)
+                    commit('SHOWNEXTPAGE', true)
+                } else {
+                    commit('SHOWNEXTPAGE', false)
                 }
-                commit('COMMENTLISTS', res.data.data)
+                commit('ARTICLELISTS', res.data.data)
             } else {
                 commit('CODESTATUS', res.data.code)
             }
+        }).catch(err => {
+            console.log(err)
         })
-    },
+    }
 }

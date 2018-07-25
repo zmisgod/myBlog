@@ -28,9 +28,6 @@ const state = {
     paramsString: {},
     uri: '',
     userMenu: false,
-    commentLoading: false,
-    commentNowPage: 1,
-    commentLists: [],
     categoryLists: {
         '0': {
             cn: '全部文章',
@@ -70,7 +67,9 @@ const state = {
             avatar: '/static/logo.png',
             description: '生而为人，我很抱歉'
         }
-    }
+    },
+    requestURI: '/', //请求地址
+    requestParams: {}, //请求参数
 }
 
 export default {

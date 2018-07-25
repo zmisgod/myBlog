@@ -1,22 +1,26 @@
-'use strict'
 const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const vueLoaderConfig = require('./vue-loader.config.js')
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
-
 module.exports = {
+    devtool: '#source-map',
     entry: {
-        app: './src/main.js'
+        app: './src/entry-client.js',
+        vendor: [
+            'es6-promise/auto',
+            'vue',
+            'vue-router',
+            'vuex',
+            'vuex-router-sync',
+            'vue-material'
+        ]
     },
     output: {
-        path: config.build.assetsRoot,
-        filename: '[name].js',
-        publicPath: process.env.NODE_ENV === 'production' ?
-            config.build.assetsPublicPath : config.dev.assetsPublicPath
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: '/dist/',
+        filename: '[name].[chunkhash].js'
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -51,7 +55,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                    name: 'img/[name].[hash:7].[ext]'
                 }
             },
             {
@@ -59,7 +63,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('media/[name].[hash:7].[ext]')
+                    name: 'media/[name].[hash:7].[ext]'
                 }
             },
             {
@@ -67,7 +71,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                    name: 'fonts/[name].[hash:7].[ext]'
                 }
             }
         ]

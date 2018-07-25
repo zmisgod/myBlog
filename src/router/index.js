@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+Vue.use(Router)
 const Home = () =>
     import ('@/components/layout/Home.vue')
 const Detail = () =>
     import ('@/components/layout/Detail.vue')
 const Author = () =>
     import ('@/components/layout/Author.vue')
-const NotFound = () =>
-    import ('@/components/layout/NotFound.vue')
-const CRH = () =>
-    import ('@/components/layout/Crh.vue')
 
-Vue.use(Router)
+const createListView = (name, actionName) => () =>
+    System.import('@/views/home').then(m => m.createListView(name, actionName))
+
+const createArticleView = name => () =>
+    System.import('@/views/articleDetail').then(m => m.createListView(name))
 
 export default new Router({
     mode: 'history',
@@ -20,44 +20,29 @@ export default new Router({
         y: 0
     }),
     routes: [{
-            path: '/crh',
-            name: 'crh',
-            component: CRH
-        },
-        {
-            path: '/notFound',
-            name: 'notFound',
-            component: NotFound
-        },
-        {
             path: '/',
             name: 'home',
-            component: Home
+            component: createListView('home', "showIndexArticle")
         },
         {
             path: `/article/:id`,
             name: 'article',
-            component: Detail
-        },
-        {
-            path: '/single',
-            name: 'single',
-            component: Detail
+            component: createArticleView('article')
         },
         {
             path: `/tag/:id`,
             name: 'tag',
-            component: Home
+            component: createListView('tag', "showTagArticle")
         },
         {
             path: `/category/:id`,
             name: 'category',
-            component: Home
+            component: createListView('category', "showCategoryArticle")
         },
         {
             path: `/search`,
             name: 'search',
-            component: Home
+            component: createListView('search', "showSearchArticle")
         },
         {
             path: `/chat`,
@@ -68,6 +53,16 @@ export default new Router({
             path: `/author/:author_name`,
             name: 'author_info',
             component: Author
+        },
+        {
+            path: '/single',
+            name: 'single',
+            component: Detail
+        },
+        {
+            path: '/notFound',
+            name: 'notFound',
+            component: createListView('NotFound')
         },
     ]
 })

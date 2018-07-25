@@ -34,6 +34,9 @@ export default {
 }
 .ppppp {
   padding: 10px 0;
+  &:last-child {
+    padding: 0 20px;
+  }
 }
 .notfound {
   display: flex;

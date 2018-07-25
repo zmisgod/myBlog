@@ -1,5 +1,5 @@
 <template>
-  <div class="components-container">
+  <div class="components-container" id="app">
       <transition>
           <router-view></router-view>
       </transition>
@@ -30,7 +30,6 @@ export default {
     });
   },
   methods: {
-    ...mapMutations(["NOWCOLUMN", "SEARCHWORD", "NOWCATEGORY"]),
     goTop() {
       // 回到顶部方法
       clearInterval(timer);
@@ -94,7 +93,6 @@ ul {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #fff;
 }
 .components-container {

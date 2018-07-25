@@ -20,7 +20,6 @@ export const getters = {
     codeStatus: state => state.codeStatus,
     customStyle: state => state.customStyle,
     githubRepository: state => state.github_repository,
-    commentLoading: state => state.commentLoading,
-    commentNowPage: state => state.commentNowPage,
-    commentLists: state => state.commentLists,
+    requestURI: state => state.requestURI,
+    requestParams: state => state.requestParams,
 }

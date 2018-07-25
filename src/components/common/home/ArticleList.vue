@@ -45,7 +45,6 @@ export default {
     NotFound
   },
   methods: {
-    ...mapMutations(["NOWCOLUMN"]),
     location_article(id) {
       this.$router.push({ path: `/article/${id}` });
     },
@@ -133,10 +132,6 @@ export default {
           height: 20px;
           margin: 0 5px;
         }
-        .a-author {
-        }
-        .a-date {
-        }
       }
       .a-content {
         padding: 5px 0;
@@ -162,12 +157,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .weather-container {
-    // width: 500px;
-    // height: 500px;
-    // display: flex;
-    // background-color: #000;
   }
 }
 @media all and (max-width: 1023px) {
