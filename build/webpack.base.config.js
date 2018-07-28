@@ -1,5 +1,12 @@
 const path = require('path')
+const webpack = require('webpack')
 const vueLoaderConfig = require('./vue-loader.config.js')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+
+const isProd = process.env.NODE_ENV === 'production'
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -29,16 +36,35 @@ module.exports = {
             '@': resolve('src')
         }
     },
+    performance: {
+        maxEntrypointSize: 300000,
+        hints: isProd ? 'warning' : false
+    },
     module: {
+        noParse: /es6-promise\.js$/,
         rules: [{
                 test: /\.vue$/,
-                loader: 'vue-loader',
-                options: vueLoaderConfig
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // enable CSS Modules
+                            modules: true,
+                            // customize generated class names
+                            localIdentName: '[local]_[hash:base64:8]'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.scss$/,
                 use: [{
-                    loader: "style-loader" // creates style nodes from JS strings 
+                    loader: "vue-style-loader" // creates style nodes from JS strings 
                 }, {
                     loader: "css-loader" // translates CSS into CommonJS 
                 }, {
@@ -73,7 +99,34 @@ module.exports = {
                     limit: 10000,
                     name: 'fonts/[name].[hash:7].[ext]'
                 }
-            }
+            },
+            {
+                test: /\.styl(us)?$/,
+                use: isProd ?
+                    ExtractTextPlugin.extract({
+                        use: [{
+                                loader: 'css-loader',
+                                options: {
+                                    minimize: true
+                                }
+                            },
+                            'stylus-loader'
+                        ],
+                        fallback: 'vue-style-loader'
+                    }) : ['vue-style-loader', 'css-loader', 'stylus-loader']
+            },
         ]
-    }
+    },
+    plugins: isProd ? [
+        new VueLoaderPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new ExtractTextPlugin({
+            filename: 'common.[chunkhash].css'
+        })
+    ] : [new VueLoaderPlugin(), new FriendlyErrorsPlugin()],
 }

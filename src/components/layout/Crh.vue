@@ -31,9 +31,7 @@
                 </md-field>
             </div>
         </div>
-        <div id="display-area">
-
-        </div>
+        <div id="display-area"></div>
     </div>
 </template>
 
@@ -55,6 +53,9 @@ export default {
         .attr("height", 12800);
       console.log("-=-");
     }
+  },
+  title() {
+    return "CRH";
   }
 };
 </script>
@@ -76,7 +77,5 @@ export default {
       width: 300px;
     }
   }
-}
-.display-area {
 }
 </style>

@@ -1,15 +1,10 @@
 <template>
-  <div>
     <Detail></Detail>
-  </div>
 </template>
 <script>
 import Detail from "./../common/detail/Detail.vue";
 export default {
   name: "detail",
-  title() {
-    return "detail";
-  },
   components: {
     Detail
   }

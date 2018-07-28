@@ -1,7 +1,6 @@
 const util = {
     saveState(route, store) {
         let to = route
-        console.log(to)
         let temQuery = {}
         for (let i in to.query) {
             if (i != "") {

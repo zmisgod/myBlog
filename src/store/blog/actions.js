@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiHost = "http://127.0.0.1:8081/v1/"
+const apiHost = process.env.NODE_ENV !== 'production' ? "http://127.0.0.1:8081/v1/" : "https://api.zmis.me/v1/"
 
 function getParams(params) {
     let res = ''
@@ -45,14 +45,12 @@ export const actions = {
         commit,
         state
     }) {
-        commit('ARTICLELOADING', false)
         let query_string = ''
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
         return axios.get(apiHost + 'tag/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
-                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -68,14 +66,12 @@ export const actions = {
         commit,
         state
     }) {
-        commit('ARTICLELOADING', false)
         let query_string = ''
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
         return axios.get(apiHost + 'category/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
-                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -107,14 +103,12 @@ export const actions = {
         commit,
         state
     }) {
-        commit('ARTICLELOADING', false)
         let query_string = ''
         for (let i in state.queryString) {
             query_string += i + '=' + state.queryString[i] + '&'
         }
         return axios.get(apiHost + 'search?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
-                commit('ARTICLELOADING', true)
                 if (res.data.data.length === state.pageSize) {
                     commit('SHOWNEXTPAGE', true)
                 } else {
@@ -149,5 +143,11 @@ export const actions = {
         }).catch(err => {
             console.log(err)
         })
+    },
+    showCRHInfo({
+        commit,
+        state
+    }) {
+
     }
 }

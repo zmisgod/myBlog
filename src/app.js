@@ -7,9 +7,10 @@ import router from './router'
 import {
     sync
 } from 'vuex-router-sync'
-import VueMaterial from 'vue-material'
+import VueMaterial from "vue-material"
 Vue.use(VueMaterial)
-
+import metaMixin from './utils/meta'
+Vue.mixin(metaMixin)
 // sync the router with the vuex store.
 // this registers `store.state.route`
 sync(store, router)

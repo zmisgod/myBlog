@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa2cdb75-0b39-4ff0-a5c7-f7acdfbe583c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.e5b865c411dce0a11b2d3c1dbeeb955b.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/0.f4d99e733c7b62136884.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/0.f4d99e733c7b62136884.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/1.5ed07b9c6a0928b3d863.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/1.5ed07b9c6a0928b3d863.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/2.122b3a29b591132ffe13.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/2.122b3a29b591132ffe13.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/3.ee6501f5a03fd398604b.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/3.ee6501f5a03fd398604b.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.47cde0620a21de288bc6.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.47cde0620a21de288bc6.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.90e4944f73e2f9f45b76.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.90e4944f73e2f9f45b76.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.d706d220df0ec521630a.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.d706d220df0ec521630a.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,22 +31,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
+      <file leaf-file-name=".jsbeautifyrc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.jsbeautifyrc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.babelrc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1820">
+              <caret line="109" column="2" lean-forward="false" selection-start-line="109" selection-start-column="2" selection-end-line="109" selection-end-column="2" />
+              <folding>
+                <marker date="1532488446091" expanded="true" signature="737:1317" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="743:888" ph="//..." />
+                <marker date="1532488446091" expanded="true" signature="950:1175" ph="//..." />
+                <marker date="1532488446091" expanded="true" signature="1323:1593" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="1329:1463" ph="//..." />
+                <marker date="1532488446091" expanded="true" signature="1531:1590" ph="{&quot;renderer&quot;: renderer...}" />
+                <marker date="1532488446091" expanded="true" signature="1637:1952" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="1817:1949" ph="{&quot;template&quot;: template...}" />
+                <marker date="1532488446091" expanded="true" signature="1873:1942" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="2015:2077" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="2100:2120" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="2369:2695" ph="//..." />
+                <marker date="1532488446091" expanded="true" signature="2801:2811" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="2822:2903" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="3049:3444" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="3072:3117" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="3145:3213" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="3219:3438" ph="{...}" />
+                <marker date="1532488446091" expanded="true" signature="3466:3605" ph="{&quot;title&quot;: 'zmis.me'...}" />
+                <marker date="1532488446091" expanded="true" signature="3837:3850" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="931">
-                <caret line="49" column="3" lean-forward="true" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
+                <caret line="49" column="3" lean-forward="false" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -77,7 +110,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
               <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-              <folding />
+              <folding>
+                <marker date="1532487505822" expanded="true" signature="260:2032" ph="{...}" />
+                <marker date="1532487505822" expanded="true" signature="763:901" ph="{&quot;publicPath&quot;: clientConfig.output.publicPath...}" />
+                <marker date="1532487505822" expanded="true" signature="832:895" ph="{...}" />
+                <marker date="1532487505822" expanded="true" signature="970:1105" ph="{...}" />
+                <marker date="1532487505822" expanded="true" signature="1128:1274" ph="{...}" />
+                <marker date="1532487505822" expanded="true" signature="1212:1264" ph="{...}" />
+                <marker date="1532487505822" expanded="true" signature="1571:1644" ph="{&quot;throw&quot;: err...}" />
+                <marker date="1532487505822" expanded="true" signature="1979:2023" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,20 +149,28 @@
         <option value="$PROJECT_DIR$/pm2.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="777" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1633" />
+    <option name="y" value="-87" />
+    <option name="width" value="1657" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -153,11 +203,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -194,10 +245,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2042000" />
+    <option name="totallyTimeSpent" value="4364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-109" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16719915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -207,7 +259,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4617676" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37636545" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -241,20 +293,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zmisgod.svg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1532487505822" expanded="true" signature="260:2032" ph="{...}" />
+            <marker date="1532487505822" expanded="true" signature="763:901" ph="{&quot;publicPath&quot;: clientConfig.output.publicPath...}" />
+            <marker date="1532487505822" expanded="true" signature="832:895" ph="{...}" />
+            <marker date="1532487505822" expanded="true" signature="970:1105" ph="{...}" />
+            <marker date="1532487505822" expanded="true" signature="1128:1274" ph="{...}" />
+            <marker date="1532487505822" expanded="true" signature="1212:1264" ph="{...}" />
+            <marker date="1532487505822" expanded="true" signature="1571:1644" ph="{&quot;throw&quot;: err...}" />
+            <marker date="1532487505822" expanded="true" signature="1979:2023" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -266,6 +314,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="931">
+            <caret line="49" column="3" lean-forward="false" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1820">
+          <caret line="109" column="2" lean-forward="false" selection-start-line="109" selection-start-column="2" selection-end-line="109" selection-end-column="2" />
+          <folding>
+            <marker date="1532488446091" expanded="true" signature="737:1317" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="743:888" ph="//..." />
+            <marker date="1532488446091" expanded="true" signature="950:1175" ph="//..." />
+            <marker date="1532488446091" expanded="true" signature="1323:1593" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="1329:1463" ph="//..." />
+            <marker date="1532488446091" expanded="true" signature="1531:1590" ph="{&quot;renderer&quot;: renderer...}" />
+            <marker date="1532488446091" expanded="true" signature="1637:1952" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="1817:1949" ph="{&quot;template&quot;: template...}" />
+            <marker date="1532488446091" expanded="true" signature="1873:1942" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="2015:2077" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="2100:2120" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="2369:2695" ph="//..." />
+            <marker date="1532488446091" expanded="true" signature="2801:2811" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="2822:2903" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="3049:3444" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="3072:3117" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="3145:3213" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="3219:3438" ph="{...}" />
+            <marker date="1532488446091" expanded="true" signature="3466:3605" ph="{&quot;title&quot;: 'zmis.me'...}" />
+            <marker date="1532488446091" expanded="true" signature="3837:3850" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.jsbeautifyrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zmisgod.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -274,14 +383,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="931">
-            <caret line="49" column="3" lean-forward="true" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

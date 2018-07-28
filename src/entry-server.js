@@ -72,7 +72,6 @@ export default context => {
             })
         })
     }).catch(err => {
-        console.log("entry-server.js")
         console.log(err)
     })
 }

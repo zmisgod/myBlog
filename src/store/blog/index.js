@@ -28,24 +28,37 @@ const state = {
     paramsString: {},
     uri: '',
     userMenu: false,
-    categoryLists: {
-        '0': {
+    categoryLists: [{
             cn: '全部文章',
-            id: 0,
+            location: '/',
+            type: ''
         },
-        '3': {
+        {
             cn: '技术分享',
-            id: 3
+            location: '/category/3',
+            type: ''
         },
-        '1': {
+        {
             cn: '不可描述',
-            id: 1
+            location: '/category/1',
+            type: ''
         },
-        '2': {
+        {
             cn: '心情感悟',
-            id: 2
+            location: '/category/2',
+            type: ''
         },
-    },
+        {
+            cn: 'CRH',
+            location: '/crh',
+            type: ''
+        },
+        {
+            cn: 'Github',
+            location: 'https://github.com/zmisgod',
+            type: 'blank'
+        }
+    ],
     pageSize: 12,
     showNextPage: false, // 是否显示下一页
     articleObject: {}, //文章的对象

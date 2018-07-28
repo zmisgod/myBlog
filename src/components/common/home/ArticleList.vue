@@ -8,7 +8,7 @@
           <p class="a-content" v-html="articleObj.post_intro"></p>
           <div class="a-tag" v-if="articleObj.tags">
             <a :key="tag_id" @click="location_tag(tag.tag_id)" v-for="(tag,tag_id) in articleObj.tags">
-              <md-chip class="md-transparent"  v-text="tag.tag_name"></md-chip>
+              <md-chip class="md-transparent" md-clickable>{{tag.tag_name}}</md-chip>
             </a>
           </div>
         </div>
@@ -36,6 +36,9 @@ export default {
       showIcon: "home"
     };
   },
+  computed: {
+    ...mapGetters(["categoryLists", "uri", "queryString"])
+  },
   props: {
     articleLists: Array,
     showNextPage: Boolean,
@@ -52,8 +55,8 @@ export default {
       this.$router.push({ path: `/tag/${id}` });
     },
     nextPage() {
-      let uri = this.$store.state.blog.uri;
-      let params = this.$store.state.blog.queryString;
+      let uri = this.uri;
+      let params = this.queryString;
       if (params.page === undefined) {
         params.page = 2;
       } else {

@@ -33,8 +33,8 @@
           <div class="header_container">
             <p class="p_title" v-text="articleObject.post_title"></p>
             <div class="p_tag" v-if="articleObject.category_id != 0">
-              <md-chip class="md-accent" @click="seeCategory(articleObject.category_id)" v-text="articleObject.category_name"></md-chip>
-              <md-chip class="md-primary" v-for="(tag,index) in articleObject.tags" :key="index" @click="seeTag(tag.tag_id)" v-text="tag.tag_name"></md-chip>
+              <md-chip class="md-accent" @click="seeCategory(articleObject.category_id)" md-clickable>{{articleObject.category_name}}</md-chip>
+              <md-chip class="md-primary" v-for="(tag,index) in articleObject.tags" :key="index" @click="seeTag(tag.tag_id)" md-clickable>{{tag.tag_name}}</md-chip>
             </div>
           </div>
         </div>
@@ -72,6 +72,12 @@ export default {
   },
   computed: {
     ...mapGetters(["articleObject", "user"])
+  },
+  title() {
+    return this.articleObject.post_title;
+  },
+  description() {
+    return this.articleObject.post_intro;
   },
   methods: {
     showMenu() {

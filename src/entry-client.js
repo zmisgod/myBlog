@@ -34,6 +34,26 @@ function saveState(to) {
     store.commit("QUERYSTRING", temQuery)
     store.commit("URI", to.path)
 }
+
+function getDispatchName(to, router) {
+    if (to.name == 'tag') {
+        return "showTagArticle"
+    } else if (to.name == 'category') {
+        return "showCategoryArticle"
+    } else if (to.name == 'home') {
+        return "showIndexArticle"
+    } else if (to.name == 'search' && to.query.keyword != "") {
+        return "showSearchArticle"
+    } else if (to.name == 'article') {
+        return "showArticle"
+    } else if (to.name == 'crh') {
+        return "showCRHInfo"
+    } else {
+        return '404'
+    }
+}
+
+function getListTitle(to, store) {}
 /**
  * 异步组件
  */
@@ -44,15 +64,20 @@ router.onReady(() => {
         const prevMatched = router.getMatchedComponents(from)
         let diffed = false
         const activated = matched.filter((c, i) => {
-            return diffed || (diffed = (prevMatched[i] !== c))
+            if (c.name == "category" || c.name == "tag" || c.name == "home") {
+                return true
+            } else {
+                return diffed || (diffed = (prevMatched[i] !== c))
+            }
         })
         const matchedComponents = activated.map(c => c.preFetch).filter(_ => _)
         if (!matchedComponents.length) {
             return next()
         }
+        let dispatchName = getDispatchName(to, router)
         // bar.start()
         Promise.all(matchedComponents.map(component => {
-                return component(store)
+                return component(store, dispatchName)
             }))
             .then(() => {
                 // bar.finish()

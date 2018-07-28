@@ -26,7 +26,7 @@
             <div class="menu-container">
                 <div class="menu">
                     <ul>
-                        <li @click="location_category(value.id, index)" :class="index == nowCategory ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
+                        <li @click="location_category(value.location, value.type)" :class="uri == value.location ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
                     </ul>
                 </div>
                 <div class="page-info"></div>
@@ -48,18 +48,21 @@ export default {
       "nowCategory",
       "showSearchFrame",
       "searchWord",
-      "customStyle"
+      "customStyle",
+      "uri"
     ])
   },
   methods: {
+    ...mapMutations(["SHOWSEARCHFRAME"]),
     location_home() {
       this.$router.push({ path: `/` });
     },
-    location_category(id, category_id) {
-      if (id == 0) {
-        return this.location_home();
+    location_category(location, location_type) {
+      if (location_type == "blank") {
+        window.location.href = location;
+      } else {
+        this.$router.push({ path: `${location}` });
       }
-      this.$router.push({ path: `/category/${id}` });
     },
     location_channel(channel) {
       this.$router.push({ path: `/chat` });
@@ -163,7 +166,7 @@ header {
     .menu-container {
       display: flex;
       .menu {
-        width: 512px;
+        width: 100%;
         overflow: hidden;
         margin-left: 40px;
         ul {
@@ -233,7 +236,7 @@ header {
           margin-left: 0;
           height: 62px;
           ul {
-            width: 380px;
+            width: 420px;
             padding-left: 0;
             list-style: none;
             margin: 0;

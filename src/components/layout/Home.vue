@@ -13,14 +13,22 @@ import CFooter from "./../common/home/Footer.vue";
 export default {
   computed: {
     ...mapGetters([
+      "categoryLists",
       "articleLists",
-      "nowColumn",
       "showNextPage",
-      "articleLoading"
+      "articleLoading",
+      "categoryLists",
+      "uri"
     ])
   },
   title() {
-    return "home view";
+    if (this.categoryLists != undefined) {
+      for (let i = 0; i < this.categoryLists.length; i++) {
+        if (this.categoryLists[i].location == this.uri) {
+          return this.categoryLists[i].cn;
+        }
+      }
+    }
   },
   components: {
     ArticleList,
