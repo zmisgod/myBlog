@@ -26,7 +26,7 @@
             <div class="menu-container">
                 <div class="menu">
                     <ul>
-                        <li @click="location_category(value.location, value.type)" :class="uri == value.location ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
+                        <li @click="location_category(value.location, value.type, value.cn)" :class="uri == value.location ? 'selected': ''" :key="index" v-for="(value, index) in categoryLists" v-text="value.cn"></li>
                     </ul>
                 </div>
                 <div class="page-info"></div>
@@ -36,6 +36,7 @@
 </template>
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import util from "@/utils/util";
 export default {
   data() {
     return {
@@ -57,10 +58,11 @@ export default {
     location_home() {
       this.$router.push({ path: `/` });
     },
-    location_category(location, location_type) {
+    location_category(location, location_type, name) {
       if (location_type == "blank") {
         window.location.href = location;
       } else {
+        document.title = `${name}` + util.suffix();
         this.$router.push({ path: `${location}` });
       }
     },

@@ -1,8 +1,8 @@
 {
     "name": "zmisme",
-    "version": "1.0.0",
-    "description": "this is my blog",
-    "author": "zmigsod <starzmisgod@gmail.com>",
+    "version": "1.1.0",
+    "description": "vue blog with vue-ssr",
+    "author": "zmisgod <starzmisgod@gmail.com>",
     "private": true,
     "scripts": {
         "dev": "node server",

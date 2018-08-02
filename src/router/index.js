@@ -40,7 +40,7 @@ export default new Router({
         {
             path: `/category/:id`,
             name: 'category',
-            component: createListView('category', "showCategoryArticle", "分类文章")
+            component: createListView(`category`, "showCategoryArticle", "分类文章")
         },
         {
             path: `/search`,

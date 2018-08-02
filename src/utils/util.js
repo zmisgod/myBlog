@@ -22,6 +22,9 @@ const util = {
         store.commit("PARAMSSTRING", to.params)
         store.commit("QUERYSTRING", temQuery)
         store.commit("URI", to.path)
+    },
+    suffix() {
+        return ' | zmis.me官网'
     }
 }
 export default util

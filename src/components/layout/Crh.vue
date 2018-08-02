@@ -51,11 +51,16 @@ export default {
         .append("svg")
         .attr("width", 12800)
         .attr("height", 12800);
-      console.log("-=-");
     }
   },
   title() {
-    return "CRH";
+    return "CHSR";
+  },
+  description() {
+    return "China High Speed Railway Maps";
+  },
+  keywords() {
+    return "crh, maps, CHSR, CHSR maps";
   }
 };
 </script>

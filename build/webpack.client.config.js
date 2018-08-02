@@ -58,15 +58,19 @@ if (process.env.NODE_ENV === 'production') {
                     handler: 'networkFirst'
                 },
                 {
-                    urlPattern: /\/(top|new|show|ask|jobs)/,
+                    urlPattern: /\/(crh|notFound)/,
                     handler: 'networkFirst'
                 },
                 {
-                    urlPattern: '/item/:id',
+                    urlPattern: '/category/:id',
                     handler: 'networkFirst'
                 },
                 {
-                    urlPattern: '/user/:id',
+                    urlPattern: '/tag/:id',
+                    handler: 'networkFirst'
+                },
+                {
+                    urlPattern: '/article/:id',
                     handler: 'networkFirst'
                 }
             ]

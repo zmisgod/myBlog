@@ -1,3 +1,7 @@
+import
+util
+from './util'
+
 function getTitle(vm) {
     const {
         title
@@ -35,7 +39,7 @@ const serverMetaMixin = {
     created() {
         const title = getTitle(this)
         if (title) {
-            this.$ssrContext.title = `${title} | zmis.me官网`
+            this.$ssrContext.title = `${title}` + util.suffix()
         }
         const description = getDescription(this)
         if (description) {
@@ -52,7 +56,7 @@ const clientMetaMixin = {
     mounted() {
         const title = getTitle(this)
         if (title) {
-            document.title = `${title} | zmis.me官网`
+            document.title = `${title}` + util.suffix()
         }
         const description = getDescription(this)
         if (description) {

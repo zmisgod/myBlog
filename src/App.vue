@@ -1,11 +1,13 @@
 <template>
-  <div class="components-container" id="app">
-      <transition>
-          <router-view></router-view>
-      </transition>
-      <md-button @click="goTop()" v-show="toTop" class="md-fab md-mini go-top">
-        <md-icon>publish</md-icon>
-      </md-button>
+  <div id="app">
+    <div class="components-container">
+        <transition>
+            <router-view></router-view>
+        </transition>
+        <md-button @click="goTop()" v-show="toTop" class="md-fab md-mini go-top">
+          <md-icon>publish</md-icon>
+        </md-button>
+    </div>
   </div>
 </template>
 
@@ -16,13 +18,8 @@ export default {
   name: "app",
   data() {
     return {
-      toTop: false,
-      transitionName: "animated zoomInDown",
-      swipeable: true
+      toTop: false
     };
-  },
-  computed: {
-    ...mapGetters(["title", "nowColumn"])
   },
   mounted() {
     this.$nextTick(function() {
