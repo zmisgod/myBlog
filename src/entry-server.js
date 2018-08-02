@@ -72,6 +72,8 @@ export default context => {
             })
         })
     }).catch(err => {
-        console.log(err)
+        router.push({
+            path: "/notFound"
+        })
     })
 }

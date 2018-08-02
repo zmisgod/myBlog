@@ -1,5 +1,6 @@
 import axios from 'axios'
-const apiHost = process.env.NODE_ENV != 'production' ? "http://127.0.0.1:8081/v1/" : "https://api.zmis.me/v1/"
+// const apiHost = process.env.NODE_ENV != 'production' ? "http://127.0.0.1:8081/v1/" : "https://api.zmis.me/v1/"
+const apiHost = "http://127.0.0.1:8081/v1/"
 
 function getParams(params) {
     let res = ''
@@ -38,7 +39,7 @@ export const actions = {
                 commit('CODESTATUS', res.data.code)
             }
         }).catch(err => {
-            console.log(err)
+            console.log("home " + err)
         })
     },
     showTagArticle({
@@ -141,7 +142,7 @@ export const actions = {
                 commit('CODESTATUS', res.data.code)
             }
         }).catch(err => {
-            console.log(err)
+            console.log("getTest" + err)
         })
     },
     showCRHInfo({

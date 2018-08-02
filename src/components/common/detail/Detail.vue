@@ -15,9 +15,9 @@
         <span class="pading-left-5"><b>0</b></span>
       </div>
       <div class="article_simple_intro">
-          <div class="article_author">
+          <div class="article_author" v-if="articleObject.user_info">
             <div class="user-head-info">
-              <img :src="articleObject.user_info && articleObject.user_info.head_url">
+              <img :src="articleObject.user_info.head_url">
             </div>
             <span class="author_name" v-text="articleObject.user_info.nickname"></span>
           </div>
