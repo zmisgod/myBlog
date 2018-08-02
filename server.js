@@ -93,10 +93,10 @@ app.get('*', (req, res) => {
     }
 
     const context = {
-        title: 'zmis.me', // default title
+        title: 'zmis.me官网，你的技术港湾',
         url: req.url,
-        keywords: 'zmisgod',
-        description: 'this is a test'
+        keywords: 'zmis,zmis.me,zmis.me官网,zmisgod,zmisgod.com,技术港湾,技术分享,不可描述,心情感悟,CHSR,CHSR Maps,gen.zmis.me',
+        description: '欢迎来到zmis.me官网，这里是你的技术港湾'
     }
     renderer.renderToStream(context)
         .on('error', handleError)
