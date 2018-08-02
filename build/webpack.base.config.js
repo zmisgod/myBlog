@@ -26,7 +26,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/dist/',
+        publicPath: isProd ? 'https://static.zmis.me/myBlog/dist/' : '/dist/',
         filename: '[name].[chunkhash].js'
     },
     resolve: {
