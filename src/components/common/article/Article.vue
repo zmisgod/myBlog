@@ -12,7 +12,7 @@
         <Thanks></Thanks>
       </md-content>
 
-      <md-content class="md-elevation-5 main-container md-scrollbar comment">
+      <md-content class="md-elevation-5 main-container md-scrollbar comment" v-if="articleObject.comment_status == 1">
         <comment></Comment>
       </md-content>
     </div>
