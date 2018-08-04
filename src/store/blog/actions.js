@@ -89,8 +89,10 @@ export const actions = {
     }) {
         let query_string = ''
         for (let i in state.queryString) {
-            query_string += i + '=' + queries[i] + '&'
+            query_string += i + '=' + state.queryString[i] + '&'
         }
+        //评论默认显示第一页
+        commit("COMMENTNOWPAGE", 1)
         return axios.get(apiHost + 'article/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLEOBJECT', res.data.data)
@@ -118,6 +120,31 @@ export const actions = {
             } else {
                 commit('CODESTATUS', res.data.code)
             }
+        })
+    },
+    //显示评论
+    showCommentLists({
+        commit,
+        state
+    }) {
+        axios.get(apiHost + 'comment/' + state.paramsString.id + '?page=' + state.commentNowPage).then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
+                if (res.data.data.length === state.pageSize) {
+                    commit("COMMENTNOWPAGE", ++state.commentNowPage)
+                }
+                commit('COMMENTLISTS', res.data.data)
+            } else {
+                commit('CODESTATUS', res.data.code)
+            }
+        })
+    },
+    doComment({
+        commit,
+        state
+    }) {
+        axios.post(apiHost + 'comment/' + state.paramsString.id, state.commentParams).then(res => {
+            commit('COMMENTRES', res.data)
+            commit("COMMENTPARAMS", {})
         })
     },
     showUserInfo({

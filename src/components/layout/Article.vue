@@ -1,12 +1,12 @@
 <template>
-    <Detail></Detail>
+    <Article></Article>
 </template>
 <script>
-import Detail from "./../common/detail/Detail.vue";
+import Article from "./../common/article/Article.vue";
 export default {
   name: "detail",
   components: {
-    Detail
+    Article
   }
 };
 </script>

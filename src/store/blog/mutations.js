@@ -74,5 +74,20 @@ export const mutations = {
     },
     REQUESTPARAMS(state, requestParams) {
         state.requestParams = requestParams
-    }
+    },
+    COMMENTLOADING(state, isLoading) {
+        state.commentLoading = isLoading
+    },
+    COMMENTNOWPAGE(state, nowPage) {
+        state.commentNowPage = nowPage
+    },
+    COMMENTLISTS(state, lists) {
+        state.commentLists = lists
+    },
+    COMMENTPARAMS(state, obj) {
+        state.commentParams = obj
+    },
+    COMMENTRES(state, obj) {
+        state.commentRes = obj
+    },
 }

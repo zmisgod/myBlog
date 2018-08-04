@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
-const Home = () =>
-    import ('@/components/layout/Home.vue')
-const Detail = () =>
-    import ('@/components/layout/Detail.vue')
 const Author = () =>
     import ('@/components/layout/Author.vue')
 
@@ -50,7 +46,7 @@ export default new Router({
         {
             path: `/chat`,
             name: 'chat',
-            component: Home
+            component: Author
         },
         {
             path: `/author/:author_name`,
@@ -60,7 +56,7 @@ export default new Router({
         {
             path: '/single',
             name: 'single',
-            component: Detail
+            component: Author
         },
         {
             path: '/notFound',

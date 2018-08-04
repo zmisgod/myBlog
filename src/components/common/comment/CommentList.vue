@@ -1,16 +1,23 @@
 <template>
-  <div>
+  <div class="commentComponents">
       <md-toolbar class="md-transparent menu-pannel" md-elevation="0">
         <div class="user-description"></div>
       </md-toolbar>
-      <div :key="index" v-for="( value, index) in commentLists">
+      <div :key="index" v-for="( value, index) in commentLists" class="one-comment">
         <div class="md-list-item-text">
           <a :href="value.author_url == '' ? '#' : value.author_url">
+            <img :src="value.author_image" v-if="value.author_image">
             <span v-text="value.author_name"></span>
-            <img :src="value.author_image">
           </a>
         </div>
         <p v-text="value.content"></p>
+        <div class="comment-date">
+          <span v-text="value.created_at"></span>
+        </div>
+      </div>
+      <div  class="show-loading">
+        <md-button v-if="nowPage >= 2" class="md-accent" @click="showPreCommentPage" >Prev Comments</md-button>
+        <md-button v-if="commentLists.length == 12" class="md-primary" @click="showNextCommentPage">Loading More Comments</md-button>
       </div>
       <div  class="getSourceCode" @click="llink(githubRepository)">
         <p>Fork this repository from Github.com</p>
@@ -21,65 +28,76 @@
 import { mapGetters, mapMutations } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["commentLists", "githubRepository", "articleObject"])
+    ...mapGetters(["commentLists", "githubRepository"])
+  },
+  data() {
+    return {
+      nowPage: 1
+    };
   },
   methods: {
+    ...mapMutations(["COMMENTNOWPAGE"]),
     llink(url) {
       window.open(url);
     },
-    lphone(phone) {
-      window.open("tel:" + phone);
+    showNextCommentPage() {
+      this.COMMENTNOWPAGE(++this.nowPage);
+      this.$store.dispatch("showCommentLists");
     },
-    lmail(emial) {
-      window.open("email:" + emial);
+    showPreCommentPage() {
+      if (this.nowPage >= 2) {
+        this.nowPage--;
+        this.COMMENTNOWPAGE(this.nowPage);
+        this.$store.dispatch("showCommentLists");
+      }
     }
   }
 };
 </script>
 <style lang="scss">
-.menu-pannel {
-  width: 100%;
-  height: 132px;
-  background-color: #7e2dff !important;
-  background: url(https://vuematerial.io/assets/examples/card-sky.jpg);
-  background-position: center;
-  .user-main {
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    .user-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: #fff;
-      margin-right: 10px;
-      overflow: hidden;
+.commentComponents {
+  .menu-pannel {
+    width: 100%;
+    height: 132px;
+    background-color: #7e2dff !important;
+    background: url(https://vuematerial.io/assets/examples/card-sky.jpg);
+    background-position: center;
+  }
+  .one-comment {
+    padding: 1em;
+    .md-list-item-text {
+      a {
+        span {
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #fff;
+          border: 1px solid #eee;
+        }
+      }
     }
-    .user-name {
-      font-size: 16px;
-      color: #fff;
+    .comment-date {
+      font-size: 12px;
+      text-align: right;
+    }
+    p {
+      text-indent: 1em;
+      padding: 1em 0.3em;
+      font-size: 12px;
     }
   }
-}
-.user-description {
-  width: 100%;
-  height: auto;
-  background-color: #ffffff45;
-  color: #fff;
-  padding: 5px 10px;
-  word-break: keep-all;
-  border-radius: 4px 4px 0 0;
-  position: absolute;
-  bottom: 0;
-}
-.md-toolbar {
-  padding: 0;
-}
-.getSourceCode {
-  color: #2db6ff;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
+  .show-loading {
+    display: flex;
+    justify-content: center;
+  }
+  .getSourceCode {
+    color: #2db6ff;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
 }
 </style>

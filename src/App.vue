@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 body {
   margin: 0;
   padding: 0;
@@ -91,10 +91,11 @@ ul {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
+  height: 100%;
 }
 .components-container {
+  height: 100%;
   -webkit-overflow-scrolling: touch;
-  overflow: hidden;
 }
 .go-top {
   position: fixed !important;

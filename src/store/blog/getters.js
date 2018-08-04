@@ -22,4 +22,9 @@ export const getters = {
     githubRepository: state => state.github_repository,
     requestURI: state => state.requestURI,
     requestParams: state => state.requestParams,
+    commentLoading: state => state.commentLoading,
+    commentNowPage: state => state.commentNowPage,
+    commentLists: state => state.commentLists,
+    commentParams: state => state.commentParams,
+    commentRes: state => state.commentRes,
 }

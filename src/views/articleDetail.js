@@ -1,4 +1,4 @@
-import articleDetail from '@/components/layout/Detail.vue'
+import articleDetail from '@/components/layout/Article.vue'
 /**
  * 工厂函数 可以动态创建视图
  * @param type

@@ -48,11 +48,11 @@ const state = {
             location: '/category/2',
             type: ''
         },
-        {
-            cn: 'CRH',
-            location: '/crh',
-            type: ''
-        },
+        // {
+        //     cn: 'CRH',
+        //     location: '/crh',
+        //     type: ''
+        // },
         {
             cn: 'Github',
             location: 'https://github.com/zmisgod',
@@ -83,6 +83,11 @@ const state = {
     },
     requestURI: '/', //请求地址
     requestParams: {}, //请求参数
+    commentLoading: false,
+    commentNowPage: 1,
+    commentLists: [],
+    commentParams: {},
+    commentRes: {}
 }
 
 export default {
