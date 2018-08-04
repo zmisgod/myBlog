@@ -2,7 +2,6 @@ export const getters = {
     title: state => state.title,
     description: state => state.description,
     articleLists: state => state.articleLists,
-    leftBar: state => state.leftBar,
     nowColumn: state => state.nowColumn,
     articleObject: state => state.articleObject,
     showNextPage: state => state.showNextPage,
@@ -27,4 +26,6 @@ export const getters = {
     commentLists: state => state.commentLists,
     commentParams: state => state.commentParams,
     commentRes: state => state.commentRes,
+    linkLists: state => state.linkLists,
+    defaultLinkLists: state => state.defaultLinkLists,
 }

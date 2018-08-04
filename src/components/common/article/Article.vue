@@ -25,7 +25,6 @@ import Content from "./Content.vue";
 import CHeader from "./CHeader.vue";
 import Header from "./Header.vue";
 import Thanks from "./../thanks/Thanks.vue";
-const markdown = require("markdown").markdown;
 export default {
   computed: {
     ...mapGetters(["articleObject", "user"])

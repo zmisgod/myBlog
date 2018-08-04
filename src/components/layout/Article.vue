@@ -1,5 +1,5 @@
 <template>
-    <Article></Article>
+  <Article></Article>
 </template>
 <script>
 import Article from "./../common/article/Article.vue";
@@ -11,7 +11,4 @@ export default {
 };
 </script>
 <style>
-.pading-left-5 {
-  padding-left: 5px;
-}
 </style>

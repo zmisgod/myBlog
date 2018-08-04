@@ -12,9 +12,6 @@ export const mutations = {
     ARTICLELISTS(state, articleLists) {
         state.articleLists = articleLists
     },
-    LEFTBAR(state, leftBar) {
-        state.leftBar = leftBar
-    },
     NOWCOLUMN(state, nowColumn) {
         state.nowColumn = nowColumn
     },
@@ -67,8 +64,6 @@ export const mutations = {
     GITHUBREPOSITORY(state, githubRepository) {
         state.githubRepository = githubRepository
     },
-    //requestURI: state => state.requestURI,
-    //requestParams: state => state.requestParams,
     REQUESTURI(state, requestURI) {
         state.requestURI = requestURI
     },
@@ -90,4 +85,10 @@ export const mutations = {
     COMMENTRES(state, obj) {
         state.commentRes = obj
     },
+    LINKLISTS(state, lists) {
+        state.linkLists = lists
+    },
+    defaultLinkLists(state, list) {
+        state.defaultLinkLists = list
+    }
 }

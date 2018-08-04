@@ -63,7 +63,6 @@ const state = {
     showNextPage: false, // 是否显示下一页
     articleObject: {}, //文章的对象
     articleLists: [], //文章列表
-    leftBar: 0, //左边的菜单栏是否开启 0 关闭 1 开启
     nowColumn: 'home', //home， article，category，tag, comment
     articleLoading: false,
     searchWord: '',
@@ -87,7 +86,14 @@ const state = {
     commentNowPage: 1,
     commentLists: [],
     commentParams: {},
-    commentRes: {}
+    commentRes: {},
+    linkLists: [],
+    defaultLinkLists: [{
+        "link_url": "https://zmis.me",
+        "link_name": "zmis.me官网",
+        "link_image": "",
+        "link_description": "zmis.me官网，你的技术港湾"
+    }]
 }
 
 export default {

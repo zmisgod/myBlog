@@ -138,6 +138,7 @@ export const actions = {
             }
         })
     },
+    //评论
     doComment({
         commit,
         state
@@ -145,6 +146,18 @@ export const actions = {
         axios.post(apiHost + 'comment/' + state.paramsString.id, state.commentParams).then(res => {
             commit('COMMENTRES', res.data)
             commit("COMMENTPARAMS", {})
+        })
+    },
+    showLinkLists({
+        commit,
+        state
+    }) {
+        axios.get(apiHost + 'link').then(res => {
+            if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
+                commit('LINKLISTS', res.data.data)
+            } else {
+                commit('LINKLISTS', state.defaultLinkLists)
+            }
         })
     },
     showUserInfo({

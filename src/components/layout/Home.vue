@@ -1,25 +1,21 @@
 <template>
-  <div class="main-conatiner">
+  <div class="layout-home">
     <CHeader></CHeader>
-    <ArticleList :articleLoading="articleLoading" :articleLists = "articleLists" :showNextPage="showNextPage"></ArticleList>
+    <Containter></Containter>
     <CFooter></CFooter> 
   </div>
 </template>
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import CHeader from "./../common/home/Header.vue";
-import ArticleList from "./../common/home/ArticleList.vue";
+import Containter from "./../common/home/Container.vue";
 import CFooter from "./../common/home/Footer.vue";
 export default {
   computed: {
-    ...mapGetters([
-      "categoryLists",
-      "articleLists",
-      "showNextPage",
-      "articleLoading",
-      "categoryLists",
-      "uri"
-    ])
+    ...mapGetters(["categoryLists", "uri"])
+  },
+  mounted() {
+    this.$store.dispatch("showLinkLists");
   },
   title() {
     if (this.categoryLists != undefined) {
@@ -31,11 +27,13 @@ export default {
     }
   },
   components: {
-    ArticleList,
+    Containter,
     CHeader,
     CFooter
   }
 };
 </script>
 <style>
+.layout-home {
+}
 </style>
