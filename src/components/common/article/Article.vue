@@ -1,5 +1,9 @@
 <template>
   <div class="article-article">
+    <md-drawer class="comment-drawer" :md-active.sync="showCommentList" md-fixed>
+        <CommentList></CommentList>
+    </md-drawer>
+
     <Header :articleObject="articleObject"></Header>
 
     <div class="article-content">
@@ -25,9 +29,10 @@ import Content from "./Content.vue";
 import CHeader from "./CHeader.vue";
 import Header from "./Header.vue";
 import Thanks from "./../thanks/Thanks.vue";
+import CommentList from "./../comment/CommentList.vue";
 export default {
   computed: {
-    ...mapGetters(["articleObject", "user"])
+    ...mapGetters(["articleObject", "user", "showCommentList"])
   },
   title() {
     return this.articleObject.post_title;
@@ -45,7 +50,8 @@ export default {
     Content,
     Header,
     CHeader,
-    Thanks
+    Thanks,
+    CommentList
   }
 };
 </script>

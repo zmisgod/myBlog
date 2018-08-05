@@ -1,14 +1,10 @@
 <template>
     <div class="article-header">
-        <md-drawer class="comment-drawer" :md-active.sync="showCommentList" md-fixed>
-            <CommentList></CommentList>
-        </md-drawer>
-
         <div class="irbbon"></div>
 
         <div class="article-top">
           <div class="comment">
-            <div class="commom-info" @click="showMenu()" v-if="articleObject.num_info && articleObject.num_info.comment_num  && articleObject.num_info.comment_num != 0">
+            <div class="commom-info" @click="showComment()" v-if="articleObject.num_info && articleObject.num_info.comment_num  && articleObject.num_info.comment_num != 0">
                 <div class="commom-img">
                   <img src="/static/comment.svg" alt="">
                 </div>
@@ -39,33 +35,21 @@
     </div>
 </template>
 <script>
-import CommentList from "./../comment/CommentList.vue";
+import { mapGetters, mapMutations } from "vuex";
 export default {
-  props: {
-    articleObject: Object
-  },
-  data() {
-    return {
-      showCommentList: false
-    };
+  computed: {
+    ...mapGetters(["articleObject", "showCommentList"])
   },
   methods: {
-    showMenu() {
+    ...mapMutations(["SHOWCOMMENTLIST"]),
+    showComment() {
       //评论默认显示第一页
+      this.SHOWCOMMENTLIST(true);
       this.$store.dispatch("showCommentLists");
-      this.showCommentList = true;
     },
     seeAuthor(author_name) {
       this.$router.push({ path: `/author/${author_name}` });
-    },
-    showMenu() {
-      //评论默认显示第一页
-      this.$store.dispatch("showCommentLists");
-      this.showCommentList = true;
     }
-  },
-  components: {
-    CommentList
   }
 };
 </script>
@@ -104,6 +88,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
         .commom-img {
           display: flex;
           height: 30px;

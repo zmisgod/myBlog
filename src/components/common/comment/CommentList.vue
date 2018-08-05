@@ -1,7 +1,7 @@
 <template>
   <div class="commentComponents">
-      <md-toolbar class="md-transparent menu-pannel" md-elevation="0">
-        <div class="user-description"></div>
+      <md-toolbar class="md-transparent comment-pannel" md-elevation="0">
+        <md-chip class="md-primary close-btn" @click="closeComment" md-clickable>Close</md-chip>
       </md-toolbar>
       <div :key="index" v-for="( value, index) in commentLists" class="one-comment">
         <div class="md-list-item-text">
@@ -36,13 +36,16 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["COMMENTNOWPAGE"]),
+    ...mapMutations(["COMMENTNOWPAGE", "SHOWCOMMENTLIST"]),
     llink(url) {
       window.open(url);
     },
     showNextCommentPage() {
       this.COMMENTNOWPAGE(++this.nowPage);
       this.$store.dispatch("showCommentLists");
+    },
+    closeComment() {
+      this.SHOWCOMMENTLIST(false);
     },
     showPreCommentPage() {
       if (this.nowPage >= 2) {
@@ -56,12 +59,16 @@ export default {
 </script>
 <style lang="scss">
 .commentComponents {
-  .menu-pannel {
+  .comment-pannel {
     width: 100%;
     height: 132px;
     background-color: #7e2dff !important;
     background: url(https://vuematerial.io/assets/examples/card-sky.jpg);
     background-position: center;
+    justify-content: flex-end;
+    .close-btn {
+      display: flex;
+    }
   }
   .one-comment {
     padding: 1em;

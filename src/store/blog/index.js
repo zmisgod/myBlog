@@ -87,6 +87,7 @@ const state = {
     commentLists: [],
     commentParams: {},
     commentRes: {},
+    showCommentList: false,
     linkLists: [],
     defaultLinkLists: [{
         "link_url": "https://zmis.me",

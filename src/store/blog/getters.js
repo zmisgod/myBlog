@@ -26,6 +26,7 @@ export const getters = {
     commentLists: state => state.commentLists,
     commentParams: state => state.commentParams,
     commentRes: state => state.commentRes,
+    showCommentList: state => state.showCommentList,
     linkLists: state => state.linkLists,
     defaultLinkLists: state => state.defaultLinkLists,
 }

@@ -93,6 +93,7 @@ export const actions = {
         }
         //评论默认显示第一页
         commit("COMMENTNOWPAGE", 1)
+        commit("SHOWCOMMENTLIST", false)
         return axios.get(apiHost + 'article/' + state.paramsString.id + '?' + query_string).then(res => {
             if (res.data.code === 200 && res.data.data !== "" && res.data.data !== null) {
                 commit('ARTICLEOBJECT', res.data.data)

@@ -88,7 +88,10 @@ export const mutations = {
     LINKLISTS(state, lists) {
         state.linkLists = lists
     },
-    defaultLinkLists(state, list) {
+    DEFAULTLINKLISTS(state, list) {
         state.defaultLinkLists = list
-    }
+    },
+    SHOWCOMMENTLIST(state, show) {
+        state.showCommentList = show
+    },
 }
