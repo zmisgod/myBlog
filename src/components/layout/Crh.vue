@@ -204,7 +204,7 @@ export default {
     }
   },
   title() {
-    return "CHSR";
+    return "CHSR Maps";
   },
   description() {
     return "China High Speed Railway Maps";
