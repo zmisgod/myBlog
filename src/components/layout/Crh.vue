@@ -214,7 +214,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .md-button-content {
   justify-content: center;
   align-items: center;
