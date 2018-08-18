@@ -2,25 +2,28 @@
   "publicPath": "https://static.zmis.me/myBlog/dist/",
   "all": [
     "0.11e325470a2accb2b295.js",
-    "1.8f57f1d8314dabeb65ab.js",
-    "2.f0413df22faa81b8ba3f.js",
+    "1.32b67f097157c425cdc9.js",
+    "2.c1a8bdeb833ff20cae73.js",
     "3.4034c1c0c2f60876eb7b.js",
     "vendor.74cc8b3c03c820870e50.js",
     "app.bcaa7e89d770d1294610.js",
-    "manifest.27d009f898e07246985b.js"
+    "manifest.1b7fae3a843584ad48a1.js"
   ],
   "initial": [
-    "manifest.27d009f898e07246985b.js",
+    "manifest.1b7fae3a843584ad48a1.js",
     "vendor.74cc8b3c03c820870e50.js",
     "app.bcaa7e89d770d1294610.js"
   ],
   "async": [
     "0.11e325470a2accb2b295.js",
-    "1.8f57f1d8314dabeb65ab.js",
-    "2.f0413df22faa81b8ba3f.js",
+    "1.32b67f097157c425cdc9.js",
+    "2.c1a8bdeb833ff20cae73.js",
     "3.4034c1c0c2f60876eb7b.js"
   ],
   "modules": {
+    "23272576": [
+      2
+    ],
     "31060816": [
       4
     ],
@@ -429,9 +432,6 @@
     "4f9bb0e4": [
       0
     ],
-    "6af6aa3c": [
-      2
-    ],
     "4a07a160": [
       1
     ],
@@ -543,22 +543,22 @@
     "64da5309": [
       2
     ],
-    "3e4c4b70": [
+    "0db5eeab": [
       2
     ],
-    "0a43d188": [
+    "1501a5eb": [
       2
     ],
     "2378e434": [
       3
     ],
-    "83e1c772": [
+    "02c45a55": [
       1
     ],
     "a397e694": [
       0
     ],
-    "f0189d00": [
+    "e00f2394": [
       2
     ]
   }

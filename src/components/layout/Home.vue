@@ -34,6 +34,4 @@ export default {
 };
 </script>
 <style>
-.layout-home {
-}
 </style>

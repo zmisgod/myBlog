@@ -1,10 +1,10 @@
 <template>
     <div class="crh">
-        <md-toolbar class="md-primary fxied header">
+        <md-toolbar class="md-primary fixed header">
              <h3 class="md-title" style="flex: 1"> China High Speed Railway Maps (CHSR Maps)</h3>
              <md-button class="md-primary" @click="goback()"><md-icon>home</md-icon>Go Back Home</md-button>
         </md-toolbar>
-        <div id="operation" class="fxied tools">
+        <div id="operation" class="fixed tools">
           <div v-if="!isGen">
             <md-button @click="createSvg()" class="md-raised"><md-icon>loop</md-icon>Generate Map</md-button>
           </div>
@@ -214,51 +214,51 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-.md-button-content {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-svg {
-  transform: scale(1, -1);
-  z-index: -222;
-}
+<style lang="scss">
 .crh {
   color: #eee;
-}
-circle {
-  &:hover {
-    transform: scale(1);
-    cursor: pointer;
+  .md-button-content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
-}
-.fxied {
-  position: fixed;
-}
-.tools {
-  top: 60px;
-}
-#operation {
-  width: 100%;
-  height: 100px;
-  margin-top: 10px;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  z-index: 999;
-  div {
-    margin-right: 20px;
+  .fixed {
+    position: fixed;
   }
-  div.md-layout-item {
-    .md-field {
-      width: 300px;
+  .tools {
+    top: 60px;
+  }
+  #operation {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    z-index: 999;
+    div {
+      margin-right: 20px;
+    }
+    div.md-layout-item {
+      .md-field {
+        width: 300px;
+      }
     }
   }
-}
-#display-area {
-  padding-top: 64px;
+  #display-area {
+    padding-top: 64px;
+    svg {
+      transform: scale(1, -1);
+      z-index: -222;
+      circle {
+        &:hover {
+          transform: scale(1);
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 </style>
