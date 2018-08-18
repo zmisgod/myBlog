@@ -74,8 +74,6 @@ export default {
     padding: 1em;
     .md-list-item-text {
       a {
-        span {
-        }
         img {
           width: 40px;
           height: 40px;

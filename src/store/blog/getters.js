@@ -29,4 +29,14 @@ export const getters = {
     showCommentList: state => state.showCommentList,
     linkLists: state => state.linkLists,
     defaultLinkLists: state => state.defaultLinkLists,
+
+    //crh
+    crhRequest: state => state.crhRequest,
+    crhSetType: state => state.crhSetType,
+    crhTrainLists: state => state.crhTrainLists,
+    crhMap: state => state.crhMap,
+
+    crhOneTrainDetail: state => state.crhOneTrainDetail,
+
+    staticHost: state => state.staticHost,
 }

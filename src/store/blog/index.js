@@ -9,6 +9,7 @@ import {
 } from './mutations'
 
 const state = {
+    staticHost: process.env.NODE_ENV != 'production' ? "http://127.0.0.1:8080/" : "https://static.zmis.me/myBlog/",
     customStyle: {
         'DARK_PRIMARY_COLOR': '#388e3c',
         'LIGHT_PRIMARY_COLOR': '#C8E6C9',
@@ -48,16 +49,16 @@ const state = {
             location: '/category/2',
             type: ''
         },
-        // {
-        //     cn: 'CRH',
-        //     location: '/crh',
-        //     type: ''
-        // },
         {
-            cn: 'Github',
-            location: 'https://github.com/zmisgod',
-            type: 'blank'
-        }
+            cn: 'CRH',
+            location: '/crh',
+            type: ''
+        },
+        // {
+        //     cn: 'Github',
+        //     location: 'https://github.com/zmisgod',
+        //     type: 'blank'
+        // }
     ],
     pageSize: 12,
     showNextPage: false, // 是否显示下一页
@@ -94,7 +95,12 @@ const state = {
         "link_name": "zmis.me官网",
         "link_image": "",
         "link_description": "zmis.me官网，你的技术港湾"
-    }]
+    }],
+    crhRequest: "",
+    crhSetType: 1,
+    crhTrainLists: [],
+    crhOneTrainDetail: {},
+    crhMap: ""
 }
 
 export default {

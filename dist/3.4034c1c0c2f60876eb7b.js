@@ -1,0 +1,1 @@
+webpackJsonp([3],{183:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var u=function(){var e=this,t=e.$createElement;return(e._self._c||t)("p",[e._v("this is author")])},r=[],l={name:"author",title:function(){return"user"}},a=l,s=n(53),c=Object(s.a)(a,u,r,!1,null,null,null);t.default=c.exports}});

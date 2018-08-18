@@ -94,4 +94,23 @@ export const mutations = {
     SHOWCOMMENTLIST(state, show) {
         state.showCommentList = show
     },
+    CRHREQUEST(state, request) {
+        state.crhRequest = request
+    },
+    CRHSETTYPE(state, type) {
+        state.crhSetType = type
+    },
+    CRHTRAINLISTS(state, list) {
+        state.crhTrainLists = list
+    },
+    CRHONETRAINDETAIL(state, detail) {
+        state.crhOneTrainDetail = detail
+    },
+    CRHMAP(state, map) {
+        state.crhMap = map
+    },
+    //staticHost
+    STATICHOST(state, host) {
+        state.staticHost = host
+    }
 }

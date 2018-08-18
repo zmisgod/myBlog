@@ -190,5 +190,25 @@ export const actions = {
         state
     }) {
 
-    }
+    },
+
+    //crh
+    crhQuery({
+        commit,
+        state
+    }) {
+        axios.get(state.crhRequest).then(res => {
+            if (res.status == 200) {
+                if (state.crhSetType == 0) {
+                    commit("CRHMAP", res.data)
+                } else if (state.crhSetType == 1) {
+                    commit("CRHTRAINLISTS", res.data)
+                } else if (state.crhSetType == 2) {
+                    commit("CRHONETRAINDETAIL", res.data)
+                }
+            } else {
+                console.log("errr")
+            }
+        })
+    },
 }

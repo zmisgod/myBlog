@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <div class="components-container">
         <transition>
             <router-view></router-view>
@@ -65,6 +65,9 @@ export default {
 </script>
 
 <style lang="scss">
+v-cloak {
+  display: none;
+}
 body {
   margin: 0;
   padding: 0;

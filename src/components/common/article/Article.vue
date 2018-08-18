@@ -7,13 +7,13 @@
     <Header :articleObject="articleObject"></Header>
 
     <div class="article-content">
-      <md-content class="md-elevation-5 main-container md-scrollbar">
+      <md-content class="md-elevation-5 main-container article-container md-scrollbar">
         <CHeader :articleObject="articleObject"></CHeader>
         <Content class="p_content main-content" :articleContent="articleObject.contents"></Content>
       </md-content>
 
       <md-content class="md-elevation-5 main-container md-scrollbar contribute">
-        <Thanks></Thanks>
+        <Donate></Donate>
       </md-content>
 
       <md-content class="md-elevation-5 main-container md-scrollbar comment" v-if="articleObject.comment_status == 1">
@@ -28,7 +28,7 @@ import Comment from "./../comment/Comment.vue";
 import Content from "./Content.vue";
 import CHeader from "./CHeader.vue";
 import Header from "./Header.vue";
-import Thanks from "./../thanks/Thanks.vue";
+import Donate from "./../donate/Donate.vue";
 import CommentList from "./../comment/CommentList.vue";
 export default {
   computed: {
@@ -50,7 +50,7 @@ export default {
     Content,
     Header,
     CHeader,
-    Thanks,
+    Donate,
     CommentList
   }
 };
@@ -88,6 +88,10 @@ body.md-theme-default,
       border-radius: 12px;
       padding-top: 2em;
       padding-bottom: 10px;
+    }
+    .article-container {
+      padding-top: 4em;
+      padding-bottom: 4em;
     }
   }
   .comment {
